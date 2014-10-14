@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */; };
+		7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */; };
+		7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */; };
+		7EABF1AE19ED15E8004FBEF7 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1AA19ED15E8004FBEF7 /* 37x-Checkmark@2x.png */; };
+		7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1AC19ED15E8004FBEF7 /* MBProgressHUD.m */; };
+		7EABF1C419ED1B5C004FBEF7 /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1C219ED1B5C004FBEF7 /* ExchangeViewController.m */; };
+		7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1C319ED1B5C004FBEF7 /* ExchangeViewController.xib */; };
+		7EABF1C919ED1BE4004FBEF7 /* GainScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1C719ED1BE4004FBEF7 /* GainScoreViewController.m */; };
+		7EABF1CA19ED1BE4004FBEF7 /* GainScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1C819ED1BE4004FBEF7 /* GainScoreViewController.xib */; };
+		7EABF1CE19ED1C7B004FBEF7 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1CC19ED1C7B004FBEF7 /* CommunityViewController.m */; };
+		7EABF1CF19ED1C7B004FBEF7 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1CD19ED1C7B004FBEF7 /* CommunityViewController.xib */; };
+		7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1D119ED1CC4004FBEF7 /* AccountViewController.m */; };
+		7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */; };
+		7EABF1DB19ED25C3004FBEF7 /* JFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1DA19ED25C3004FBEF7 /* JFBaseNavigationController.m */; };
+		7EABF1E019ED2788004FBEF7 /* jf_tab_exchange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DC19ED2788004FBEF7 /* jf_tab_exchange@2x.png */; };
+		7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DD19ED2788004FBEF7 /* jf_tab_community@2x.png */; };
+		7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DE19ED2788004FBEF7 /* jf_tab_account@2x.png */; };
+		7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DF19ED2788004FBEF7 /* jf_tab_gainscore@2x.png */; };
 		C6B6976119ECF61C00F805F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976019ECF61C00F805F3 /* Foundation.framework */; };
 		C6B6976319ECF61C00F805F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */; };
 		C6B6976519ECF61C00F805F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976419ECF61C00F805F3 /* UIKit.framework */; };
@@ -32,6 +50,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EABF1A119ED12A4004FBEF7 /* JFBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTabBarController.h; sourceTree = "<group>"; };
+		7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTabBarController.m; sourceTree = "<group>"; };
+		7EABF1A419ED14F6004FBEF7 /* HTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseViewController.h; sourceTree = "<group>"; };
+		7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseViewController.m; sourceTree = "<group>"; };
+		7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		7EABF1AA19ED15E8004FBEF7 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		7EABF1AB19ED15E8004FBEF7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7EABF1AC19ED15E8004FBEF7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7EABF1BE19ED19ED004FBEF7 /* JFHttpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFHttpMacro.h; sourceTree = "<group>"; };
+		7EABF1BF19ED19ED004FBEF7 /* JFMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMacro.h; sourceTree = "<group>"; };
+		7EABF1C019ED19ED004FBEF7 /* JFUIKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUIKitMacro.h; sourceTree = "<group>"; };
+		7EABF1C119ED1B5C004FBEF7 /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
+		7EABF1C219ED1B5C004FBEF7 /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
+		7EABF1C319ED1B5C004FBEF7 /* ExchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeViewController.xib; sourceTree = "<group>"; };
+		7EABF1C619ED1BE4004FBEF7 /* GainScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GainScoreViewController.h; sourceTree = "<group>"; };
+		7EABF1C719ED1BE4004FBEF7 /* GainScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GainScoreViewController.m; sourceTree = "<group>"; };
+		7EABF1C819ED1BE4004FBEF7 /* GainScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GainScoreViewController.xib; sourceTree = "<group>"; };
+		7EABF1CB19ED1C7B004FBEF7 /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
+		7EABF1CC19ED1C7B004FBEF7 /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
+		7EABF1CD19ED1C7B004FBEF7 /* CommunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
+		7EABF1D019ED1CC4004FBEF7 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		7EABF1D119ED1CC4004FBEF7 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		7EABF1D919ED25C3004FBEF7 /* JFBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseNavigationController.h; sourceTree = "<group>"; };
+		7EABF1DA19ED25C3004FBEF7 /* JFBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseNavigationController.m; sourceTree = "<group>"; };
+		7EABF1DC19ED2788004FBEF7 /* jf_tab_exchange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_exchange@2x.png"; sourceTree = "<group>"; };
+		7EABF1DD19ED2788004FBEF7 /* jf_tab_community@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_community@2x.png"; sourceTree = "<group>"; };
+		7EABF1DE19ED2788004FBEF7 /* jf_tab_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_account@2x.png"; sourceTree = "<group>"; };
+		7EABF1DF19ED2788004FBEF7 /* jf_tab_gainscore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_gainscore@2x.png"; sourceTree = "<group>"; };
 		C6B6975D19ECF61C00F805F3 /* WeiJiFen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiJiFen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B6976019ECF61C00F805F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,8 +124,9 @@
 		7EABF19519ED0A04004FBEF7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7EABF19919ED0B7C004FBEF7 /* Views */,
 				7EABF19719ED0B15004FBEF7 /* Controllers */,
+				7EABF19919ED0B7C004FBEF7 /* Views */,
+				7EABF1BC19ED19ED004FBEF7 /* JFUtils */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -94,6 +142,11 @@
 		7EABF19719ED0B15004FBEF7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7EABF1A019ED1287004FBEF7 /* Main */,
+				7EABF1D519ED1D7F004FBEF7 /* Exchange */,
+				7EABF1D819ED1D8E004FBEF7 /* GainScore */,
+				7EABF1D719ED1D8E004FBEF7 /* Communit */,
+				7EABF1D619ED1D8E004FBEF7 /* Account */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +154,10 @@
 		7EABF19819ED0B68004FBEF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7EABF1DC19ED2788004FBEF7 /* jf_tab_exchange@2x.png */,
+				7EABF1DD19ED2788004FBEF7 /* jf_tab_community@2x.png */,
+				7EABF1DE19ED2788004FBEF7 /* jf_tab_account@2x.png */,
+				7EABF1DF19ED2788004FBEF7 /* jf_tab_gainscore@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -110,6 +167,96 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7EABF1A019ED1287004FBEF7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF1A119ED12A4004FBEF7 /* JFBaseTabBarController.h */,
+				7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */,
+				7EABF1A419ED14F6004FBEF7 /* HTBaseViewController.h */,
+				7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */,
+				7EABF1D919ED25C3004FBEF7 /* JFBaseNavigationController.h */,
+				7EABF1DA19ED25C3004FBEF7 /* JFBaseNavigationController.m */,
+				7EABF1C119ED1B5C004FBEF7 /* ExchangeViewController.h */,
+				7EABF1C219ED1B5C004FBEF7 /* ExchangeViewController.m */,
+				7EABF1C319ED1B5C004FBEF7 /* ExchangeViewController.xib */,
+				7EABF1C619ED1BE4004FBEF7 /* GainScoreViewController.h */,
+				7EABF1C719ED1BE4004FBEF7 /* GainScoreViewController.m */,
+				7EABF1C819ED1BE4004FBEF7 /* GainScoreViewController.xib */,
+				7EABF1CB19ED1C7B004FBEF7 /* CommunityViewController.h */,
+				7EABF1CC19ED1C7B004FBEF7 /* CommunityViewController.m */,
+				7EABF1CD19ED1C7B004FBEF7 /* CommunityViewController.xib */,
+				7EABF1D019ED1CC4004FBEF7 /* AccountViewController.h */,
+				7EABF1D119ED1CC4004FBEF7 /* AccountViewController.m */,
+				7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7EABF1A719ED1551004FBEF7 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF1A819ED15E8004FBEF7 /* MBProgressHUD_0.8 */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		7EABF1A819ED15E8004FBEF7 /* MBProgressHUD_0.8 */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */,
+				7EABF1AA19ED15E8004FBEF7 /* 37x-Checkmark@2x.png */,
+				7EABF1AB19ED15E8004FBEF7 /* MBProgressHUD.h */,
+				7EABF1AC19ED15E8004FBEF7 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD_0.8;
+			sourceTree = "<group>";
+		};
+		7EABF1BC19ED19ED004FBEF7 /* JFUtils */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF1BD19ED19ED004FBEF7 /* Macro */,
+			);
+			path = JFUtils;
+			sourceTree = "<group>";
+		};
+		7EABF1BD19ED19ED004FBEF7 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF1BE19ED19ED004FBEF7 /* JFHttpMacro.h */,
+				7EABF1BF19ED19ED004FBEF7 /* JFMacro.h */,
+				7EABF1C019ED19ED004FBEF7 /* JFUIKitMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		7EABF1D519ED1D7F004FBEF7 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		7EABF1D619ED1D8E004FBEF7 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		7EABF1D719ED1D8E004FBEF7 /* Communit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Communit;
+			sourceTree = "<group>";
+		};
+		7EABF1D819ED1D8E004FBEF7 /* GainScore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GainScore;
 			sourceTree = "<group>";
 		};
 		C6B6975419ECF61C00F805F3 = {
@@ -145,6 +292,7 @@
 		C6B6976619ECF61C00F805F3 /* WeiJiFen */ = {
 			isa = PBXGroup;
 			children = (
+				7EABF1A719ED1551004FBEF7 /* External */,
 				7EABF19519ED0A04004FBEF7 /* Classes */,
 				7EABF19619ED0A17004FBEF7 /* Resources */,
 				C6B6976F19ECF61C00F805F3 /* AppDelegate.h */,
@@ -259,8 +407,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EABF1E019ED2788004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
 				C6B6976B19ECF61C00F805F3 /* InfoPlist.strings in Resources */,
+				7EABF1AE19ED15E8004FBEF7 /* 37x-Checkmark@2x.png in Resources */,
+				7EABF1CA19ED1BE4004FBEF7 /* GainScoreViewController.xib in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
+				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
+				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
+				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
+				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
+				7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */,
+				7EABF1CF19ED1C7B004FBEF7 /* CommunityViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,8 +437,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EABF1CE19ED1C7B004FBEF7 /* CommunityViewController.m in Sources */,
 				C6B6977119ECF61C00F805F3 /* AppDelegate.m in Sources */,
+				7EABF1C419ED1B5C004FBEF7 /* ExchangeViewController.m in Sources */,
+				7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */,
+				7EABF1DB19ED25C3004FBEF7 /* JFBaseNavigationController.m in Sources */,
+				7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */,
+				7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */,
 				C6B6976D19ECF61C00F805F3 /* main.m in Sources */,
+				7EABF1C919ED1BE4004FBEF7 /* GainScoreViewController.m in Sources */,
+				7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

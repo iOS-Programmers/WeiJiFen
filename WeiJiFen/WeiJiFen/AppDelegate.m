@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "JFBaseTabBarController.h"
+#import "JFBaseNavigationController.h"
+#import "ExchangeViewController.h"
+#import "GainScoreViewController.h"
+#import "CommunityViewController.h"
+#import "AccountViewController.h"
 
 @implementation AppDelegate
 
@@ -15,6 +21,48 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //Exchange
+    ExchangeViewController *exchangeViewController = [[ExchangeViewController alloc] init];
+    exchangeViewController.title = @"兑换";
+    exchangeViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_exchange"];
+    JFBaseNavigationController *exchangeNav = [[JFBaseNavigationController alloc] initWithRootViewController:exchangeViewController];
+    
+    //GainScore
+    GainScoreViewController *gainScoreViewController = [[GainScoreViewController alloc] init];
+    gainScoreViewController.title = @"赚分";
+    gainScoreViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_gainscore"];
+    JFBaseNavigationController *gainScoreNav = [[JFBaseNavigationController alloc] initWithRootViewController:gainScoreViewController];
+    
+    //Community
+    CommunityViewController *communityViewController = [[CommunityViewController alloc] init];
+    communityViewController.title = @"社区";
+    communityViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_community"];
+    JFBaseNavigationController *communityNav = [[JFBaseNavigationController alloc] initWithRootViewController:communityViewController];
+    
+    //Mine
+    AccountViewController *accountViewController = [[AccountViewController alloc] init];
+    accountViewController.title = @"账户";
+    accountViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_account"];
+    JFBaseNavigationController *accountNav = [[JFBaseNavigationController alloc] initWithRootViewController:accountViewController];
+    
+    //tabBar
+    JFBaseTabBarController *rootTabBarController = [[JFBaseTabBarController alloc] init];
+    rootTabBarController.viewControllers = @[exchangeNav,gainScoreNav,communityNav,accountNav];
+    [rootTabBarController setSelectedIndex:0];
+    
+    UIColor *color = UIColorRGB(253,90,36);
+    [rootTabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    [rootTabBarController.tabBar setBackgroundColor:color];
+    
+    [[UINavigationBar appearance] setBarTintColor:color];
+//    [[UINavigationBar appearance] setTintColor:[UIColor yellowColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
+    
+    self.window.rootViewController = rootTabBarController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
