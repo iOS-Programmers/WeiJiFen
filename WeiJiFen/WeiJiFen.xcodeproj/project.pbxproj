@@ -74,6 +74,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EABF19519ED0A04004FBEF7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF19919ED0B7C004FBEF7 /* Views */,
+				7EABF19719ED0B15004FBEF7 /* Controllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7EABF19619ED0A17004FBEF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF19819ED0B68004FBEF7 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7EABF19719ED0B15004FBEF7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7EABF19819ED0B68004FBEF7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7EABF19919ED0B7C004FBEF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C6B6975419ECF61C00F805F3 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +145,8 @@
 		C6B6976619ECF61C00F805F3 /* WeiJiFen */ = {
 			isa = PBXGroup;
 			children = (
+				7EABF19519ED0A04004FBEF7 /* Classes */,
+				7EABF19619ED0A17004FBEF7 /* Resources */,
 				C6B6976F19ECF61C00F805F3 /* AppDelegate.h */,
 				C6B6977019ECF61C00F805F3 /* AppDelegate.m */,
 				C6B6977219ECF61C00F805F3 /* Images.xcassets */,
@@ -439,6 +479,7 @@
 				C6B6978B19ECF61C00F805F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6B6978C19ECF61C00F805F3 /* Build configuration list for PBXNativeTarget "WeiJiFenTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +488,7 @@
 				C6B6978E19ECF61C00F805F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
