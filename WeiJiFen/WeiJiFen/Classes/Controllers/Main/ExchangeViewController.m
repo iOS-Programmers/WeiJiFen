@@ -7,6 +7,9 @@
 //
 
 #import "ExchangeViewController.h"
+#import "WeiJiFenEngine.h"
+#import "JSONKit.h"
+//#import "LSCommonUtils.h"
 
 @interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -19,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self refreshDataSource];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +40,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)refreshDataSource{
+    
+    __weak ExchangeViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] querySysUserInfo:@"123456" tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        
+    } tag:tag];
+}
 
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

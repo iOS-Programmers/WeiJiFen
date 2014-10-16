@@ -15,5 +15,13 @@
 +(id)loadViewFromNibNamed:(NSString*)nibName;
 //程序主颜色
 +(UIColor*)getProgramMainHueColor;
+//MB提示
++(void)showWarningTip:(NSString *)tip At:(UIView *)view;
++(void)showWarningTip:(NSString *)tip customImage:(UIImage *)customImage At:(UIView *)view;
 
+//text字数
++ (UInt32)getHanziTextNum:(NSString*)text;
++ (UInt32)getDistinctAsciiTextNum:(NSString*)text;
+//text截取
++ (NSString*)getHanziTextWithText:(NSString*)text maxLength:(UInt32)maxLength;
 @end
