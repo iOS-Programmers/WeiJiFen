@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JFSuperBaseViewController.h"
 
 typedef void(^HTBarButtonItemActionBlock)(void);
 
@@ -16,7 +17,7 @@ typedef NS_ENUM(NSInteger, HTBarbuttonItemStyle) {
     kHTBarbuttonItemCameraStyle,
 };
 
-@interface HTBaseViewController : UIViewController
+@interface HTBaseViewController : JFSuperBaseViewController
 
 /**
  *  统一设置背景图片

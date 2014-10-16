@@ -13,6 +13,7 @@
 #import "GainScoreViewController.h"
 #import "CommunityViewController.h"
 #import "AccountViewController.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 
@@ -21,6 +22,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [self signIn];
+    
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (void)signIn{
+    NSLog(@"signIn");
     
     //Exchange
     ExchangeViewController *exchangeViewController = [[ExchangeViewController alloc] init];
@@ -51,20 +62,28 @@
     rootTabBarController.viewControllers = @[exchangeNav,gainScoreNav,communityNav,accountNav];
     [rootTabBarController setSelectedIndex:0];
     
-    UIColor *color = UIColorRGB(253,90,36);
-    [rootTabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
-    [rootTabBarController.tabBar setBackgroundColor:color];
+    UIColor *color = UIColorRGB(254,120,31);
+    [rootTabBarController.tabBar setSelectedImageTintColor:color];
+    
+    //    [rootTabBarController.tabBar setBackgroundColor:color];
+    //    [rootTabBarController.tabBar setBarTintColor:color];
+    //    [rootTabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"jf_message_icon"]];
     
     [[UINavigationBar appearance] setBarTintColor:color];
-//    [[UINavigationBar appearance] setTintColor:[UIColor yellowColor]];
-    
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
     
     self.window.rootViewController = rootTabBarController;
     
-    [self.window makeKeyAndVisible];
-    return YES;
+}
+
+- (void)signOut{
+    NSLog(@"signOut");
+    
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    JFBaseNavigationController* navigationController = [[JFBaseNavigationController alloc] initWithRootViewController:loginViewController];
+    navigationController.navigationBarHidden = YES;
+    self.window.rootViewController = navigationController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

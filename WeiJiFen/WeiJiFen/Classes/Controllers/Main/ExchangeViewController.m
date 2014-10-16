@@ -8,7 +8,9 @@
 
 #import "ExchangeViewController.h"
 
-@interface ExchangeViewController ()
+@interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 
@@ -33,5 +35,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITableView DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"cellIdentfier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+//    NSDictionary *moreDictionary = self.dataSource[indexPath.section];
+    cell.imageView.image = [UIImage imageNamed:@"jf_message_icon.png"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d",(int)indexPath.row];
+    return cell;
+}
 
 @end
