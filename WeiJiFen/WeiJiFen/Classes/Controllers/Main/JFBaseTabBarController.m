@@ -24,6 +24,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self hideExistingTabBar];
     [self addCustomTabBar];
 }

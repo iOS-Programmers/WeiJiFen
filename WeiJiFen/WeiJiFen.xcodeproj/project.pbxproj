@@ -21,7 +21,6 @@
 		7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1D119ED1CC4004FBEF7 /* AccountViewController.m */; };
 		7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */; };
 		7EABF1DB19ED25C3004FBEF7 /* JFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1DA19ED25C3004FBEF7 /* JFBaseNavigationController.m */; };
-		7EABF1E019ED2788004FBEF7 /* jf_tab_exchange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DC19ED2788004FBEF7 /* jf_tab_exchange@2x.png */; };
 		7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DD19ED2788004FBEF7 /* jf_tab_community@2x.png */; };
 		7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DE19ED2788004FBEF7 /* jf_tab_account@2x.png */; };
 		7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1DF19ED2788004FBEF7 /* jf_tab_gainscore@2x.png */; };
@@ -52,6 +51,14 @@
 		7EABF23719EE6E81004FBEF7 /* JFTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF23519EE6E81004FBEF7 /* JFTabBarView.xib */; };
 		7EABF23A19EE6FDC004FBEF7 /* JFTabBarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF23919EE6FDC004FBEF7 /* JFTabBarItemView.m */; };
 		7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF23B19EE7007004FBEF7 /* JFTabBarItemView.xib */; };
+		7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF23D19EF7398004FBEF7 /* jf_tab_exchange@2x.png */; };
+		7EABF24119EF7691004FBEF7 /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF24019EF7691004FBEF7 /* PathHelper.m */; };
+		7EABF24419EF76A3004FBEF7 /* URLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF24319EF76A3004FBEF7 /* URLHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7EABF24819EF78D4004FBEF7 /* LSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF24719EF78D4004FBEF7 /* LSAlertView.m */; };
+		7EABF24C19EF7938004FBEF7 /* LSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF24B19EF7938004FBEF7 /* LSActionSheet.m */; };
+		7EABF25319EF9AA2004FBEF7 /* JFLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF25219EF9AA2004FBEF7 /* JFLocalDataManager.m */; };
+		7EABF25619EF9CB0004FBEF7 /* JFUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF25519EF9CB0004FBEF7 /* JFUserInfo.m */; };
+		7EABF25D19EF9EE5004FBEF7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF25A19EF9EE5004FBEF7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C6B6976119ECF61C00F805F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976019ECF61C00F805F3 /* Foundation.framework */; };
 		C6B6976319ECF61C00F805F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */; };
 		C6B6976519ECF61C00F805F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976419ECF61C00F805F3 /* UIKit.framework */; };
@@ -102,7 +109,6 @@
 		7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		7EABF1D919ED25C3004FBEF7 /* JFBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseNavigationController.h; sourceTree = "<group>"; };
 		7EABF1DA19ED25C3004FBEF7 /* JFBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseNavigationController.m; sourceTree = "<group>"; };
-		7EABF1DC19ED2788004FBEF7 /* jf_tab_exchange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_exchange@2x.png"; sourceTree = "<group>"; };
 		7EABF1DD19ED2788004FBEF7 /* jf_tab_community@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_community@2x.png"; sourceTree = "<group>"; };
 		7EABF1DE19ED2788004FBEF7 /* jf_tab_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_account@2x.png"; sourceTree = "<group>"; };
 		7EABF1DF19ED2788004FBEF7 /* jf_tab_gainscore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_gainscore@2x.png"; sourceTree = "<group>"; };
@@ -157,6 +163,21 @@
 		7EABF23819EE6FDC004FBEF7 /* JFTabBarItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFTabBarItemView.h; sourceTree = "<group>"; };
 		7EABF23919EE6FDC004FBEF7 /* JFTabBarItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFTabBarItemView.m; sourceTree = "<group>"; };
 		7EABF23B19EE7007004FBEF7 /* JFTabBarItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFTabBarItemView.xib; sourceTree = "<group>"; };
+		7EABF23D19EF7398004FBEF7 /* jf_tab_exchange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_tab_exchange@2x.png"; sourceTree = "<group>"; };
+		7EABF23F19EF7691004FBEF7 /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathHelper.h; sourceTree = "<group>"; };
+		7EABF24019EF7691004FBEF7 /* PathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathHelper.m; sourceTree = "<group>"; };
+		7EABF24219EF76A3004FBEF7 /* URLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHelper.h; sourceTree = "<group>"; };
+		7EABF24319EF76A3004FBEF7 /* URLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHelper.m; sourceTree = "<group>"; };
+		7EABF24619EF78D4004FBEF7 /* LSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSAlertView.h; sourceTree = "<group>"; };
+		7EABF24719EF78D4004FBEF7 /* LSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSAlertView.m; sourceTree = "<group>"; };
+		7EABF24A19EF7938004FBEF7 /* LSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSActionSheet.h; sourceTree = "<group>"; };
+		7EABF24B19EF7938004FBEF7 /* LSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSActionSheet.m; sourceTree = "<group>"; };
+		7EABF25119EF9AA2004FBEF7 /* JFLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFLocalDataManager.h; sourceTree = "<group>"; };
+		7EABF25219EF9AA2004FBEF7 /* JFLocalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFLocalDataManager.m; sourceTree = "<group>"; };
+		7EABF25419EF9CB0004FBEF7 /* JFUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUserInfo.h; sourceTree = "<group>"; };
+		7EABF25519EF9CB0004FBEF7 /* JFUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUserInfo.m; sourceTree = "<group>"; };
+		7EABF25919EF9EE5004FBEF7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		7EABF25A19EF9EE5004FBEF7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		C6B6975D19ECF61C00F805F3 /* WeiJiFen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiJiFen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B6976019ECF61C00F805F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -203,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				7EABF1ED19EE27A6004FBEF7 /* Engine */,
+				7EABF24D19EF9883004FBEF7 /* Models */,
 				7EABF19719ED0B15004FBEF7 /* Controllers */,
 				7EABF19919ED0B7C004FBEF7 /* Views */,
 				7EABF1BC19ED19ED004FBEF7 /* JFUtils */,
@@ -235,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				7EABF1E419EE0FEF004FBEF7 /* comment */,
-				7EABF1DC19ED2788004FBEF7 /* jf_tab_exchange@2x.png */,
+				7EABF23D19EF7398004FBEF7 /* jf_tab_exchange@2x.png */,
 				7EABF1DD19ED2788004FBEF7 /* jf_tab_community@2x.png */,
 				7EABF1DE19ED2788004FBEF7 /* jf_tab_account@2x.png */,
 				7EABF1DF19ED2788004FBEF7 /* jf_tab_gainscore@2x.png */,
@@ -246,6 +268,8 @@
 		7EABF19919ED0B7C004FBEF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7EABF24919EF78F5004FBEF7 /* LSActionSheetWithBlock */,
+				7EABF24519EF78D4004FBEF7 /* LSAlertViewWithBlock */,
 				7EABF1F119EE42BC004FBEF7 /* Customs */,
 			);
 			path = Views;
@@ -281,6 +305,7 @@
 		7EABF1A719ED1551004FBEF7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7EABF25719EF9EE5004FBEF7 /* JSONKit */,
 				7EABF1F219EE4440004FBEF7 /* SDWebImage */,
 				7EABF1A819ED15E8004FBEF7 /* MBProgressHUD_0.8 */,
 			);
@@ -304,6 +329,10 @@
 				7EABF1BD19ED19ED004FBEF7 /* Macro */,
 				7EABF22A19EE56C2004FBEF7 /* LSCommonUtils.h */,
 				7EABF22B19EE56C2004FBEF7 /* LSCommonUtils.m */,
+				7EABF23F19EF7691004FBEF7 /* PathHelper.h */,
+				7EABF24019EF7691004FBEF7 /* PathHelper.m */,
+				7EABF24219EF76A3004FBEF7 /* URLHelper.h */,
+				7EABF24319EF76A3004FBEF7 /* URLHelper.m */,
 			);
 			path = JFUtils;
 			sourceTree = "<group>";
@@ -369,6 +398,8 @@
 			children = (
 				7EABF1EE19EE27D1004FBEF7 /* WeiJiFenEngine.h */,
 				7EABF1EF19EE27D1004FBEF7 /* WeiJiFenEngine.m */,
+				7EABF25119EF9AA2004FBEF7 /* JFLocalDataManager.h */,
+				7EABF25219EF9AA2004FBEF7 /* JFLocalDataManager.m */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -436,6 +467,42 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		7EABF24519EF78D4004FBEF7 /* LSAlertViewWithBlock */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF24619EF78D4004FBEF7 /* LSAlertView.h */,
+				7EABF24719EF78D4004FBEF7 /* LSAlertView.m */,
+			);
+			path = LSAlertViewWithBlock;
+			sourceTree = "<group>";
+		};
+		7EABF24919EF78F5004FBEF7 /* LSActionSheetWithBlock */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF24A19EF7938004FBEF7 /* LSActionSheet.h */,
+				7EABF24B19EF7938004FBEF7 /* LSActionSheet.m */,
+			);
+			path = LSActionSheetWithBlock;
+			sourceTree = "<group>";
+		};
+		7EABF24D19EF9883004FBEF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF25419EF9CB0004FBEF7 /* JFUserInfo.h */,
+				7EABF25519EF9CB0004FBEF7 /* JFUserInfo.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7EABF25719EF9EE5004FBEF7 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				7EABF25919EF9EE5004FBEF7 /* JSONKit.h */,
+				7EABF25A19EF9EE5004FBEF7 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 		C6B6975419ECF61C00F805F3 = {
 			isa = PBXGroup;
 			children = (
@@ -469,8 +536,8 @@
 		C6B6976619ECF61C00F805F3 /* WeiJiFen */ = {
 			isa = PBXGroup;
 			children = (
-				7EABF1A719ED1551004FBEF7 /* External */,
 				7EABF19519ED0A04004FBEF7 /* Classes */,
+				7EABF1A719ED1551004FBEF7 /* External */,
 				7EABF19619ED0A17004FBEF7 /* Resources */,
 				C6B6976F19ECF61C00F805F3 /* AppDelegate.h */,
 				C6B6977019ECF61C00F805F3 /* AppDelegate.m */,
@@ -584,11 +651,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EABF1E019ED2788004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
 				C6B6976B19ECF61C00F805F3 /* InfoPlist.strings in Resources */,
 				7EABF23719EE6E81004FBEF7 /* JFTabBarView.xib in Resources */,
 				7EABF1AE19ED15E8004FBEF7 /* 37x-Checkmark@2x.png in Resources */,
 				7EABF1CA19ED1BE4004FBEF7 /* GainScoreViewController.xib in Resources */,
+				7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
@@ -624,12 +691,15 @@
 				C6B6977119ECF61C00F805F3 /* AppDelegate.m in Sources */,
 				7EABF1C419ED1B5C004FBEF7 /* ExchangeViewController.m in Sources */,
 				7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */,
+				7EABF24119EF7691004FBEF7 /* PathHelper.m in Sources */,
 				7EABF1DB19ED25C3004FBEF7 /* JFBaseNavigationController.m in Sources */,
 				7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */,
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
 				7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */,
 				7EABF21919EE4440004FBEF7 /* SDImageCache.m in Sources */,
 				C6B6976D19ECF61C00F805F3 /* main.m in Sources */,
+				7EABF25D19EF9EE5004FBEF7 /* JSONKit.m in Sources */,
+				7EABF25619EF9CB0004FBEF7 /* JFUserInfo.m in Sources */,
 				7EABF1C919ED1BE4004FBEF7 /* GainScoreViewController.m in Sources */,
 				7EABF1EB19EE268F004FBEF7 /* LoginViewController.m in Sources */,
 				7EABF21A19EE4440004FBEF7 /* SDWebImageCompat.m in Sources */,
@@ -637,11 +707,14 @@
 				7EABF21619EE4440004FBEF7 /* MKAnnotationView+WebCache.m in Sources */,
 				7EABF21E19EE4440004FBEF7 /* SDWebImageManager.m in Sources */,
 				7EABF21C19EE4440004FBEF7 /* SDWebImageDownloader.m in Sources */,
+				7EABF24419EF76A3004FBEF7 /* URLHelper.m in Sources */,
 				7EABF22519EE4440004FBEF7 /* UIImageView+WebCache.m in Sources */,
 				7EABF22419EE4440004FBEF7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7EABF21719EE4440004FBEF7 /* NSData+GIF.m in Sources */,
 				7EABF22119EE4440004FBEF7 /* UIImage+GIF.m in Sources */,
 				7EABF1F019EE27D1004FBEF7 /* WeiJiFenEngine.m in Sources */,
+				7EABF24C19EF7938004FBEF7 /* LSActionSheet.m in Sources */,
+				7EABF25319EF9AA2004FBEF7 /* JFLocalDataManager.m in Sources */,
 				7EABF23A19EE6FDC004FBEF7 /* JFTabBarItemView.m in Sources */,
 				7EABF22919EE55C8004FBEF7 /* JFSuperBaseViewController.m in Sources */,
 				7EABF22C19EE56C2004FBEF7 /* LSCommonUtils.m in Sources */,
@@ -650,6 +723,7 @@
 				7EABF22219EE4440004FBEF7 /* UIImage+MultiFormat.m in Sources */,
 				7EABF21B19EE4440004FBEF7 /* SDWebImageDecoder.m in Sources */,
 				7EABF22619EE4440004FBEF7 /* UIView+WebCacheOperation.m in Sources */,
+				7EABF24819EF78D4004FBEF7 /* LSAlertView.m in Sources */,
 				7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

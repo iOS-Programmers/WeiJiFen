@@ -36,25 +36,25 @@
     //Exchange
     ExchangeViewController *exchangeViewController = [[ExchangeViewController alloc] init];
     exchangeViewController.title = @"兑换";
-    exchangeViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_exchange"];
+//    exchangeViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_exchange"];
     JFBaseNavigationController *exchangeNav = [[JFBaseNavigationController alloc] initWithRootViewController:exchangeViewController];
     
     //GainScore
     GainScoreViewController *gainScoreViewController = [[GainScoreViewController alloc] init];
     gainScoreViewController.title = @"赚分";
-    gainScoreViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_gainscore"];
+//    gainScoreViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_gainscore"];
     JFBaseNavigationController *gainScoreNav = [[JFBaseNavigationController alloc] initWithRootViewController:gainScoreViewController];
     
     //Community
     CommunityViewController *communityViewController = [[CommunityViewController alloc] init];
     communityViewController.title = @"社区";
-    communityViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_community"];
+//    communityViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_community"];
     JFBaseNavigationController *communityNav = [[JFBaseNavigationController alloc] initWithRootViewController:communityViewController];
     
     //Mine
     AccountViewController *accountViewController = [[AccountViewController alloc] init];
     accountViewController.title = @"账户";
-    accountViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_account"];
+//    accountViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_account"];
     JFBaseNavigationController *accountNav = [[JFBaseNavigationController alloc] initWithRootViewController:accountViewController];
     
     //tabBar
@@ -63,13 +63,15 @@
     [rootTabBarController setSelectedIndex:0];
     
     UIColor *color = UIColorRGB(254,120,31);
-    [rootTabBarController.tabBar setSelectedImageTintColor:color];
+//    [rootTabBarController.tabBar setSelectedImageTintColor:color];
     
-    //    [rootTabBarController.tabBar setBackgroundColor:color];
-    //    [rootTabBarController.tabBar setBarTintColor:color];
-    //    [rootTabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"jf_message_icon"]];
-    
-    [[UINavigationBar appearance] setBarTintColor:color];
+    if (CURRENT_SYS_VERSION >= 7.0) {
+        [[UINavigationBar appearance] setBarTintColor:color];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    } else {
+        [[UINavigationBar appearance] setTintColor:color];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    }
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
     
