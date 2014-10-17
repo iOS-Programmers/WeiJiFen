@@ -12,4 +12,6 @@
 
 + (JFLocalDataManager*)shareInstance;
 
++ (NSMutableArray *)getLocalCommodityArray;
+
 @end

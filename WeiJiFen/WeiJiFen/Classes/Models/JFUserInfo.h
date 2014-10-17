@@ -12,10 +12,11 @@
 
 @property (nonatomic, strong) NSString* uid;
 @property (nonatomic, strong) NSString* nickName;
-@property (nonatomic, strong) NSString* gender;
-@property (nonatomic, strong) NSString* signature;
+@property (nonatomic, strong) NSString* gender;//性别
+@property (nonatomic, strong) NSString* signature;//签名
 @property (nonatomic, strong) NSString* phone;
 @property (nonatomic, strong) NSDate* birthdayDate;
+@property (nonatomic, strong) NSString* birthdayString;
 @property (nonatomic, readonly) int age;
 @property (nonatomic, readonly) NSURL* smallAvatarUrl;
 @property (nonatomic, readonly) NSURL* originalAvatarUrl;

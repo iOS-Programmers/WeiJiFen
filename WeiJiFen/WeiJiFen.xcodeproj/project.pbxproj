@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		7E32EB6319EFD26A00FEAA66 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */; };
 		7E32EB6719EFD3C700FEAA66 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */; };
+		7E32EB7519F0BBE700FEAA66 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB6B19F0BBE700FEAA66 /* GMGridView.m */; };
+		7E32EB7619F0BBE700FEAA66 /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB6E19F0BBE700FEAA66 /* GMGridViewCell.m */; };
+		7E32EB7719F0BBE700FEAA66 /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7019F0BBE700FEAA66 /* GMGridViewLayoutStrategies.m */; };
+		7E32EB7819F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7219F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.m */; };
+		7E32EB7919F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7419F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m */; };
+		7E32EB7C19F0C26C00FEAA66 /* JFCommodityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */; };
+		7E32EB8419F0F0BE00FEAA66 /* JFCategoryTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */; };
 		7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */; };
 		7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */; };
 		7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */; };
@@ -119,6 +126,22 @@
 /* Begin PBXFileReference section */
 		7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		7E32EB6919F0BBE700FEAA66 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
+		7E32EB6A19F0BBE700FEAA66 /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
+		7E32EB6B19F0BBE700FEAA66 /* GMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridView.m; sourceTree = "<group>"; };
+		7E32EB6C19F0BBE700FEAA66 /* GMGridViewCell+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridViewCell+Extended.h"; sourceTree = "<group>"; };
+		7E32EB6D19F0BBE700FEAA66 /* GMGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewCell.h; sourceTree = "<group>"; };
+		7E32EB6E19F0BBE700FEAA66 /* GMGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewCell.m; sourceTree = "<group>"; };
+		7E32EB6F19F0BBE700FEAA66 /* GMGridViewLayoutStrategies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewLayoutStrategies.h; sourceTree = "<group>"; };
+		7E32EB7019F0BBE700FEAA66 /* GMGridViewLayoutStrategies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewLayoutStrategies.m; sourceTree = "<group>"; };
+		7E32EB7119F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		7E32EB7219F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		7E32EB7319F0BBE700FEAA66 /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		7E32EB7419F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		7E32EB7A19F0C26C00FEAA66 /* JFCommodityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCommodityInfo.h; sourceTree = "<group>"; };
+		7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCommodityInfo.m; sourceTree = "<group>"; };
+		7E32EB8219F0F0BE00FEAA66 /* JFCategoryTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCategoryTabView.h; sourceTree = "<group>"; };
+		7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCategoryTabView.m; sourceTree = "<group>"; };
 		7EABF1A119ED12A4004FBEF7 /* JFBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTabBarController.h; sourceTree = "<group>"; };
 		7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTabBarController.m; sourceTree = "<group>"; };
 		7EABF1A419ED14F6004FBEF7 /* HTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseViewController.h; sourceTree = "<group>"; };
@@ -322,6 +345,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E32EB6819F0BBE700FEAA66 /* GMGridView */ = {
+			isa = PBXGroup;
+			children = (
+				7E32EB6919F0BBE700FEAA66 /* GMGridView-Constants.h */,
+				7E32EB6A19F0BBE700FEAA66 /* GMGridView.h */,
+				7E32EB6B19F0BBE700FEAA66 /* GMGridView.m */,
+				7E32EB6C19F0BBE700FEAA66 /* GMGridViewCell+Extended.h */,
+				7E32EB6D19F0BBE700FEAA66 /* GMGridViewCell.h */,
+				7E32EB6E19F0BBE700FEAA66 /* GMGridViewCell.m */,
+				7E32EB6F19F0BBE700FEAA66 /* GMGridViewLayoutStrategies.h */,
+				7E32EB7019F0BBE700FEAA66 /* GMGridViewLayoutStrategies.m */,
+				7E32EB7119F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.h */,
+				7E32EB7219F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.m */,
+				7E32EB7319F0BBE700FEAA66 /* UIView+GMGridViewAdditions.h */,
+				7E32EB7419F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m */,
+			);
+			path = GMGridView;
+			sourceTree = "<group>";
+		};
 		7EABF19519ED0A04004FBEF7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +449,7 @@
 		7EABF1A719ED1551004FBEF7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7E32EB6819F0BBE700FEAA66 /* GMGridView */,
 				7EABF29219EFD071004FBEF7 /* ASIHttpRequest 1.8.1 */,
 				7EABF25719EF9EE5004FBEF7 /* JSONKit */,
 				7EABF1F219EE4440004FBEF7 /* SDWebImage */,
@@ -513,6 +556,8 @@
 			isa = PBXGroup;
 			children = (
 				7EABF23219EE6E81004FBEF7 /* TabBar */,
+				7E32EB8219F0F0BE00FEAA66 /* JFCategoryTabView.h */,
+				7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */,
 			);
 			path = Customs;
 			sourceTree = "<group>";
@@ -595,6 +640,8 @@
 			children = (
 				7EABF25419EF9CB0004FBEF7 /* JFUserInfo.h */,
 				7EABF25519EF9CB0004FBEF7 /* JFUserInfo.m */,
+				7E32EB7A19F0C26C00FEAA66 /* JFCommodityInfo.h */,
+				7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -917,7 +964,10 @@
 			files = (
 				7EABF23619EE6E81004FBEF7 /* JFTabBarView.m in Sources */,
 				7EABF2D919EFD071004FBEF7 /* ASICloudFilesContainer.m in Sources */,
+				7E32EB8419F0F0BE00FEAA66 /* JFCategoryTabView.m in Sources */,
+				7E32EB7719F0BBE700FEAA66 /* GMGridViewLayoutStrategies.m in Sources */,
 				7EABF2D319EFD071004FBEF7 /* ASIFormDataRequest.m in Sources */,
+				7E32EB7819F0BBE700FEAA66 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				7EABF1CE19ED1C7B004FBEF7 /* CommunityViewController.m in Sources */,
 				7EABF22319EE4440004FBEF7 /* UIImage+WebP.m in Sources */,
 				C6B6977119ECF61C00F805F3 /* AppDelegate.m in Sources */,
@@ -929,6 +979,7 @@
 				7EABF2E319EFD071004FBEF7 /* ASIS3Request.m in Sources */,
 				7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */,
 				7EABF2DB19EFD071004FBEF7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				7E32EB7619F0BBE700FEAA66 /* GMGridViewCell.m in Sources */,
 				7EABF2D619EFD071004FBEF7 /* ASINetworkQueue.m in Sources */,
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
 				7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */,
@@ -937,6 +988,7 @@
 				7EABF2D419EFD071004FBEF7 /* ASIHTTPRequest.m in Sources */,
 				C6B6976D19ECF61C00F805F3 /* main.m in Sources */,
 				7EABF25D19EF9EE5004FBEF7 /* JSONKit.m in Sources */,
+				7E32EB7C19F0C26C00FEAA66 /* JFCommodityInfo.m in Sources */,
 				7EABF25619EF9CB0004FBEF7 /* JFUserInfo.m in Sources */,
 				7EABF1C919ED1BE4004FBEF7 /* GainScoreViewController.m in Sources */,
 				7EABF1EB19EE268F004FBEF7 /* LoginViewController.m in Sources */,
@@ -952,6 +1004,7 @@
 				7EABF24419EF76A3004FBEF7 /* URLHelper.m in Sources */,
 				7EABF22519EE4440004FBEF7 /* UIImageView+WebCache.m in Sources */,
 				7EABF2D819EFD071004FBEF7 /* ASICloudFilesCDNRequest.m in Sources */,
+				7E32EB7519F0BBE700FEAA66 /* GMGridView.m in Sources */,
 				7EABF22419EE4440004FBEF7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7EABF21719EE4440004FBEF7 /* NSData+GIF.m in Sources */,
 				7EABF2D719EFD071004FBEF7 /* ASIWebPageRequest.m in Sources */,
@@ -977,6 +1030,7 @@
 				7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */,
 				7EABF2D019EFD071004FBEF7 /* ASIDataCompressor.m in Sources */,
 				7EABF2E219EFD071004FBEF7 /* ASIS3ObjectRequest.m in Sources */,
+				7E32EB7919F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m in Sources */,
 				7EABF2DD19EFD071004FBEF7 /* ASICloudFilesObjectRequest.m in Sources */,
 				7EABF2DA19EFD071004FBEF7 /* ASICloudFilesContainerRequest.m in Sources */,
 			);

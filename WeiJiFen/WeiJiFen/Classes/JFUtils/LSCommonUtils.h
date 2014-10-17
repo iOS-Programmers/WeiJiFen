@@ -24,4 +24,10 @@
 + (UInt32)getDistinctAsciiTextNum:(NSString*)text;
 //text截取
 + (NSString*)getHanziTextWithText:(NSString*)text maxLength:(UInt32)maxLength;
+
+//获取年龄
++ (int)getAgeByDate:(NSDate*)date;
++(NSDateFormatter *) dateFormatterOFUS;
+//显示年月日时分
++(NSString *)dateDiscriptionFromDate:(NSDate *)date;
 @end

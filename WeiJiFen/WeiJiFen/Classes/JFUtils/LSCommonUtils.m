@@ -104,7 +104,7 @@
                     if (range.location + range.length > i) {
                         return [text substringToIndex:range.location];
                     }
-                    j = range.location + range.length;
+                    j = (int)range.location + (int)range.length;
                 }
             }
             
@@ -113,4 +113,36 @@
     }
     return text;
 }
+
++ (int)getAgeByDate:(NSDate*)date{
+    NSDate* nowDate = [NSDate date];
+    NSCalendar * calender = [NSCalendar currentCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit |
+    NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit;
+    NSDateComponents *comps = [calender components:unitFlags fromDate:date];
+    NSDateComponents *compsNow = [calender components:unitFlags fromDate:nowDate];
+    return (int)compsNow.year - (int)comps.year;
+}
+
++(NSDateFormatter *) dateFormatterOFUS {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE MMM d HH:mm:ss zzzz yyyy"];
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [dateFormatter setLocale:usLocale];
+    return dateFormatter;
+}
+//显示年月日时分
++(NSString *)dateDiscriptionFromDate:(NSDate *)date
+{
+    NSString *ts;
+    if (date == nil) {
+        return @"";
+    }
+    NSCalendar * calender = [NSCalendar currentCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit ;
+    NSDateComponents *comps = [calender components:unitFlags fromDate:date];
+    ts = [NSString stringWithFormat:@"%04ld-%02ld-%02ld %02ld:%02ld", comps.year, comps.month, comps.day, comps.hour, comps.minute];
+    return ts;
+}
+
 @end

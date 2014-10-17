@@ -9,12 +9,13 @@
 #import "ExchangeViewController.h"
 #import "WeiJiFenEngine.h"
 #import "JSONKit.h"
-//#import "LSCommonUtils.h"
+#import "LSCommonUtils.h"
+#import "JFCategoryTabView.h"
 
 @interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) JFCategoryTabView *categoryTabView;
 @end
 
 @implementation ExchangeViewController
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    [self refreshViewUI];
     [self refreshDataSource];
 }
 
@@ -40,6 +41,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)refreshViewUI{
+    if (_categoryTabView == nil) {
+        _categoryTabView = [[JFCategoryTabView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+        _categoryTabView.items = [NSMutableArray arrayWithObjects:@"全部",@"虚拟物品",@"事物物品",@"官方物品",@"帮助教程", nil];
+        _categoryTabView.initialIndex = 0;
+//        CGFloat height = (CGRectGetHeight(self.navigationController.navigationBar.bounds));
+        
+        [self.view addSubview:_categoryTabView];
+    }
+}
 
 - (void)refreshDataSource{
     

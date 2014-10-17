@@ -8,6 +8,7 @@
 
 #import "JFUserInfo.h"
 #import "JSONKit.h"
+#import "LSCommonUtils.h"
 
 @interface JFUserInfo () {
     
@@ -17,6 +18,25 @@
 @implementation JFUserInfo
 
 - (void)doSetUserInfoByJsonDic:(NSDictionary*)dic {
+    
+    if ([dic objectForKey:@"name"]) {
+        _nickName = [dic objectForKey:@"name"];
+    }
+    if ([dic objectForKey:@"gender"]) {
+        _gender = [dic objectForKey:@"gender"];
+    }
+    if ([dic objectForKey:@"signature"]) {
+        _signature = [dic objectForKey:@"signature"];
+    }if ([dic objectForKey:@"phone"]) {
+        _phone = [dic objectForKey:@"phone"];
+    }
+    if ([dic objectForKey:@"birthday"]) {
+        self.birthdayString = [dic objectForKey:@"birthday"];
+    }
+    id objectForKey = [dic objectForKey:@"avatarUrl"];
+    if (objectForKey && [objectForKey isKindOfClass:[NSString class]]) {
+        _smallAvatarUrl = [NSURL URLWithString:objectForKey];
+    }
     
 }
 - (void)setUserInfoByJsonDic:(NSDictionary*)dic{
@@ -34,6 +54,32 @@
     }
     
     self.jsonString = [_userInfoByJsonDic JSONString];
+}
+
+- (void)setBirthdayString:(NSString *)birthdayString{
+    
+    NSArray* items = [birthdayString componentsSeparatedByString:@"-"];
+    if (items.count != 3) {
+        return;
+    }
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:[[items objectAtIndex:2] integerValue]];
+    [comps setMonth:[[items objectAtIndex:1] integerValue]];
+    [comps setYear:[[items objectAtIndex:0] integerValue]];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *date = [gregorian dateFromComponents:comps];
+    
+    _birthdayDate = date;
+    _birthdayString = birthdayString;
+}
+
+- (int)age{
+    if (!_birthdayDate) {
+        return 0;
+    }
+    return [LSCommonUtils getAgeByDate:_birthdayDate];
 }
 
 @end

@@ -35,7 +35,7 @@
     
     //Exchange
     ExchangeViewController *exchangeViewController = [[ExchangeViewController alloc] init];
-    exchangeViewController.title = @"兑换";
+    exchangeViewController.title = @"微积分";
 //    exchangeViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_exchange"];
     JFBaseNavigationController *exchangeNav = [[JFBaseNavigationController alloc] initWithRootViewController:exchangeViewController];
     

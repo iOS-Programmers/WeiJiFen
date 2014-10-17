@@ -11,6 +11,7 @@
 #import "ASIFormDataRequest.h"
 #import "JSONKit.h"
 #import "URLHelper.h"
+#import "NSDictionary+objectForKey.h"
 
 #define CONNECT_TIMEOUT     20
 
