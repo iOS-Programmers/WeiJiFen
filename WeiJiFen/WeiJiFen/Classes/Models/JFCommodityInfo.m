@@ -50,7 +50,7 @@
         NSLog(@"####LSFeedInfo setFeedInfoByDic exception:%@", exception);
     }
     
-    _jsonString = [dic JSONString];
+//    _jsonString = [dic JSONString];
 }
 
 @end

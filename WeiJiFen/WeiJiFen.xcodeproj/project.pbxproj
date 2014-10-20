@@ -99,6 +99,8 @@
 		7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF2CA19EFD071004FBEF7 /* README-GHUnit */; };
 		7EABF2E619EFD071004FBEF7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF2CD19EFD071004FBEF7 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF2CE19EFD071004FBEF7 /* LICENSE */; };
+		7EBFD9DF19F507790003AA9E /* CommodityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBFD9DD19F507790003AA9E /* CommodityViewCell.m */; };
+		7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBFD9DE19F507790003AA9E /* CommodityViewCell.xib */; };
 		C6B6976119ECF61C00F805F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976019ECF61C00F805F3 /* Foundation.framework */; };
 		C6B6976319ECF61C00F805F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */; };
 		C6B6976519ECF61C00F805F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976419ECF61C00F805F3 /* UIKit.framework */; };
@@ -296,6 +298,9 @@
 		7EABF2CC19EFD071004FBEF7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		7EABF2CD19EFD071004FBEF7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7EABF2CE19EFD071004FBEF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7EBFD9DC19F507790003AA9E /* CommodityViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityViewCell.h; sourceTree = "<group>"; };
+		7EBFD9DD19F507790003AA9E /* CommodityViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityViewCell.m; sourceTree = "<group>"; };
+		7EBFD9DE19F507790003AA9E /* CommodityViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommodityViewCell.xib; sourceTree = "<group>"; };
 		C6B6975D19ECF61C00F805F3 /* WeiJiFen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiJiFen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B6976019ECF61C00F805F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -415,6 +420,7 @@
 				7EABF24919EF78F5004FBEF7 /* LSActionSheetWithBlock */,
 				7EABF24519EF78D4004FBEF7 /* LSAlertViewWithBlock */,
 				7EABF1F119EE42BC004FBEF7 /* Customs */,
+				7EBFD9DB19F506250003AA9E /* Exchange */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -771,6 +777,16 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		7EBFD9DB19F506250003AA9E /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				7EBFD9DC19F507790003AA9E /* CommodityViewCell.h */,
+				7EBFD9DD19F507790003AA9E /* CommodityViewCell.m */,
+				7EBFD9DE19F507790003AA9E /* CommodityViewCell.xib */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
 		C6B6975419ECF61C00F805F3 = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +953,7 @@
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
 				7EABF1E619EE1001004FBEF7 /* jf_message_icon@2x.png in Resources */,
 				7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */,
@@ -984,6 +1001,7 @@
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
 				7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */,
 				7EABF21919EE4440004FBEF7 /* SDImageCache.m in Sources */,
+				7EBFD9DF19F507790003AA9E /* CommodityViewCell.m in Sources */,
 				7EABF2E419EFD071004FBEF7 /* ASIS3ServiceRequest.m in Sources */,
 				7EABF2D419EFD071004FBEF7 /* ASIHTTPRequest.m in Sources */,
 				C6B6976D19ECF61C00F805F3 /* main.m in Sources */,

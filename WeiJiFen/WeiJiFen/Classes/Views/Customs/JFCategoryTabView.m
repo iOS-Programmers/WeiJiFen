@@ -112,7 +112,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.titleLabel.font = [UIFont systemFontOfSize:12];
         [button setTitleColor:UIColorRGB(103,103,103) forState:UIControlStateNormal];
-        [button setTitleColor:[LSCommonUtils getProgramMainHueColor] forState:UIControlStateHighlighted];
+//        [button setTitleColor:[LSCommonUtils getProgramMainHueColor] forState:UIControlStateHighlighted];
         [button setTitleColor:[LSCommonUtils getProgramMainHueColor] forState:UIControlStateSelected];
         CGRect imageFrame = CGRectMake(cell.frame.size.width, (self.frame.size.height-20)/2, 0.5, 20);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageFrame];
@@ -124,12 +124,17 @@
     if ([[_items objectAtIndex:index] isKindOfClass:[NSString class]]) {
         [button setTitle:[_items objectAtIndex:index] forState:UIControlStateNormal];
     }
+    if (index == _initialIndex) {
+        button.selected = YES;
+    }else{
+        button.selected = NO;
+    }
     return cell;
 }
 #pragma mark GMGridViewActionDelegate
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    NSLog(@"Did tap at index %ld", position);
+    NSLog(@"Did tap at index %d", position);
     [self setInitialIndex:position];
 }
 
@@ -145,15 +150,16 @@
 
 -(void)setInitialIndex:(NSInteger)initialIndex{
     
-    for (int index = 0; index < _items.count; index ++) {
-        GMGridViewCell *cell = [self.gridView cellForItemAtIndex:index];
-        UIButton* button = (UIButton* )cell.contentView;
-        if (initialIndex == index) {
-            button.selected = YES;
-        }else{
-            button.selected = NO;
-        }
-    }
+    _initialIndex = initialIndex;
+//    for (NSInteger index = 0; index < _items.count; index ++) {
+//        GMGridViewCell *cell = [self.gridView cellForItemAtIndex:index];
+//        UIButton* button = (UIButton* )cell.contentView;
+//        if (initialIndex == index) {
+//            button.selected = YES;
+//        }else{
+//            button.selected = NO;
+//        }
+//    }
     [self.gridView reloadData];
     _selectedImageView.frame = CGRectMake(initialIndex*(_gridViewItemWidth + 1), self.frame.size.height - 2, _gridViewItemWidth + 1, 2);
 }

@@ -10,4 +10,8 @@
 
 @interface JFSuperBaseViewController : UIViewController
 
+//设置tableview的contentInset
+-(void) setContentInsetForScrollView:(UIScrollView *) scrollview;
+-(void) setContentInsetForScrollView:(UIScrollView *) scrollview inset:(UIEdgeInsets) inset;
+
 @end

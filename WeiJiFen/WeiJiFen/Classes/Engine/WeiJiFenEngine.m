@@ -233,8 +233,9 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
     NSString *url = [NSString stringWithFormat:@"%@/common/system_user/show", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    [params setObject:uid forKey:@"id"];
     
-    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:YES tag:tag];
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:NO tag:tag];
     return YES;
 }
 

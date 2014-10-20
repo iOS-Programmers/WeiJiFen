@@ -22,7 +22,13 @@ static JFLocalDataManager *_shareInstance = nil;
     return _shareInstance;
 }
 
-+ (NSMutableArray *)getLocalCommodityArray{
+- (void)login{
+    
+}
+- (void)logout{
+    
+}
+- (NSMutableArray *)getLocalCommodityArray{
     NSMutableArray *tmpMutArray = [NSMutableArray array];
     for (int index = 0; index < 15; index ++) {
         NSMutableDictionary *aDic = [[NSMutableDictionary alloc] init];

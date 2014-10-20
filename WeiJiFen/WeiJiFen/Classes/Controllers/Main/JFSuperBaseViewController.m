@@ -60,7 +60,10 @@
     }
     
     CGFloat topInset = 0;
-    
+    topInset = LS_Default_TitleNavBar_Height;
+    if ([LSCommonUtils isUpperSDK]) {
+        topInset += 20;
+    }
     UIEdgeInsets inset = UIEdgeInsetsMake(topInset, 0, 0, 0);
     
     [self setContentInsetForScrollView:scrollview inset:inset];

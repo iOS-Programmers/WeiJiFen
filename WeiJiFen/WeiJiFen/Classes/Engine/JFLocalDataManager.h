@@ -11,7 +11,9 @@
 @interface JFLocalDataManager : NSObject
 
 + (JFLocalDataManager*)shareInstance;
+- (void)login;
+- (void)logout;
 
-+ (NSMutableArray *)getLocalCommodityArray;
+- (NSMutableArray *)getLocalCommodityArray;
 
 @end

@@ -11,9 +11,13 @@
 #import "JSONKit.h"
 #import "LSCommonUtils.h"
 #import "JFCategoryTabView.h"
+#import "JFLocalDataManager.h"
+#import "CommodityViewCell.h"
+#import "JFCommodityInfo.h"
 
 @interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) JFCategoryTabView *categoryTabView;
 @end
@@ -23,6 +27,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _dataSource = [[NSMutableArray alloc] init];
+    NSArray *tmpCommodityArray = [[JFLocalDataManager shareInstance] getLocalCommodityArray];
+    for (NSDictionary *comDic in tmpCommodityArray) {
+        JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
+        [commodityInfo setCommodityInfoByDic:comDic];
+        [_dataSource addObject:commodityInfo];
+    }
+    [self.tableView reloadData];
+    
     [self refreshViewUI];
     [self refreshDataSource];
 }
@@ -47,17 +61,21 @@
         _categoryTabView = [[JFCategoryTabView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
         _categoryTabView.items = [NSMutableArray arrayWithObjects:@"全部",@"虚拟物品",@"事物物品",@"官方物品",@"帮助教程", nil];
         _categoryTabView.initialIndex = 0;
-//        CGFloat height = (CGRectGetHeight(self.navigationController.navigationBar.bounds));
-        
         [self.view addSubview:_categoryTabView];
     }
+    
+    UIEdgeInsets inset = self.tableView.contentInset;
+    if (inset.top == 0) {
+        inset.top += _categoryTabView.frame.size.height;
+    }
+    [self setContentInsetForScrollView:self.tableView inset:inset];
 }
 
 - (void)refreshDataSource{
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] querySysUserInfo:@"123456" tag:tag];
+    [[WeiJiFenEngine shareInstance] querySysUserInfo:@"10238" tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -74,24 +92,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _dataSource.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 76;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"cellIdentfier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"CommodityViewCell";
+    CommodityViewCell *cell = (CommodityViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
+        cell = [cells objectAtIndex:0];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-//    NSDictionary *moreDictionary = self.dataSource[indexPath.section];
-    cell.imageView.image = [UIImage imageNamed:@"jf_message_icon.png"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",(int)indexPath.row];
+    JFCommodityInfo *commodityInfo = self.dataSource[indexPath.row];
+    cell.commodityInfo = commodityInfo;
+    
     return cell;
 }
 
