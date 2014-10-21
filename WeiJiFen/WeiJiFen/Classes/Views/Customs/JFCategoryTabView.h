@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol JFCategoryTabViewDelegate;
+
 @interface JFCategoryTabView : UIView
 
+@property (nonatomic, assign) id<JFCategoryTabViewDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, assign) NSInteger initialIndex;
 
 -(void)initObject;
+@end
+
+@protocol JFCategoryTabViewDelegate <NSObject>
+@optional
+-(void)categoryTab:(JFCategoryTabView *)aTabBar didSelectTabAtIndex:(NSInteger)anIndex;
 @end

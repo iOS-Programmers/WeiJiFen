@@ -134,8 +134,11 @@
 #pragma mark GMGridViewActionDelegate
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    NSLog(@"Did tap at index %d", position);
+    NSLog(@"Did tap at index %ld", position);
     [self setInitialIndex:position];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(categoryTab:didSelectTabAtIndex:)]) {
+        [self.delegate categoryTab:self didSelectTabAtIndex:position];
+    }
 }
 
 -(void)setItems:(NSMutableArray *)items{
@@ -151,15 +154,6 @@
 -(void)setInitialIndex:(NSInteger)initialIndex{
     
     _initialIndex = initialIndex;
-//    for (NSInteger index = 0; index < _items.count; index ++) {
-//        GMGridViewCell *cell = [self.gridView cellForItemAtIndex:index];
-//        UIButton* button = (UIButton* )cell.contentView;
-//        if (initialIndex == index) {
-//            button.selected = YES;
-//        }else{
-//            button.selected = NO;
-//        }
-//    }
     [self.gridView reloadData];
     _selectedImageView.frame = CGRectMake(initialIndex*(_gridViewItemWidth + 1), self.frame.size.height - 2, _gridViewItemWidth + 1, 2);
 }

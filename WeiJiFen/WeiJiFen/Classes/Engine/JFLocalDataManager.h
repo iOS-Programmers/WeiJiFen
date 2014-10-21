@@ -15,5 +15,6 @@
 - (void)logout;
 
 - (NSMutableArray *)getLocalCommodityArray;
+- (NSMutableArray *)getLocalCommodityArray2;
 
 @end
