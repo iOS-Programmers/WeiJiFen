@@ -29,7 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self hideExistingTabBar];
-    [self addCustomTabBar];
+//    [self addCustomTabBar];
 }
 
 - (void)hideExistingTabBar
@@ -38,18 +38,21 @@
     {
         if([view isKindOfClass:[UITabBar class]])
         {
-            view.hidden = YES;
+//            view.hidden = YES;
+            [self addCustomTabBar:view];
             break;
         }
     }
 }
--(void)addCustomTabBar{
+-(void)addCustomTabBar:(UIView*)view{
     CGRect tabBarFrame = self.tabBar.frame;
+    tabBarFrame.origin.x = 0;
+    tabBarFrame.origin.y = 0;
     self.customTabBarView = [[JFTabBarView alloc] initWithFrame:tabBarFrame];
     self.customTabBarView.backgroundColor = [LSCommonUtils getProgramMainHueColor];
     self.customTabBarView.initialIndex = 0;
     self.customTabBarView.delegate = self;
-    [self.view addSubview:self.customTabBarView];
+    [view addSubview:self.customTabBarView];
     
     NSMutableArray *controllerTabs = [NSMutableArray arrayWithCapacity:ITEMS_COUNT];
     

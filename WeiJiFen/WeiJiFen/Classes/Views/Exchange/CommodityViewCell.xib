@@ -37,11 +37,23 @@
                         <color key="textColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LG-ca-k5c">
+                        <rect key="frame" x="267" y="49" width="43" height="19"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="兑换">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="commodityStateAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9S9-94-aVK"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="commodityAvatar" destination="AMW-uK-0Bp" id="vDk-xn-r6T"/>
                 <outlet property="commodityNameLabel" destination="3EX-Cu-skg" id="tmG-VN-OdU"/>
+                <outlet property="commodityStateBtn" destination="8LG-ca-k5c" id="J3m-bE-RvT"/>
                 <outlet property="dateLabel" destination="TRJ-wg-FQD" id="zE7-Wa-mIG"/>
                 <outlet property="userAvatar" destination="iCf-gp-DtD" id="mAe-tX-vfY"/>
                 <outlet property="userNameLabel" destination="rou-C3-Z0d" id="6GT-8C-G3V"/>

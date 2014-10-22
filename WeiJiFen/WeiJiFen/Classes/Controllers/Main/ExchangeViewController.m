@@ -14,6 +14,7 @@
 #import "JFLocalDataManager.h"
 #import "CommodityViewCell.h"
 #import "JFCommodityInfo.h"
+#import "CommodityDetailsViewController.h"
 
 @interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
 
@@ -50,6 +51,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (UINavigationController *)navigationController{
+//    if ([super navigationController]) {
+//        return [super navigationController];
+//    }
+//    return self.tabBarController.navigationController;
+//}
 
 /*
 #pragma mark - Navigation
@@ -181,13 +189,26 @@
     if (!cell) {
         NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
         cell = [cells objectAtIndex:0];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     JFCommodityInfo *commodityInfo = self.dataSource[indexPath.row];
     cell.commodityInfo = commodityInfo;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSIndexPath* selIndexPath = [tableView indexPathForSelectedRow];
+    [tableView deselectRowAtIndexPath:selIndexPath animated:YES];
+    
+    JFCommodityInfo *commodityInfo = self.dataSource[indexPath.row];
+    NSLog(@"commodityInfo.ID%@",commodityInfo.comId);
+    CommodityDetailsViewController *commodityDetailsVc = [[CommodityDetailsViewController alloc] init];
+    commodityDetailsVc.commodityInfo = commodityInfo;
+    commodityDetailsVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:commodityDetailsVc animated:YES];
 }
 
 #pragma mark - JFCategoryTabViewDelegate

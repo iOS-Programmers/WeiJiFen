@@ -62,6 +62,8 @@
     rootTabBarController.viewControllers = @[exchangeNav,gainScoreNav,communityNav,accountNav];
     [rootTabBarController setSelectedIndex:0];
     
+//    JFBaseNavigationController* tabNavVc = [[JFBaseNavigationController alloc] initWithRootViewController:rootTabBarController];
+    
     UIColor *color = UIColorRGB(254,120,31);
 //    [rootTabBarController.tabBar setSelectedImageTintColor:color];
     

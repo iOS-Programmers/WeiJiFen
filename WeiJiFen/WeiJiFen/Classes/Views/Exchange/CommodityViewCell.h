@@ -17,5 +17,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView *userAvatar;
 @property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, strong) IBOutlet UIButton *commodityStateBtn;
+
+-(IBAction)commodityStateAction:(id)sender;
 
 @end

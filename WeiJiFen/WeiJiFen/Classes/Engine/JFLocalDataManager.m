@@ -48,11 +48,11 @@ static JFLocalDataManager *_shareInstance = nil;
     for (int index = 0; index < 15; index ++) {
         NSMutableDictionary *aDic = [[NSMutableDictionary alloc] init];
         [aDic setObject:@"虚拟物品" forKey:@"name"];
-        [aDic setObject:@"123" forKey:@"id"];
+        [aDic setObject:@"456" forKey:@"id"];
         [aDic setObject:@"http://y0.ifengimg.com/e7f199c1e0dbba14/2013/0722/rdn_51ece7b8ad179.jpg" forKey:@"avatarUrl"];
         [aDic setObject:[[LSCommonUtils dateFormatterOFUS] stringFromDate:[NSDate date]] forKey:@"created_at"];
         [aDic setObject:@"官方账号222" forKey:@"userName"];
-        [aDic setObject:[NSNumber numberWithInt:1] forKey:@"state"];
+        [aDic setObject:[NSNumber numberWithInt:2] forKey:@"state"];
         [tmpMutArray addObject:aDic];
     }
     return tmpMutArray;
