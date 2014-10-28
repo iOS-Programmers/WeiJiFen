@@ -34,4 +34,32 @@
 }
 */
 
+#pragma mark -- 禁止横竖屏切换
+-(BOOL)shouldSupportRotate{
+    if ([[self.viewControllers lastObject] isKindOfClass:NSClassFromString(@"LSMWPhotoBrowser")]
+        ){
+        return YES;
+    }
+    return NO;
+}
+//5.0
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if ([self shouldSupportRotate]){
+        return YES;
+    }
+    
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+//6.0
+- (BOOL)shouldAutorotate{
+    return [self shouldSupportRotate];
+}
+- (NSUInteger)supportedInterfaceOrientations{
+    if ([self shouldSupportRotate])
+        return UIInterfaceOrientationMaskAll;
+    else
+        return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

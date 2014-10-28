@@ -28,6 +28,39 @@
 
 @implementation ExchangeViewController
 
+-(void)logInRequest{
+    
+    __weak ExchangeViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    //name:@"微积分测试111" mobile:@"13511111112" password:@"123456" 用户ID：1014 token:544dc207d2f32
+    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            //            return;
+        }
+        
+        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
+        tmpMutArray = [[NSMutableArray alloc] init];
+        
+        NSMutableArray *tmpCommodityArray = [NSMutableArray arrayWithArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray]];
+        [tmpCommodityArray addObjectsFromArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray2]];
+        for (NSDictionary *comDic in tmpCommodityArray) {
+            JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
+            [commodityInfo setCommodityInfoByDic:comDic];
+            [tmpMutArray addObject:commodityInfo];
+        }
+        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:0]];
+        
+        if (_selectIndex == 0) {
+            [_dataSource addObjectsFromArray:tmpMutArray];
+            [self.tableView reloadData];
+        }
+        
+    } tag:tag];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -44,7 +77,8 @@
 //    [self.tableView reloadData];
     
     [self refreshViewUI];
-    [self refreshDataSource];
+//    [self refreshDataSource];
+    [self logInRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,7 +132,7 @@
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] querySysUserInfo:@"10238" tag:tag];
+    [[WeiJiFenEngine shareInstance] registerUserInfo:@"wjf125" mobile:@"13511111116" password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {

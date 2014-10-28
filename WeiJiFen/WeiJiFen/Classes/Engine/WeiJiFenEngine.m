@@ -12,11 +12,12 @@
 #import "JSONKit.h"
 #import "URLHelper.h"
 #import "NSDictionary+objectForKey.h"
+#import "PathHelper.h"
 
 #define CONNECT_TIMEOUT     20
 
 static NSString* BASE_URL = @"http://img.hiwemeet.com";
-static NSString* API_URL = @"http://test2.api.hiwemeet.com";
+static NSString* API_URL = @"http://www.wjf123.cn/wjfapi/index.php";//http://test2.api.hiwemeet.com
 
 static WeiJiFenEngine* s_ShareInstance = nil;
 
@@ -46,6 +47,14 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     _onAppServiceBlockMap = [[NSMutableDictionary alloc] init];
     _shortRequestFailTagMap = [[NSMutableDictionary alloc] init];
     
+    _token = nil;
+    _userPassword = nil;
+    _uid = nil;
+    [self loadAccount];
+    _userInfo = [[JFUserInfo alloc] init];
+    _userInfo.uid = _uid;
+    [self loadUserInfo];
+    
 #ifdef DEBUG
     
 #endif
@@ -54,25 +63,91 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 }
 - (void)logout{
     [_onAppServiceBlockMap removeAllObjects];
+    
+    [self saveAccount];
 }
 
 -(NSString *)baseUrl{
     return BASE_URL;
 }
 
+#pragma mark - userInfo
+- (void)setUserInfo:(JFUserInfo *)userInfo{
+    _userInfo = userInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName:LS_USERINFO_CHANGED_NOTIFICATION object:self];
+    [self saveUserInfo];
+}
+
+- (void)loadUserInfo{
+    if (!_uid) {
+        return;
+    }
+    NSString* path = [[self getCurrentAccoutDocDirectory] stringByAppendingPathComponent:@"myUserInfo.xml"];
+    NSString* jsonString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    NSDictionary* userDic = [jsonString objectFromJSONString];
+    if (userDic) {
+        if (_userInfo == nil) {
+            _userInfo = [[JFUserInfo alloc] init];
+        }
+        [_userInfo setUserInfoByJsonDic:userDic];
+    }
+    
+}
+
+- (void)saveUserInfo {
+    if (!_uid) {
+        return;
+    }
+    
+    if (!self.userInfo.jsonString) {
+        return;
+    }
+    NSString* path = [[self getCurrentAccoutDocDirectory] stringByAppendingPathComponent:@"myUserInfo.xml"];
+    [self.userInfo.jsonString writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+- (NSString*)getCurrentAccoutDocDirectory{
+    return [PathHelper documentDirectoryPathWithName:[NSString stringWithFormat:@"accounts/%@", _uid]];
+}
+
+- (NSString *)getAccountsStoragePath{
+    NSString *filePath = [[PathHelper documentDirectoryPathWithName:nil] stringByAppendingPathComponent:@"account"];
+    return filePath;
+}
+
+- (void)loadAccount{
+    NSDictionary * accountDic = [NSDictionary dictionaryWithContentsOfFile:[self getAccountsStoragePath]];
+    _token = [accountDic objectForKey:@"token"];
+    _userPassword = [accountDic objectForKey:@"accountPwd"];
+    _uid = [accountDic objectForKey:@"uid"];
+}
+- (void)saveAccount{
+    NSMutableDictionary* accountDic= [NSMutableDictionary dictionaryWithCapacity:2];
+    if(_token)
+        [accountDic setValue:_token forKey:@"token"];
+    if(_userPassword)
+        [accountDic setValue:_userPassword forKey:@"accountPwd"];
+    if (_uid) {
+        [accountDic setValue:_uid forKey:@"uid"];
+    }
+    
+    [accountDic writeToFile:[self getAccountsStoragePath] atomically:NO];
+}
+
+#pragma mark - 网络错误处理
 + (NSString*)getErrorMsgWithReponseDic:(NSDictionary*)dic{
     if (dic == nil) {
         return @"请检查网络连接是否正常";
     }
-    if ([dic objectForKey:@"apistatus"] == nil) {
+    if ([dic objectForKey:@"error_no"] == nil) {
         return nil;
     }
-    if ([[dic objectForKey:@"apistatus"] intValue] == 1){
+    if ([[dic objectForKey:@"error_no"] integerValue] == 0){
         return nil;
     }
-    NSString* error = [[dic objectForKey:@"result"] objectForKey:@"error_zh_CN"];
+    NSString* error = [dic objectForKey:@"error_info"];
     if (!error) {
-        error = [[dic objectForKey:@"result"] objectForKey:@"error"];
+        error = [dic objectForKey:@"error_no"];
     }
     if (error == nil) {
         error = @"unknow error";
@@ -81,7 +156,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 }
 + (NSString*)getErrorCodeWithReponseDic:(NSDictionary*)dic {
     
-    return [[[dic dictionaryObjectForKey:@"result"] stringObjectForKey:@"error_code"] description];
+    return [[dic stringObjectForKey:@"error_info"] description];
 }
 
 #pragma mark - Delegate
@@ -118,7 +193,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
         responseString = [request responseString];
     }
     
-    NSLog(@"response tag:%ld url=%@, string: %@", request.tag, [request url], responseString);
+    NSLog(@"response tag:%d url=%@, string: %@", request.tag, [request url], responseString);
     dispatch_async(dispatch_get_main_queue(), ^(){
         
         onAppServiceBlock block = [self getonAppServiceBlockByTag:request.tag];
@@ -229,14 +304,47 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     return headers;
 }
 
-- (BOOL)querySysUserInfo:(NSString *)uid tag:(int)tag {
+#pragma mark - HttpRequest
+
+- (BOOL)registerUserInfo:(NSString *)userName mobile:(NSString *)mobile password:(NSString *)password confirm:(NSString *)confirm tag:(int)tag {
     
-    NSString *url = [NSString stringWithFormat:@"%@/common/system_user/show", API_URL];
+    NSString *url = [NSString stringWithFormat:@"%@/Index/userRegister", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
-    [params setObject:uid forKey:@"id"];
+    if (userName){
+        [params setObject:userName forKey:@"username"];
+    }
+    if (mobile){
+        [params setObject:mobile forKey:@"mobile"];
+    }
+    if (password){
+        [params setObject:password forKey:@"password"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];//@"79EF44D011ACB123CF6A918610EFC053"
+    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"POST" postValue:YES tag:tag];
+    return YES;
+}
+
+- (BOOL)logInUserInfo:(NSString *)userName token:(NSString *)token password:(NSString *)password confirm:(NSString *)confirm tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Index/userLogin", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    if (userName){
+        [params setObject:userName forKey:@"username"];
+    }
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (password){
+        [params setObject:password forKey:@"password"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:NO tag:tag];
     return YES;
 }
-
 @end

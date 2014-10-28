@@ -141,7 +141,7 @@
     NSCalendar * calender = [NSCalendar currentCalendar];
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit ;
     NSDateComponents *comps = [calender components:unitFlags fromDate:date];
-    ts = [NSString stringWithFormat:@"%04ld-%02ld-%02ld %02ld:%02ld", comps.year, comps.month, comps.day, comps.hour, comps.minute];
+    ts = [NSString stringWithFormat:@"%04d-%02d-%02d %02d:%02d", comps.year, comps.month, comps.day, comps.hour, comps.minute];
     return ts;
 }
 
