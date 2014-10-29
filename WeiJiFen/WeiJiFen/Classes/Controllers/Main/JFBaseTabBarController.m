@@ -22,14 +22,14 @@
 
 @implementation JFBaseTabBarController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
+//这个方法会导致导航pop时没有动画 原因待查
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self hideExistingTabBar];
-//    [self addCustomTabBar];
 }
 
 - (void)hideExistingTabBar
@@ -38,7 +38,6 @@
     {
         if([view isKindOfClass:[UITabBar class]])
         {
-//            view.hidden = YES;
             [self addCustomTabBar:view];
             break;
         }

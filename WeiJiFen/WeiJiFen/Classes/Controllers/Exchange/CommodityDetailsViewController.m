@@ -7,6 +7,7 @@
 //
 
 #import "CommodityDetailsViewController.h"
+#import "AccountDetailsViewController.h"
 
 @interface CommodityDetailsViewController ()
 
@@ -28,7 +29,9 @@
 }
 
 -(IBAction)backAction:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    AccountDetailsViewController *accountDetailsVc = [[AccountDetailsViewController alloc] init];
+    [self.navigationController pushViewController:accountDetailsVc animated:YES];
 }
 
 /*

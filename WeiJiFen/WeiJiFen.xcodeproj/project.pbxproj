@@ -104,6 +104,8 @@
 		7ED70C0419F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED70C0319F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png */; };
 		7ED70C0819F7985C0071E7FC /* CommodityDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED70C0619F7985C0071E7FC /* CommodityDetailsViewController.m */; };
 		7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED70C0719F7985C0071E7FC /* CommodityDetailsViewController.xib */; };
+		7EF1E5231A008E2300112D2D /* AccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF1E5211A008E2300112D2D /* AccountDetailsViewController.m */; };
+		7EF1E5241A008E2300112D2D /* AccountDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF1E5221A008E2300112D2D /* AccountDetailsViewController.xib */; };
 		C6B6976119ECF61C00F805F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976019ECF61C00F805F3 /* Foundation.framework */; };
 		C6B6976319ECF61C00F805F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */; };
 		C6B6976519ECF61C00F805F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B6976419ECF61C00F805F3 /* UIKit.framework */; };
@@ -308,6 +310,9 @@
 		7ED70C0519F7985C0071E7FC /* CommodityDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityDetailsViewController.h; sourceTree = "<group>"; };
 		7ED70C0619F7985C0071E7FC /* CommodityDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityDetailsViewController.m; sourceTree = "<group>"; };
 		7ED70C0719F7985C0071E7FC /* CommodityDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommodityDetailsViewController.xib; sourceTree = "<group>"; };
+		7EF1E5201A008E2300112D2D /* AccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailsViewController.h; sourceTree = "<group>"; };
+		7EF1E5211A008E2300112D2D /* AccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailsViewController.m; sourceTree = "<group>"; };
+		7EF1E5221A008E2300112D2D /* AccountDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountDetailsViewController.xib; sourceTree = "<group>"; };
 		C6B6975D19ECF61C00F805F3 /* WeiJiFen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiJiFen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B6976019ECF61C00F805F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6B6976219ECF61C00F805F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -522,6 +527,9 @@
 		7EABF1D619ED1D8E004FBEF7 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				7EF1E5201A008E2300112D2D /* AccountDetailsViewController.h */,
+				7EF1E5211A008E2300112D2D /* AccountDetailsViewController.m */,
+				7EF1E5221A008E2300112D2D /* AccountDetailsViewController.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -969,6 +977,7 @@
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
 				7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */,
 				7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */,
+				7EF1E5241A008E2300112D2D /* AccountDetailsViewController.xib in Resources */,
 				7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */,
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
@@ -1035,6 +1044,7 @@
 				7EABF21A19EE4440004FBEF7 /* SDWebImageCompat.m in Sources */,
 				7EABF2D519EFD071004FBEF7 /* ASIInputStream.m in Sources */,
 				7EABF2DF19EFD071004FBEF7 /* ASIS3Bucket.m in Sources */,
+				7EF1E5231A008E2300112D2D /* AccountDetailsViewController.m in Sources */,
 				7EABF21819EE4440004FBEF7 /* NSData+ImageContentType.m in Sources */,
 				7EABF2CF19EFD071004FBEF7 /* ASIAuthenticationDialog.m in Sources */,
 				7EABF21619EE4440004FBEF7 /* MKAnnotationView+WebCache.m in Sources */,

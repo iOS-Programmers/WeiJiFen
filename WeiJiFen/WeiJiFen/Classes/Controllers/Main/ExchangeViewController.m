@@ -243,6 +243,7 @@
     commodityDetailsVc.commodityInfo = commodityInfo;
     commodityDetailsVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:commodityDetailsVc animated:YES];
+//    [self.navigationController presentModalViewController:commodityDetailsVc animated:YES];
 }
 
 #pragma mark - JFCategoryTabViewDelegate

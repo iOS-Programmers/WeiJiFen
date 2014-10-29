@@ -7,9 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import "AccountDetailsViewController.h"
 
 @interface LoginViewController ()
 
+-(IBAction)loginAction:(id)sender;
 @end
 
 @implementation LoginViewController
@@ -33,5 +35,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - IBAction
+-(IBAction)loginAction:(id)sender{
+    
+}
 
 @end
