@@ -16,7 +16,7 @@
 
 #define CONNECT_TIMEOUT     20
 
-static NSString* BASE_URL = @"http://img.hiwemeet.com";
+static NSString* BASE_URL = @"http://www.wjf123.cn/data/attachment/forum/";
 static NSString* API_URL = @"http://www.wjf123.cn/wjfapi/index.php";//http://test2.api.hiwemeet.com
 
 static WeiJiFenEngine* s_ShareInstance = nil;
@@ -345,6 +345,44 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     }
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:NO tag:tag];
+    return YES;
+}
+
+- (BOOL)getCommodityListWithToken:(NSString *)token confirm:(NSString *)confirm type:(int)type page:(int)page pageSize:(int)pageSize tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/exchangeList", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    [params setObject:[NSNumber numberWithInt:type] forKey:@"type"];
+    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
+    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"POST" postValue:NO tag:tag];
+    return YES;
+}
+
+- (BOOL)commodityShowWithToken:(NSString *)token confirm:(NSString *)confirm pId:(NSString *)pId tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/exchangeInfo", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    if (pId) {
+        [params setObject:pId forKey:@"pid"];
+    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
 }
 @end

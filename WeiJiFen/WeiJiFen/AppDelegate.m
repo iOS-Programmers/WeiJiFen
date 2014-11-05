@@ -53,7 +53,7 @@
     
     //Mine
     AccountViewController *accountViewController = [[AccountViewController alloc] init];
-    accountViewController.title = @"账户";
+    accountViewController.title = @"我的账号";
 //    accountViewController.tabBarItem.image = [UIImage imageNamed:@"jf_tab_account"];
     JFBaseNavigationController *accountNav = [[JFBaseNavigationController alloc] initWithRootViewController:accountViewController];
     

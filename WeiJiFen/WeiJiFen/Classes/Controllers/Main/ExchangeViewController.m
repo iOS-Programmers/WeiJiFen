@@ -32,30 +32,13 @@
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    //name:@"微积分测试111" mobile:@"13511111112" password:@"123456" 用户ID：1014 token:544dc207d2f32
-    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+//    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf123" token:nil password:@"wjf5213344" confirm:@"4384CCFB0C21406F1533E46D1E2FDB5B" tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
-            //            return;
-        }
-        
-        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
-        tmpMutArray = [[NSMutableArray alloc] init];
-        
-        NSMutableArray *tmpCommodityArray = [NSMutableArray arrayWithArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray]];
-        [tmpCommodityArray addObjectsFromArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray2]];
-        for (NSDictionary *comDic in tmpCommodityArray) {
-            JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
-            [commodityInfo setCommodityInfoByDic:comDic];
-            [tmpMutArray addObject:commodityInfo];
-        }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:0]];
-        
-        if (_selectIndex == 0) {
-            [_dataSource addObjectsFromArray:tmpMutArray];
-            [self.tableView reloadData];
+            return;
         }
         
     } tag:tag];
@@ -66,19 +49,12 @@
     // Do any additional setup after loading the view from its nib.
     
     _dataSourceMutDic = [[NSMutableDictionary alloc] init];
-    
     _dataSource = [[NSMutableArray alloc] init];
-//    NSArray *tmpCommodityArray = [[JFLocalDataManager shareInstance] getLocalCommodityArray];
-//    for (NSDictionary *comDic in tmpCommodityArray) {
-//        JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
-//        [commodityInfo setCommodityInfoByDic:comDic];
-//        [_dataSource addObject:commodityInfo];
-//    }
-//    [self.tableView reloadData];
+    _selectIndex = 0;
     
     [self refreshViewUI];
-//    [self refreshDataSource];
-    [self logInRequest];
+    [self refreshDataSource:0];
+//    [self logInRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,31 +104,30 @@
     [self setContentInsetForScrollView:self.tableView inset:inset];
 }
 
-- (void)refreshDataSource{
+- (void)refreshDataSource:(int)type{
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] registerUserInfo:@"wjf125" mobile:@"13511111116" password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+    [[WeiJiFenEngine shareInstance] getCommodityListWithToken:nil confirm:@"79EF44D011ACB123CF6A918610EFC053" type:type page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
-//            return;
+            return;
         }
         
         NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
         tmpMutArray = [[NSMutableArray alloc] init];
         
-        NSMutableArray *tmpCommodityArray = [NSMutableArray arrayWithArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray]];
-        [tmpCommodityArray addObjectsFromArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray2]];
+        NSMutableArray *tmpCommodityArray = [jsonRet objectForKey:@"data"];
         for (NSDictionary *comDic in tmpCommodityArray) {
             JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
             [commodityInfo setCommodityInfoByDic:comDic];
             [tmpMutArray addObject:commodityInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:0]];
+        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
         
-        if (_selectIndex == 0) {
+        if (_selectIndex == type) {
             [_dataSource addObjectsFromArray:tmpMutArray];
             [self.tableView reloadData];
         }
@@ -170,29 +145,13 @@
     }
     if (tmpMutArray.count == 0){
         if (_selectIndex == 0) {
-            [self refreshDataSource];
+            [self refreshDataSource:0];
         }else if (_selectIndex == 1){
-            NSMutableArray *tmpCommodityArray = [NSMutableArray arrayWithArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray2]];
-            for (NSDictionary *comDic in tmpCommodityArray) {
-                JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
-                [commodityInfo setCommodityInfoByDic:comDic];
-                [tmpMutArray addObject:commodityInfo];
-            }
+            [self refreshDataSource:1];
         }else if (_selectIndex == 2){
-            NSMutableArray *tmpCommodityArray = [NSMutableArray arrayWithArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray2]];
-            [tmpCommodityArray addObjectsFromArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray]];
-            for (NSDictionary *comDic in tmpCommodityArray) {
-                JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
-                [commodityInfo setCommodityInfoByDic:comDic];
-                [tmpMutArray addObject:commodityInfo];
-            }
+            [self refreshDataSource:2];
         }else if (_selectIndex == 3){
-            NSMutableArray *tmpCommodityArray = [NSMutableArray arrayWithArray:[[JFLocalDataManager shareInstance] getLocalCommodityArray]];
-            for (NSDictionary *comDic in tmpCommodityArray) {
-                JFCommodityInfo *commodityInfo = [[JFCommodityInfo alloc] init];
-                [commodityInfo setCommodityInfoByDic:comDic];
-                [tmpMutArray addObject:commodityInfo];
-            }
+            [self refreshDataSource:3];
         }else if (_selectIndex == 4){
             
         }

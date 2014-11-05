@@ -68,7 +68,7 @@
             tabItem.itemLabel.text = @"社区";
         }else if (index == 3){
             tabItem.itemImageView.image = [UIImage imageNamed:@"jf_tab_account"];
-            tabItem.itemLabel.text = @"账户";
+            tabItem.itemLabel.text = @"账号";
         }
         
         [controllerTabs addObject:tabItem];

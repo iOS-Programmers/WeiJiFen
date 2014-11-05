@@ -9,29 +9,35 @@
 #import "JFCommodityInfo.h"
 #import "JSONKit.h"
 #import "LSCommonUtils.h"
+#import "WeiJiFenEngine.h"
 
 @implementation JFCommodityInfo
 
 - (void)doSetCommodityInfoByDic:(NSDictionary*)dic {
     
-    if ([dic objectForKey:@"name"]) {
-        _name = [dic objectForKey:@"name"];
+    id objectForKey = [dic objectForKey:@"subject"];
+    if (objectForKey) {
+        _name = objectForKey;
     }
     
-    id objectForKey = [dic objectForKey:@"avatarUrl"];
-    if (objectForKey && [objectForKey isKindOfClass:[NSString class]]) {
-        _comAvatarUrl = [NSURL URLWithString:objectForKey];
+    objectForKey = [dic objectForKey:@"attachment"];
+    if (objectForKey) {
+        _attachment = objectForKey;
     }
     
-    if ([dic objectForKey:@"created_at"]) {
+    objectForKey = [dic objectForKey:@"lastupdate"];
+    if (objectForKey) {
         NSDateFormatter *dateFormatter = [LSCommonUtils dateFormatterOFUS];
-        _crateDate = [dateFormatter dateFromString:[dic objectForKey:@"created_at"]];
+        _crateDate = [dateFormatter dateFromString:objectForKey];
     }
     
     _comState = [[dic objectForKey:@"state"] intValue];
+    _amount = [[dic objectForKey:@"amount"] intValue];
+    _sellerCredit = [[dic objectForKey:@"sellercredit"] intValue];
     
-    if ([dic objectForKey:@"userName"]) {
-        _userName = [dic objectForKey:@"userName"];
+    objectForKey = [dic objectForKey:@"seller"];
+    if (objectForKey) {
+        _userName = objectForKey;
     }
 }
 
@@ -40,8 +46,8 @@
         return;
     }
     
-    _comId = [[dic objectForKey:@"id"] description];
-    _userId = [[dic objectForKey:@"uid"] description];
+    _comId = [[dic objectForKey:@"pid"] description];
+//    _userId = [[dic objectForKey:@"uid"] description];
     
     @try {
         [self doSetCommodityInfoByDic:dic];
@@ -50,7 +56,13 @@
         NSLog(@"####LSFeedInfo setFeedInfoByDic exception:%@", exception);
     }
     
-//    _jsonString = [dic JSONString];
+    _jsonString = [dic JSONString];
 }
 
+-(NSURL *)comAvatarUrl{
+    if (_attachment == nil || [_attachment isKindOfClass:[NSNull class]]) {
+        return nil;
+    }
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [[WeiJiFenEngine shareInstance] baseUrl],_attachment]];
+}
 @end

@@ -99,6 +99,8 @@
 		7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF2CA19EFD071004FBEF7 /* README-GHUnit */; };
 		7EABF2E619EFD071004FBEF7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF2CD19EFD071004FBEF7 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF2CE19EFD071004FBEF7 /* LICENSE */; };
+		7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBC3E361A0A181000E130F5 /* jf_ buyercredit_icon@2x.png */; };
+		7EBC3E391A0A181000E130F5 /* jf_sellercredit_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBC3E371A0A181000E130F5 /* jf_sellercredit_icon@2x.png */; };
 		7EBFD9DF19F507790003AA9E /* CommodityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBFD9DD19F507790003AA9E /* CommodityViewCell.m */; };
 		7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBFD9DE19F507790003AA9E /* CommodityViewCell.xib */; };
 		7ED70C0419F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED70C0319F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png */; };
@@ -303,6 +305,8 @@
 		7EABF2CC19EFD071004FBEF7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		7EABF2CD19EFD071004FBEF7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7EABF2CE19EFD071004FBEF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7EBC3E361A0A181000E130F5 /* jf_ buyercredit_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_ buyercredit_icon@2x.png"; sourceTree = "<group>"; };
+		7EBC3E371A0A181000E130F5 /* jf_sellercredit_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_sellercredit_icon@2x.png"; sourceTree = "<group>"; };
 		7EBFD9DC19F507790003AA9E /* CommodityViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityViewCell.h; sourceTree = "<group>"; };
 		7EBFD9DD19F507790003AA9E /* CommodityViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityViewCell.m; sourceTree = "<group>"; };
 		7EBFD9DE19F507790003AA9E /* CommodityViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommodityViewCell.xib; sourceTree = "<group>"; };
@@ -552,6 +556,8 @@
 			isa = PBXGroup;
 			children = (
 				7EABF1E519EE1001004FBEF7 /* jf_message_icon@2x.png */,
+				7EBC3E361A0A181000E130F5 /* jf_ buyercredit_icon@2x.png */,
+				7EBC3E371A0A181000E130F5 /* jf_sellercredit_icon@2x.png */,
 			);
 			path = comment;
 			sourceTree = "<group>";
@@ -975,6 +981,7 @@
 				7EABF1CA19ED1BE4004FBEF7 /* GainScoreViewController.xib in Resources */,
 				7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
+				7EBC3E391A0A181000E130F5 /* jf_sellercredit_icon@2x.png in Resources */,
 				7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */,
 				7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */,
 				7EF1E5241A008E2300112D2D /* AccountDetailsViewController.xib in Resources */,
@@ -982,6 +989,7 @@
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */,
 				7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
 				7ED70C0419F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png in Resources */,
