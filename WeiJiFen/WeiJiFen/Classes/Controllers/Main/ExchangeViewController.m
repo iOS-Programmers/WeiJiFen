@@ -81,7 +81,8 @@
 
 - (void)refreshViewUI{
     if (_categoryTabView == nil) {
-        _categoryTabView = [[JFCategoryTabView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+        
+        _categoryTabView = [[JFCategoryTabView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
         NSMutableArray *items = [NSMutableArray arrayWithObjects:@"全部",@"虚拟物品",@"事物物品",@"官方物品",@"帮助教程", nil];
         _categoryTabView.items = items;
         _categoryTabView.initialIndex = 0;

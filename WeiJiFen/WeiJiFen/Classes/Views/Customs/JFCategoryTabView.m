@@ -44,28 +44,11 @@
     return self;
 }
 
-//-(void)awakeFromNib {
-//    
-//    _gridViewItemWidth = GridView_Item_Width;
-//    _selectedImageView = [[UIImageView alloc] init];
-//    _selectedImageView.backgroundColor = [LSCommonUtils getProgramMainHueColor];
-//    _selectedImageView.frame = CGRectMake(0, self.frame.size.height - 2, _gridViewItemWidth, 2);
-//    
-//    _gridView = [[GMGridView alloc] initWithFrame:self.frame];
-//    [self addSubview:_gridView];
-//    [self addSubview:_selectedImageView];
-//    _gridView.backgroundColor = [UIColor clearColor];
-//    _gridView.style = GMGridViewStyleSwap;
-//    _gridView.itemSpacing = 0;
-//    _gridView.minEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-//    _gridView.centerGrid = NO;
-//    _gridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutVertical];
-//    _gridView.actionDelegate = self;
-//    _gridView.showsHorizontalScrollIndicator = NO;
-//    _gridView.showsVerticalScrollIndicator = NO;
-//    _gridView.dataSource = self;
-//    //解决点击状态栏无法滚动到顶部的问题
-//    _gridView.scrollsToTop = NO;
+//-(void)layoutSubviews{
+//    [super layoutSubviews];
+//    CGRect frame = self.bounds;
+//    frame.size.width = [UIScreen mainScreen].applicationFrame.size.width;
+////    [self setFrame:(CGRect)];
 //}
 
 -(void)initObject{

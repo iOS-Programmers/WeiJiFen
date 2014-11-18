@@ -43,11 +43,11 @@
         if ([subview isKindOfClass:[UIScrollView class]]){
 //            [self setContentInsetForScrollView:((UIScrollView *)subview)];
             
-            CGRect tableViewFrame = [UIScreen mainScreen].applicationFrame;
-            tableViewFrame.origin.y = 0;
-            tableViewFrame.size.height -= (self.navigationController.viewControllers.count > 1 ?(CGRectGetHeight(self.navigationController.navigationBar.bounds)) : (CGRectGetHeight(self.tabBarController.tabBar.bounds))) + (CGRectGetHeight(self.navigationController.navigationBar.bounds));
-            UIScrollView *tableView = (UIScrollView *)subview;
-            tableView.frame = tableViewFrame;
+//            CGRect tableViewFrame = [UIScreen mainScreen].applicationFrame;
+//            tableViewFrame.origin.y = 0;
+//            tableViewFrame.size.height -= (self.navigationController.viewControllers.count > 1 ?(CGRectGetHeight(self.navigationController.navigationBar.bounds)) : (CGRectGetHeight(self.tabBarController.tabBar.bounds))) + (CGRectGetHeight(self.navigationController.navigationBar.bounds));
+//            UIScrollView *tableView = (UIScrollView *)subview;
+//            tableView.frame = tableViewFrame;
         }
     }
 }

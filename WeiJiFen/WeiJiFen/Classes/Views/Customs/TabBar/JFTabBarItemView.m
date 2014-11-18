@@ -48,4 +48,24 @@
     //[self setNeedsLayout];
 }
 
+-(void) setFrame:(CGRect)aFrame {
+    [super setFrame:aFrame];
+    
+    CGRect supFrame = self.itemBtn.frame;
+    supFrame.size.width = aFrame.size.width;
+    self.itemBtn.frame = supFrame;
+    
+    supFrame = self.itemImageView.frame;
+    supFrame.origin.x = (aFrame.size.width-supFrame.size.width)/2;
+    self.itemImageView.frame = supFrame;
+    
+    supFrame = self.itemLabel.frame;
+    supFrame.origin.x = (aFrame.size.width-supFrame.size.width)/2;
+    self.itemLabel.frame = supFrame;
+    
+//    self.itemImageView.center = self.center;
+    
+//    [self setNeedsDisplay];
+}
+
 @end

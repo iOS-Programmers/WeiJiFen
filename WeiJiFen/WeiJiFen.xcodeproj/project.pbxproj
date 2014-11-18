@@ -16,6 +16,12 @@
 		7E32EB7919F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7419F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m */; };
 		7E32EB7C19F0C26C00FEAA66 /* JFCommodityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */; };
 		7E32EB8419F0F0BE00FEAA66 /* JFCategoryTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */; };
+		7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */; };
+		7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */; };
+		7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */; };
+		7E99AD6C1A19EA97007B7B09 /* jf_account_my_trophy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD661A19EA97007B7B09 /* jf_account_my_trophy@2x.png */; };
+		7E99AD6D1A19EA97007B7B09 /* jf_account_my_message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD671A19EA97007B7B09 /* jf_account_my_message@2x.png */; };
+		7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD681A19EA97007B7B09 /* jf_account_my_personal@2x.png */; };
 		7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */; };
 		7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */; };
 		7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */; };
@@ -151,6 +157,12 @@
 		7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCommodityInfo.m; sourceTree = "<group>"; };
 		7E32EB8219F0F0BE00FEAA66 /* JFCategoryTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCategoryTabView.h; sourceTree = "<group>"; };
 		7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCategoryTabView.m; sourceTree = "<group>"; };
+		7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_friendlist@2x.png"; sourceTree = "<group>"; };
+		7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_toplist@2x.png"; sourceTree = "<group>"; };
+		7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_promotion@2x.png"; sourceTree = "<group>"; };
+		7E99AD661A19EA97007B7B09 /* jf_account_my_trophy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_my_trophy@2x.png"; sourceTree = "<group>"; };
+		7E99AD671A19EA97007B7B09 /* jf_account_my_message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_my_message@2x.png"; sourceTree = "<group>"; };
+		7E99AD681A19EA97007B7B09 /* jf_account_my_personal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_my_personal@2x.png"; sourceTree = "<group>"; };
 		7EABF1A119ED12A4004FBEF7 /* JFBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTabBarController.h; sourceTree = "<group>"; };
 		7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTabBarController.m; sourceTree = "<group>"; };
 		7EABF1A419ED14F6004FBEF7 /* HTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseViewController.h; sourceTree = "<group>"; };
@@ -385,6 +397,19 @@
 			path = GMGridView;
 			sourceTree = "<group>";
 		};
+		7E99AD621A19EA83007B7B09 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */,
+				7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */,
+				7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */,
+				7E99AD661A19EA97007B7B09 /* jf_account_my_trophy@2x.png */,
+				7E99AD671A19EA97007B7B09 /* jf_account_my_message@2x.png */,
+				7E99AD681A19EA97007B7B09 /* jf_account_my_personal@2x.png */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
 		7EABF19519ED0A04004FBEF7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +446,7 @@
 		7EABF19819ED0B68004FBEF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7E99AD621A19EA83007B7B09 /* user */,
 				7ED70C0219F78F1B0071E7FC /* Commodity */,
 				7EABF1E419EE0FEF004FBEF7 /* comment */,
 				7EABF23D19EF7398004FBEF7 /* jf_tab_exchange@2x.png */,
@@ -977,18 +1003,24 @@
 			files = (
 				C6B6976B19ECF61C00F805F3 /* InfoPlist.strings in Resources */,
 				7EABF23719EE6E81004FBEF7 /* JFTabBarView.xib in Resources */,
+				7E99AD6D1A19EA97007B7B09 /* jf_account_my_message@2x.png in Resources */,
 				7EABF1AE19ED15E8004FBEF7 /* 37x-Checkmark@2x.png in Resources */,
+				7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */,
 				7EABF1CA19ED1BE4004FBEF7 /* GainScoreViewController.xib in Resources */,
 				7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
 				7EBC3E391A0A181000E130F5 /* jf_sellercredit_icon@2x.png in Resources */,
+				7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */,
 				7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */,
 				7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */,
 				7EF1E5241A008E2300112D2D /* AccountDetailsViewController.xib in Resources */,
+				7E99AD6C1A19EA97007B7B09 /* jf_account_my_trophy@2x.png in Resources */,
 				7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */,
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */,
+				7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */,
 				7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */,
 				7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
