@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* attachment;
 @property (nonatomic, readonly) NSURL* comAvatarUrl;
-@property (nonatomic, strong) NSDate* crateDate;
+@property (nonatomic, assign) int crateDate;
 @property (nonatomic, assign) int comState;
 @property (nonatomic, assign) int amount;
 

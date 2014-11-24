@@ -47,6 +47,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     _onAppServiceBlockMap = [[NSMutableDictionary alloc] init];
     _shortRequestFailTagMap = [[NSMutableDictionary alloc] init];
     
+    _confirm = WJF_Confirm;
     _token = nil;
     _userPassword = nil;
     _uid = nil;
@@ -385,4 +386,49 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
 }
+
+- (BOOL)getHelpListWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId page:(int)page pageSize:(int)pageSize tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/helpList", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    if (fId) {
+        [params setObject:fId forKey:@"fid"];
+    }
+//    [params setObject:[NSNumber numberWithInt:fId] forKey:@"fid"];
+    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
+    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+}
+
+- (BOOL)getHelpInfoWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId tId:(NSString *)tId tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/helpInfo", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    if (fId) {
+        [params setObject:fId forKey:@"fid"];
+    }
+    if (tId) {
+        [params setObject:tId forKey:@"tid"];
+    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+}
+
 @end

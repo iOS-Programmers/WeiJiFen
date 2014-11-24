@@ -15,6 +15,9 @@
 #import "CommodityViewCell.h"
 #import "JFCommodityInfo.h"
 #import "CommodityDetailsViewController.h"
+#import "JFTopicInfo.h"
+#import "TopicViewCell.h"
+#import "TopicDetailsViewController.h"
 
 @interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
 
@@ -136,6 +139,38 @@
     } tag:tag];
 }
 
+-(void)refreshHelpList{
+    
+    __weak ExchangeViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] getHelpListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm fId:@"45" page:1 pageSize:10 tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        
+        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
+        tmpMutArray = [[NSMutableArray alloc] init];
+        
+        NSMutableArray *tmpTopicArray = [jsonRet objectForKey:@"data"];
+        for (NSDictionary *topicDic in tmpTopicArray) {
+            JFTopicInfo *topicInfo = [[JFTopicInfo alloc] init];
+            [topicInfo setTopicInfoByDic:topicDic];
+            [tmpMutArray addObject:topicInfo];
+        }
+        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:_selectIndex]];
+        
+        if (_selectIndex == (_dataSourceMutDic.count - 1)) {
+            [_dataSource addObjectsFromArray:tmpMutArray];
+        }
+        [self.tableView reloadData];
+        
+    } tag:tag];
+    
+}
+
 -(NSMutableArray*)customDataSourceWithTabAtIndex:(NSInteger)anIndex isRefresh:(BOOL)isRefresh
 {
     [_dataSource removeAllObjects];
@@ -154,7 +189,7 @@
         }else if (_selectIndex == 3){
             [self refreshDataSource:3];
         }else if (_selectIndex == 4){
-            
+            [self refreshHelpList];
         }
         [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:_selectIndex]];
     }
@@ -173,17 +208,33 @@
     return _dataSource.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_selectIndex == _dataSourceMutDic.count-1) {
+        return 49;
+    }
     return 76;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (_selectIndex == _dataSourceMutDic.count-1) {
+        static NSString *helpCellIdentifier = @"TopicViewCell";
+        TopicViewCell *cell = (TopicViewCell *)[tableView dequeueReusableCellWithIdentifier:helpCellIdentifier];
+        if (!cell) {
+            NSArray* cells = [[NSBundle mainBundle] loadNibNamed:helpCellIdentifier owner:nil options:nil];
+            cell = [cells objectAtIndex:0];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        JFTopicInfo *topicInfo = self.dataSource[indexPath.row];
+        cell.topicInfo = topicInfo;
+        return cell;
+    }
     
     static NSString *cellIdentifier = @"CommodityViewCell";
     CommodityViewCell *cell = (CommodityViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
         cell = [cells objectAtIndex:0];
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     }
     
     JFCommodityInfo *commodityInfo = self.dataSource[indexPath.row];
@@ -196,6 +247,16 @@
     
     NSIndexPath* selIndexPath = [tableView indexPathForSelectedRow];
     [tableView deselectRowAtIndexPath:selIndexPath animated:YES];
+    
+    if (_selectIndex == _dataSourceMutDic.count-1) {
+        
+        JFTopicInfo *topicInfo = self.dataSource[indexPath.row];
+        
+        TopicDetailsViewController *topicDetailsVc = [[TopicDetailsViewController alloc] init];
+        topicDetailsVc.topicInfo = topicInfo;
+        [self.navigationController pushViewController:topicDetailsVc animated:YES];
+        return;
+    }
     
     JFCommodityInfo *commodityInfo = self.dataSource[indexPath.row];
     NSLog(@"commodityInfo.ID%@",commodityInfo.comId);
@@ -216,6 +277,11 @@
     
     [self customDataSourceWithTabAtIndex:anIndex isRefresh:NO];
     
+    if (_selectIndex == _dataSourceMutDic.count-1){
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }else{
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
     [self.tableView reloadData];
 }
 

@@ -9,5 +9,6 @@
 #ifndef WeiJiFen_JFHttpMacro_h
 #define WeiJiFen_JFHttpMacro_h
 
+#define WJF_Confirm @"79EF44D011ACB123CF6A918610EFC053"
 
 #endif

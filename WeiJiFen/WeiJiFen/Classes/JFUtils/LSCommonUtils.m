@@ -9,6 +9,17 @@
 #import "LSCommonUtils.h"
 #import "MBProgressHUD.h"
 
+/** check if object is empty
+ if an object is nil, NSNull, or length == 0, return True
+ */
+static inline BOOL FBIsEmpty(id thing)
+{
+    return thing == nil ||
+    ([thing isEqual:[NSNull null]]) ||
+    ([thing respondsToSelector:@selector(length)] && [(NSData *)thing length] == 0) ||
+    ([thing respondsToSelector:@selector(count)]  && [(NSArray *)thing count] == 0);
+}
+
 @implementation LSCommonUtils
 
 //是否为ios7及以上
@@ -33,6 +44,14 @@
 +(UIColor*)getProgramMainHueColor{
     UIColor *color = UIColorRGB(254,120,31);
     return color;
+}
+//标题颜色
++(UIColor*)getProgramMainTitleColor{
+    return UIColorRGB(103, 103, 103);
+}
+//灰色背景
++(UIColor*)getProgramMainDaryColor{
+    return UIColorRGB(238,238,238);
 }
 
 +(void)showWarningTip:(NSString *)tip At:(UIView *)view{
@@ -143,6 +162,57 @@
     NSDateComponents *comps = [calender components:unitFlags fromDate:date];
     ts = [NSString stringWithFormat:@"%04d-%02d-%02d %02d:%02d", comps.year, comps.month, comps.day, comps.hour, comps.minute];
     return ts;
+}
+
+#pragma mark - 时间处理
++ (NSString *)secondChangToDateString:(NSString *)dateStr {
+    
+    if (FBIsEmpty(dateStr)) {
+        return @"";
+    }
+    
+    long long time = [dateStr longLongValue];
+    
+    NSDate *date = [[NSDate alloc]initWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+    
+    NSString *timeString=[dateFormatter stringFromDate:date];
+    return timeString;
+}
+
++ (NSString *)secondChangToDate:(NSString *)dateStr {
+    
+    if (FBIsEmpty(dateStr)) {
+        return @"";
+    }
+    
+    long long time = [dateStr longLongValue];
+    
+    NSDate *date = [[NSDate alloc]initWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    
+    NSString * timeString=[dateFormatter stringFromDate:date];
+    
+    return timeString;
+}
+
++ (NSString *)secondChangToYearMonth:(NSString *)dateStr
+{
+    if (FBIsEmpty(dateStr)) {
+        return @"";
+    }
+    
+    long long time = [dateStr longLongValue];
+    
+    NSDate *date = [[NSDate alloc]initWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM";
+    
+    NSString * timeString=[dateFormatter stringFromDate:date];
+    
+    return timeString;
 }
 
 @end

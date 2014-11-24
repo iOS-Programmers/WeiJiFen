@@ -27,8 +27,7 @@
     
     objectForKey = [dic objectForKey:@"lastupdate"];
     if (objectForKey) {
-        NSDateFormatter *dateFormatter = [LSCommonUtils dateFormatterOFUS];
-        _crateDate = [dateFormatter dateFromString:objectForKey];
+        _crateDate = [objectForKey intValue];
     }
     
     _comState = [[dic objectForKey:@"state"] intValue];
@@ -53,7 +52,7 @@
         [self doSetCommodityInfoByDic:dic];
     }
     @catch (NSException *exception) {
-        NSLog(@"####LSFeedInfo setFeedInfoByDic exception:%@", exception);
+        NSLog(@"####JFCommodityInfo setCommodityInfoByDic exception:%@", exception);
     }
     
     _jsonString = [dic JSONString];

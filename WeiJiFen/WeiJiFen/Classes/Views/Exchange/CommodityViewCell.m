@@ -97,7 +97,7 @@
     frame.size.width = tmpLabelWidth;
     self.userNameLabel.frame = frame;
     
-    self.dateLabel.text = [LSCommonUtils dateDiscriptionFromDate:commodityInfo.crateDate];
+    self.dateLabel.text = [LSCommonUtils secondChangToDateString:[NSString stringWithFormat:@"%d",commodityInfo.crateDate]];
     
     //状态
     self.commodityStateBtn.backgroundColor = UIColorRGB(4, 185, 88);

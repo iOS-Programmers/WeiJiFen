@@ -17,6 +17,7 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 
 @property (nonatomic,readonly) NSString* baseUrl;
 
+@property(nonatomic, strong) NSString *confirm;
 @property(nonatomic, strong) NSString* token;
 @property(nonatomic, strong) NSString* userPassword;
 @property(nonatomic, strong) NSString* uid;
@@ -46,4 +47,9 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 - (BOOL)getCommodityListWithToken:(NSString *)token confirm:(NSString *)confirm type:(int)type page:(int)page pageSize:(int)pageSize tag:(int)tag;
 //商品详情
 - (BOOL)commodityShowWithToken:(NSString *)token confirm:(NSString *)confirm pId:(NSString *)pId tag:(int)tag;
+//帮助列表 社区交流 社区晒单
+- (BOOL)getHelpListWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId page:(int)page pageSize:(int)pageSize tag:(int)tag;
+//帖子详情
+- (BOOL)getHelpInfoWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId tId:(NSString *)tId tag:(int)tag;
+
 @end

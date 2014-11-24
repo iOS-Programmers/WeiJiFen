@@ -22,6 +22,14 @@
 		7E99AD6C1A19EA97007B7B09 /* jf_account_my_trophy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD661A19EA97007B7B09 /* jf_account_my_trophy@2x.png */; };
 		7E99AD6D1A19EA97007B7B09 /* jf_account_my_message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD671A19EA97007B7B09 /* jf_account_my_message@2x.png */; };
 		7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD681A19EA97007B7B09 /* jf_account_my_personal@2x.png */; };
+		7EA229341A2325F900BCAC25 /* JFTopicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA229331A2325F900BCAC25 /* JFTopicInfo.m */; };
+		7EA2293D1A232BAE00BCAC25 /* TopicViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2293B1A232BAE00BCAC25 /* TopicViewCell.m */; };
+		7EA2293E1A232BAE00BCAC25 /* TopicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2293C1A232BAE00BCAC25 /* TopicViewCell.xib */; };
+		7EA229441A237E2F00BCAC25 /* TopicDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA229421A237E2F00BCAC25 /* TopicDetailsViewController.m */; };
+		7EA229451A237E2F00BCAC25 /* TopicDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA229431A237E2F00BCAC25 /* TopicDetailsViewController.xib */; };
+		7EA229481A23853600BCAC25 /* JFCommentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA229471A23853600BCAC25 /* JFCommentInfo.m */; };
+		7EA2294C1A2394C000BCAC25 /* CommentInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2294A1A2394C000BCAC25 /* CommentInfoViewCell.m */; };
+		7EA2294D1A2394C000BCAC25 /* CommentInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2294B1A2394C000BCAC25 /* CommentInfoViewCell.xib */; };
 		7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */; };
 		7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */; };
 		7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */; };
@@ -163,6 +171,19 @@
 		7E99AD661A19EA97007B7B09 /* jf_account_my_trophy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_my_trophy@2x.png"; sourceTree = "<group>"; };
 		7E99AD671A19EA97007B7B09 /* jf_account_my_message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_my_message@2x.png"; sourceTree = "<group>"; };
 		7E99AD681A19EA97007B7B09 /* jf_account_my_personal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_my_personal@2x.png"; sourceTree = "<group>"; };
+		7EA229321A2325F900BCAC25 /* JFTopicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFTopicInfo.h; sourceTree = "<group>"; };
+		7EA229331A2325F900BCAC25 /* JFTopicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFTopicInfo.m; sourceTree = "<group>"; };
+		7EA2293A1A232BAE00BCAC25 /* TopicViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewCell.h; sourceTree = "<group>"; };
+		7EA2293B1A232BAE00BCAC25 /* TopicViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewCell.m; sourceTree = "<group>"; };
+		7EA2293C1A232BAE00BCAC25 /* TopicViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicViewCell.xib; sourceTree = "<group>"; };
+		7EA229411A237E2F00BCAC25 /* TopicDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicDetailsViewController.h; sourceTree = "<group>"; };
+		7EA229421A237E2F00BCAC25 /* TopicDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicDetailsViewController.m; sourceTree = "<group>"; };
+		7EA229431A237E2F00BCAC25 /* TopicDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicDetailsViewController.xib; sourceTree = "<group>"; };
+		7EA229461A23853600BCAC25 /* JFCommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCommentInfo.h; sourceTree = "<group>"; };
+		7EA229471A23853600BCAC25 /* JFCommentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCommentInfo.m; sourceTree = "<group>"; };
+		7EA229491A2394C000BCAC25 /* CommentInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfoViewCell.h; sourceTree = "<group>"; };
+		7EA2294A1A2394C000BCAC25 /* CommentInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfoViewCell.m; sourceTree = "<group>"; };
+		7EA2294B1A2394C000BCAC25 /* CommentInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInfoViewCell.xib; sourceTree = "<group>"; };
 		7EABF1A119ED12A4004FBEF7 /* JFBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTabBarController.h; sourceTree = "<group>"; };
 		7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTabBarController.m; sourceTree = "<group>"; };
 		7EABF1A419ED14F6004FBEF7 /* HTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseViewController.h; sourceTree = "<group>"; };
@@ -410,6 +431,23 @@
 			path = user;
 			sourceTree = "<group>";
 		};
+		7EA2293F1A237DA800BCAC25 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				7EA229411A237E2F00BCAC25 /* TopicDetailsViewController.h */,
+				7EA229421A237E2F00BCAC25 /* TopicDetailsViewController.m */,
+				7EA229431A237E2F00BCAC25 /* TopicDetailsViewController.xib */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		7EA229401A237DA800BCAC25 /* GainScore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GainScore;
+			sourceTree = "<group>";
+		};
 		7EABF19519ED0A04004FBEF7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,8 +473,8 @@
 			children = (
 				7EABF1A019ED1287004FBEF7 /* Main */,
 				7EABF1D519ED1D7F004FBEF7 /* Exchange */,
-				7EABF1D819ED1D8E004FBEF7 /* GainScore */,
-				7EABF1D719ED1D8E004FBEF7 /* Communit */,
+				7EA2293F1A237DA800BCAC25 /* Community */,
+				7EA229401A237DA800BCAC25 /* GainScore */,
 				7EABF1D619ED1D8E004FBEF7 /* Account */,
 				7EABF1E719EE260D004FBEF7 /* RegisterAndLogin */,
 			);
@@ -564,20 +602,6 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
-		7EABF1D719ED1D8E004FBEF7 /* Communit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Communit;
-			sourceTree = "<group>";
-		};
-		7EABF1D819ED1D8E004FBEF7 /* GainScore */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GainScore;
-			sourceTree = "<group>";
-		};
 		7EABF1E419EE0FEF004FBEF7 /* comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +723,10 @@
 				7EABF25519EF9CB0004FBEF7 /* JFUserInfo.m */,
 				7E32EB7A19F0C26C00FEAA66 /* JFCommodityInfo.h */,
 				7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */,
+				7EA229321A2325F900BCAC25 /* JFTopicInfo.h */,
+				7EA229331A2325F900BCAC25 /* JFTopicInfo.m */,
+				7EA229461A23853600BCAC25 /* JFCommentInfo.h */,
+				7EA229471A23853600BCAC25 /* JFCommentInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -834,6 +862,12 @@
 				7EBFD9DC19F507790003AA9E /* CommodityViewCell.h */,
 				7EBFD9DD19F507790003AA9E /* CommodityViewCell.m */,
 				7EBFD9DE19F507790003AA9E /* CommodityViewCell.xib */,
+				7EA2293A1A232BAE00BCAC25 /* TopicViewCell.h */,
+				7EA2293B1A232BAE00BCAC25 /* TopicViewCell.m */,
+				7EA2293C1A232BAE00BCAC25 /* TopicViewCell.xib */,
+				7EA229491A2394C000BCAC25 /* CommentInfoViewCell.h */,
+				7EA2294A1A2394C000BCAC25 /* CommentInfoViewCell.m */,
+				7EA2294B1A2394C000BCAC25 /* CommentInfoViewCell.xib */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1014,11 +1048,13 @@
 				7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */,
 				7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */,
 				7EF1E5241A008E2300112D2D /* AccountDetailsViewController.xib in Resources */,
+				7EA2293E1A232BAE00BCAC25 /* TopicViewCell.xib in Resources */,
 				7E99AD6C1A19EA97007B7B09 /* jf_account_my_trophy@2x.png in Resources */,
 				7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */,
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7EA229451A237E2F00BCAC25 /* TopicDetailsViewController.xib in Resources */,
 				7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */,
 				7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */,
 				7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */,
@@ -1030,6 +1066,7 @@
 				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
 				7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */,
 				7EABF1EC19EE268F004FBEF7 /* LoginViewController.xib in Resources */,
+				7EA2294D1A2394C000BCAC25 /* CommentInfoViewCell.xib in Resources */,
 				7EABF1CF19ED1C7B004FBEF7 /* CommunityViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1060,6 +1097,7 @@
 				7EABF22319EE4440004FBEF7 /* UIImage+WebP.m in Sources */,
 				C6B6977119ECF61C00F805F3 /* AppDelegate.m in Sources */,
 				7EABF1C419ED1B5C004FBEF7 /* ExchangeViewController.m in Sources */,
+				7EA2294C1A2394C000BCAC25 /* CommentInfoViewCell.m in Sources */,
 				7EABF2DC19EFD071004FBEF7 /* ASICloudFilesObject.m in Sources */,
 				7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */,
 				7EABF24119EF7691004FBEF7 /* PathHelper.m in Sources */,
@@ -1084,11 +1122,14 @@
 				7EABF21A19EE4440004FBEF7 /* SDWebImageCompat.m in Sources */,
 				7EABF2D519EFD071004FBEF7 /* ASIInputStream.m in Sources */,
 				7EABF2DF19EFD071004FBEF7 /* ASIS3Bucket.m in Sources */,
+				7EA229481A23853600BCAC25 /* JFCommentInfo.m in Sources */,
 				7EF1E5231A008E2300112D2D /* AccountDetailsViewController.m in Sources */,
+				7EA229441A237E2F00BCAC25 /* TopicDetailsViewController.m in Sources */,
 				7EABF21819EE4440004FBEF7 /* NSData+ImageContentType.m in Sources */,
 				7EABF2CF19EFD071004FBEF7 /* ASIAuthenticationDialog.m in Sources */,
 				7EABF21619EE4440004FBEF7 /* MKAnnotationView+WebCache.m in Sources */,
 				7EABF2E119EFD071004FBEF7 /* ASIS3BucketRequest.m in Sources */,
+				7EA2293D1A232BAE00BCAC25 /* TopicViewCell.m in Sources */,
 				7EABF21E19EE4440004FBEF7 /* SDWebImageManager.m in Sources */,
 				7EABF21C19EE4440004FBEF7 /* SDWebImageDownloader.m in Sources */,
 				7EABF24419EF76A3004FBEF7 /* URLHelper.m in Sources */,
@@ -1102,6 +1143,7 @@
 				7EABF27019EFC8B6004FBEF7 /* NSDictionary+objectForKey.m in Sources */,
 				7EABF1F019EE27D1004FBEF7 /* WeiJiFenEngine.m in Sources */,
 				7EABF24C19EF7938004FBEF7 /* LSActionSheet.m in Sources */,
+				7EA229341A2325F900BCAC25 /* JFTopicInfo.m in Sources */,
 				7EABF25319EF9AA2004FBEF7 /* JFLocalDataManager.m in Sources */,
 				7EABF2D219EFD071004FBEF7 /* ASIDownloadCache.m in Sources */,
 				7EABF23A19EE6FDC004FBEF7 /* JFTabBarItemView.m in Sources */,
