@@ -11,6 +11,17 @@
 
 @implementation CommentInfoViewCell
 
++(CGFloat)getCommentInfoViewCellHeight:(JFCommentInfo *)commentInfo{
+    CGFloat height = 0;
+    NSString *message = commentInfo.message;
+    CGFloat messageHeight = [message sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByCharWrapping].height;
+    
+    height += messageHeight;
+    height += 50;
+    height += 10;
+    
+    return height;
+}
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -29,6 +40,11 @@
     
     self.topicLabel.text = commentInfo.message;
     
+    CGRect frame = self.topicLabel.frame;
+    frame.size.width = self.frame.size.width - 10*2;
+    float textHeight = [self.topicLabel sizeThatFits:CGSizeMake(frame.size.width, CGFLOAT_MAX)].height;
+    frame.size.height = textHeight;
+    self.topicLabel.frame = frame;
 }
 
 @end

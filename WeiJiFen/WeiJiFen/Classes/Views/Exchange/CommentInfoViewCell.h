@@ -17,4 +17,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 
++(CGFloat)getCommentInfoViewCellHeight:(JFCommentInfo *)commentInfo;
+
 @end

@@ -242,7 +242,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     } else {
         request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:[URLHelper getURL:url queryParameters:params]]];
     }
-    [self addCommonHeaderToRequest:request];
+//    [self addCommonHeaderToRequest:request];
     
     if (requestMethod) {
         request.requestMethod = requestMethod;

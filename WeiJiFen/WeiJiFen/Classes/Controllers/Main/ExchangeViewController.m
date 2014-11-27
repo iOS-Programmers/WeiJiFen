@@ -254,6 +254,7 @@
         
         TopicDetailsViewController *topicDetailsVc = [[TopicDetailsViewController alloc] init];
         topicDetailsVc.topicInfo = topicInfo;
+        topicDetailsVc.isFromHelp = YES;
         [self.navigationController pushViewController:topicDetailsVc animated:YES];
         return;
     }

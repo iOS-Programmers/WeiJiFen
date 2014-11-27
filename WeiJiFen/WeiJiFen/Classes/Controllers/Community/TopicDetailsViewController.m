@@ -24,6 +24,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 
 @property (nonatomic, strong) IBOutlet UIView *priceContainerView;
+@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 @property (nonatomic, strong) IBOutlet UIButton *replyButton;
 @property (nonatomic, strong) IBOutlet UILabel *replyLabel;
 
@@ -34,7 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.title = @"帖子详情";
+    if (_isFromHelp) {
+        self.title = @"帮助详情";
+    }
     [self.tableView reloadData];
     [self refreshTopicInfo];
     [self refeshHeaderView];
@@ -65,12 +69,24 @@
     self.topicLabel.text = _topicInfo.subject;
     CGRect frame = self.topicLabel.frame;
     frame.size.width = self.view.frame.size.width - 10*2;
+//    self.topicLabel.frame = frame;
+    
     float textHeight = [self.topicLabel sizeThatFits:CGSizeMake(frame.size.width, CGFLOAT_MAX)].height;
     frame.size.height = textHeight;
-    self.view.frame = frame;
+    self.topicLabel.frame = frame;
+    
+    CGFloat replyButtonOriginY = self.topicLabel.frame.origin.y + self.topicLabel.frame.size.height;
+    self.priceContainerView.hidden = YES;
+    if (_isFromHelp) {
+        self.priceContainerView.hidden = NO;
+        frame = self.priceContainerView.frame;
+        frame.origin.y = self.topicLabel.frame.origin.y + self.topicLabel.frame.size.height + 25;
+        self.priceContainerView.frame = frame;
+        replyButtonOriginY = self.priceContainerView.frame.origin.y + self.priceContainerView.frame.size.height;
+    }
     
     frame = self.contentContainerView.frame;
-    frame.size.height = self.topicLabel.frame.origin.y + self.topicLabel.frame.size.height + 25 + self.replyButton.frame.size.height;
+    frame.size.height = replyButtonOriginY + 25 + self.replyButton.frame.size.height;
     self.contentContainerView.frame = frame;
     
     frame = self.replyLabel.frame;
@@ -112,7 +128,9 @@
     return _topicInfo.comments.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 72;
+    JFCommentInfo *commentInfo = _topicInfo.comments[indexPath.row];
+    
+    return [CommentInfoViewCell getCommentInfoViewCellHeight:commentInfo];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

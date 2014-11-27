@@ -30,6 +30,7 @@
 		7EA229481A23853600BCAC25 /* JFCommentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA229471A23853600BCAC25 /* JFCommentInfo.m */; };
 		7EA2294C1A2394C000BCAC25 /* CommentInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2294A1A2394C000BCAC25 /* CommentInfoViewCell.m */; };
 		7EA2294D1A2394C000BCAC25 /* CommentInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2294B1A2394C000BCAC25 /* CommentInfoViewCell.xib */; };
+		7EA2B4D01A2624D400FD2F71 /* jf_reward_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA2B4CF1A2624D400FD2F71 /* jf_reward_bg@2x.png */; };
 		7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */; };
 		7EABF1A619ED14F6004FBEF7 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EABF1A519ED14F6004FBEF7 /* HTBaseViewController.m */; };
 		7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EABF1A919ED15E8004FBEF7 /* 37x-Checkmark.png */; };
@@ -184,6 +185,7 @@
 		7EA229491A2394C000BCAC25 /* CommentInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfoViewCell.h; sourceTree = "<group>"; };
 		7EA2294A1A2394C000BCAC25 /* CommentInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfoViewCell.m; sourceTree = "<group>"; };
 		7EA2294B1A2394C000BCAC25 /* CommentInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInfoViewCell.xib; sourceTree = "<group>"; };
+		7EA2B4CF1A2624D400FD2F71 /* jf_reward_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_reward_bg@2x.png"; sourceTree = "<group>"; };
 		7EABF1A119ED12A4004FBEF7 /* JFBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTabBarController.h; sourceTree = "<group>"; };
 		7EABF1A219ED12A4004FBEF7 /* JFBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTabBarController.m; sourceTree = "<group>"; };
 		7EABF1A419ED14F6004FBEF7 /* HTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTBaseViewController.h; sourceTree = "<group>"; };
@@ -876,6 +878,7 @@
 			isa = PBXGroup;
 			children = (
 				7ED70C0319F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png */,
+				7EA2B4CF1A2624D400FD2F71 /* jf_reward_bg@2x.png */,
 			);
 			path = Commodity;
 			sourceTree = "<group>";
@@ -1041,6 +1044,7 @@
 				7EABF1AE19ED15E8004FBEF7 /* 37x-Checkmark@2x.png in Resources */,
 				7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */,
 				7EABF1CA19ED1BE4004FBEF7 /* GainScoreViewController.xib in Resources */,
+				7EA2B4D01A2624D400FD2F71 /* jf_reward_bg@2x.png in Resources */,
 				7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
 				7EBC3E391A0A181000E130F5 /* jf_sellercredit_icon@2x.png in Resources */,
