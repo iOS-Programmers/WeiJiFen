@@ -11,8 +11,14 @@
 #import "RegisterController.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet UIButton *rememberPWBtn;
 
--(IBAction)loginAction:(id)sender;
+- (IBAction)rememberPWAction:(id)sender;
+- (IBAction)loginAction:(id)sender;
+- (IBAction)registerAction:(id)sender;
+
 @end
 
 @implementation LoginViewController
@@ -38,8 +44,14 @@
 */
 
 #pragma mark - IBAction
+- (IBAction)rememberPWAction:(id)sender {
+}
+
 -(IBAction)loginAction:(id)sender{
     
+}
+
+- (IBAction)registerAction:(id)sender {
 }
 
 @end

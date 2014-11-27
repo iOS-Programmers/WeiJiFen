@@ -10,6 +10,13 @@
 
 @interface RegisterController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet UITextField *rePasswordTF;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTF;
+
+- (IBAction)registerAction:(id)sender;
+
 @end
 
 @implementation RegisterController
@@ -34,4 +41,6 @@
 }
 */
 
+- (IBAction)registerAction:(id)sender {
+}
 @end

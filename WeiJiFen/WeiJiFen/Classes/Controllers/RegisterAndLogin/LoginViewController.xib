@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="passwordTF" destination="NBX-bd-nfb" id="J41-K0-NDU"/>
+                <outlet property="rememberPWBtn" destination="F4R-LG-Oku" id="jdG-UW-kR2"/>
+                <outlet property="userNameTF" destination="Avt-do-Cwt" id="Ty5-IL-wsI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +18,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg.png" id="ROX-LI-oYb">
+                    <rect key="frame" x="0.0" y="8" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F4R-LG-Oku">
-                    <rect key="frame" x="60" y="236" width="78" height="16"/>
+                    <rect key="frame" x="37" y="265" width="78" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -24,9 +31,12 @@
                         <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="rememberPWAction:" destination="-1" eventType="touchUpInside" id="8Nv-Y1-w5A"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IEk-1u-fwu">
-                    <rect key="frame" x="33" y="281" width="255" height="32"/>
+                    <rect key="frame" x="33" y="294" width="255" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.88627450980392153" green="0.36078431372549019" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="登录">
@@ -40,25 +50,32 @@
                     <rect key="frame" x="113" y="53" width="95" height="95"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="Avt-do-Cwt">
-                    <rect key="frame" x="50" y="185" width="206" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="账号" minimumFontSize="17" id="Avt-do-Cwt">
+                    <rect key="frame" x="33" y="175" width="255" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.72549019607843135" green="0.61960784313725492" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bj1-0o-hTH">
-                    <rect key="frame" x="35" y="332" width="72" height="34"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bj1-0o-hTH">
+                    <rect key="frame" x="33" y="334" width="72" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="立即注册">
                         <color key="titleColor" red="0.8862745098" green="0.36078431370000003" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="registerAction:" destination="-1" eventType="touchUpInside" id="gYB-fb-Zmq"/>
+                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg.png" id="ROX-LI-oYb">
-                    <rect key="frame" x="0.0" y="8" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="密码" minimumFontSize="17" id="NBX-bd-nfb">
+                    <rect key="frame" x="33" y="223" width="255" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.72549019609999998" green="0.61960784310000006" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="140" y="154"/>
