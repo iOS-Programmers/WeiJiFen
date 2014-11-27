@@ -18,6 +18,7 @@
 
 static NSString* BASE_URL = @"http://www.wjf123.cn/data/attachment/forum/";
 static NSString* API_URL = @"http://www.wjf123.cn/wjfapi/index.php";//http://test2.api.hiwemeet.com
+//static NSString* API_URL = @"http://test2.api.hiwemeet.com";
 
 static WeiJiFenEngine* s_ShareInstance = nil;
 
@@ -306,6 +307,24 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 }
 
 #pragma mark - HttpRequest
+//test
+- (BOOL)querySysUserInfo:(NSString *)uid tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/common/system_user/show", @"http://test2.api.hiwemeet.com"];
+    NSMutableDictionary *pdic = [NSMutableDictionary dictionaryWithCapacity:1];
+    [pdic setObject:uid forKey:@"id"];
+   	ASIHTTPRequest* request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:[URLHelper getURL:url queryParameters:pdic]]];
+    [self addCommonHeaderToRequest:request];
+    request.requestMethod = @"GET";
+    request.timeOutSeconds = CONNECT_TIMEOUT;
+    request.tag = tag;
+    [request setDelegate:self];
+    [request setDidFinishSelector:@selector(requestFinished:)];
+    [request setDidFailSelector:@selector(requestFailed:)];
+    request.useCookiePersistence = NO;
+    [request startAsynchronous];
+    return YES;
+}
 
 - (BOOL)registerUserInfo:(NSString *)userName mobile:(NSString *)mobile password:(NSString *)password confirm:(NSString *)confirm tag:(int)tag {
     
@@ -401,9 +420,26 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if (fId) {
         [params setObject:fId forKey:@"fid"];
     }
-//    [params setObject:[NSNumber numberWithInt:fId] forKey:@"fid"];
     [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
     [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+}
+
+- (BOOL)getMyCommunityWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myCommunityTies", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+//    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
+//    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -426,6 +462,24 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if (tId) {
         [params setObject:tId forKey:@"tid"];
     }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+}
+
+- (BOOL)getWebTaskInfoWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/webtask", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
+    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;

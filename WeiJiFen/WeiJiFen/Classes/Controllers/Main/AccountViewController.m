@@ -8,11 +8,23 @@
 
 #import "AccountViewController.h"
 #import "AccountDetailsViewController.h"
+#import "UIImageView+WebCache.h"
+#import "JFUserInfo.h"
+#import "WeiJiFenEngine.h"
 
 @interface AccountViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) JFUserInfo *userInfo;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIView *headView;
+@property (nonatomic, strong) IBOutlet UIView *userContainerView;
+@property (nonatomic, strong) IBOutlet UIImageView *userAvatarImageView;
+@property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *userIntegralLabel;
+@property (nonatomic, strong) IBOutlet UIView *sellerCreditView;
+@property (nonatomic, strong) IBOutlet UIView *buyerCreditView;
+
+@property (nonatomic, strong) IBOutlet UIView *actionView;
 
 -(IBAction)myAccountAction:(id)sender;
 
@@ -23,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _userInfo = [[WeiJiFenEngine shareInstance] userInfo];
     [self refreshViewUI];
 }
 
@@ -43,6 +56,37 @@
 
 #pragma mark - Custom
 - (void)refreshViewUI{
+    
+    CGRect frame = self.userAvatarImageView.frame;
+    self.userAvatarImageView.layer.cornerRadius = frame.size.width/2;
+    self.userAvatarImageView.layer.masksToBounds = YES;
+    self.userAvatarImageView.clipsToBounds = YES;
+    self.userAvatarImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.userAvatarImageView sd_setImageWithURL:_userInfo.smallAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_taskcenter_mg.png"]];
+    
+    self.userNameLabel.text = _userInfo.nickName;
+    self.userIntegralLabel.text = [NSString stringWithFormat:@"可用微积分：%d",200];
+    
+    //卖家信誉
+    int credit = 3;
+    CGSize creditImageSize = CGSizeMake(12, 12);
+    for (UIView *view in self.sellerCreditView.subviews) {
+        [view removeFromSuperview];
+    }
+    for (int index = 0; index < credit; index ++ ) {
+        UIImageView *creditImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jf_sellercredit_icon.png"]];
+        creditImageView.frame = CGRectMake((creditImageSize.width+1)*index, (self.sellerCreditView.frame.size.height-creditImageSize.height)/2, creditImageSize.width, creditImageSize.height);
+        [self.sellerCreditView addSubview:creditImageView];
+    }
+    for (UIView *view in self.buyerCreditView.subviews) {
+        [view removeFromSuperview];
+    }
+    for (int index = 0; index < credit; index ++ ) {
+        UIImageView *creditImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jf_ buyercredit_icon.png"]];
+        creditImageView.frame = CGRectMake((creditImageSize.width+1)*index, (self.buyerCreditView.frame.size.height-creditImageSize.height)/2, creditImageSize.width, creditImageSize.height);
+        [self.buyerCreditView addSubview:creditImageView];
+    }
+    
     self.tableView.tableHeaderView = self.headView;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.tableView reloadData];

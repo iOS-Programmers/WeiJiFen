@@ -35,14 +35,18 @@
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-//    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
-    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf123" token:nil password:@"wjf5213344" confirm:@"4384CCFB0C21406F1533E46D1E2FDB5B" tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+//    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf123" token:@"54477065e7c62" password:@"wjf5213344" confirm:@"4384CCFB0C21406F1533E46D1E2FDB5B" tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
             return;
         }
+        NSDictionary *dataDic = [jsonRet objectForKey:@"data"];
+        JFUserInfo *userInfo = [[JFUserInfo alloc] init];
+        [userInfo setUserInfoByJsonDic:dataDic];
+        [[WeiJiFenEngine shareInstance] setUserInfo:userInfo];
         
     } tag:tag];
 }
@@ -82,6 +86,7 @@
 }
 */
 
+#pragma mark -custom
 - (void)refreshViewUI{
     if (_categoryTabView == nil) {
         
@@ -132,6 +137,7 @@
         [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
         
         if (_selectIndex == type) {
+            [_dataSource removeAllObjects];
             [_dataSource addObjectsFromArray:tmpMutArray];
             [self.tableView reloadData];
         }
@@ -151,7 +157,7 @@
             return;
         }
         
-        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
+        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];
         tmpMutArray = [[NSMutableArray alloc] init];
         
         NSMutableArray *tmpTopicArray = [jsonRet objectForKey:@"data"];
@@ -160,15 +166,15 @@
             [topicInfo setTopicInfoByDic:topicDic];
             [tmpMutArray addObject:topicInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:_selectIndex]];
+        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];
         
         if (_selectIndex == (_dataSourceMutDic.count - 1)) {
+            [_dataSource removeAllObjects];
             [_dataSource addObjectsFromArray:tmpMutArray];
         }
         [self.tableView reloadData];
         
     } tag:tag];
-    
 }
 
 -(NSMutableArray*)customDataSourceWithTabAtIndex:(NSInteger)anIndex isRefresh:(BOOL)isRefresh

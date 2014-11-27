@@ -12,6 +12,10 @@
 
 @property (nonatomic, strong) NSString* uid;
 @property (nonatomic, strong) NSString* nickName;
+@property (nonatomic, assign) int wjf;
+@property (nonatomic, assign) int buyercredit;
+@property (nonatomic, assign) int sellercredit;
+
 @property (nonatomic, strong) NSString* gender;//性别
 @property (nonatomic, strong) NSString* signature;//签名
 @property (nonatomic, strong) NSString* phone;

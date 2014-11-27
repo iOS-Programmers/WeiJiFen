@@ -17,4 +17,6 @@
 - (NSMutableArray *)getLocalCommodityArray;
 - (NSMutableArray *)getLocalCommodityArray2;
 
+- (NSMutableArray *)getTaskCenterData;
+
 @end

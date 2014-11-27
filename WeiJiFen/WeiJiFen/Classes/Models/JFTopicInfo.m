@@ -23,7 +23,7 @@
     
     id objectForKey = [dic objectForKey:@"author"];
     if (objectForKey) {
-        _author = objectForKey;
+        _author = [objectForKey description];
     }
     objectForKey = [dic objectForKey:@"authorid"];
     if (objectForKey) {

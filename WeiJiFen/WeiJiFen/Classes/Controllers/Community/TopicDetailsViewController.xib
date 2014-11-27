@@ -82,7 +82,7 @@
                         </button>
                         <view contentMode="scaleToFill" id="lnS-Nq-Beu">
                             <rect key="frame" x="110" y="0.0" width="99" height="99"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jf_reward_bg.png" id="8Qd-dp-Fjd">
                                     <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
