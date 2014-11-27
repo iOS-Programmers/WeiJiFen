@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "JFUserInfo.h"
 #import "WeiJiFenEngine.h"
+#import "FriendListController.h"
 
 @interface AccountViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -106,6 +107,10 @@
         }
             break;
         case 2:{
+            FriendListController *listVC = [[FriendListController alloc] init];
+            listVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:listVC animated:YES];
+
         }
             break;
         case 3:{

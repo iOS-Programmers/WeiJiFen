@@ -56,4 +56,11 @@
  *
  */
 + (NSString *)secondChangToYearMonth:(NSString *)dateStr;
+
+/**
+ *  16进制颜色转换
+ *
+ *  @param stringToConvert 16进制的颜色
+ */
++ (UIColor *)colorWithHexString:(NSString *) stringToConvert;
 @end

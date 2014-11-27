@@ -9,6 +9,7 @@
 #ifndef WeiJiFen_JFMacro_h
 #define WeiJiFen_JFMacro_h
 
+
 // UIKit 框架宏定义
 #import "JFUIKitMacro.h"
 
@@ -18,5 +19,8 @@
 #import "NSDictionary+objectForKey.h"
 
 #import "LSCommonUtils.h"
+
+//上拉刷新
+#import "MJRefresh.h"
 
 #endif

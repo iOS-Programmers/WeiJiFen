@@ -15,6 +15,14 @@
 		1665977B1A272CAC000CC4FE /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 166597791A272CAC000CC4FE /* RegisterController.xib */; };
 		1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977C1A272D61000CC4FE /* btn_normal@2x.png */; };
 		1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977D1A272D61000CC4FE /* btn_selected@2x.png */; };
+		16DE3E9D1A27885100F2D2B5 /* JFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */; };
+		16DE3EA71A27893700F2D2B5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */; };
+		16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EA21A27893700F2D2B5 /* MJRefreshBaseView.m */; };
+		16DE3EA91A27893700F2D2B5 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EA41A27893700F2D2B5 /* MJRefreshFooterView.m */; };
+		16DE3EAA1A27893700F2D2B5 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EA61A27893700F2D2B5 /* MJRefreshHeaderView.m */; };
+		16DE3EAE1A278B7B00F2D2B5 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EAC1A278B7B00F2D2B5 /* FriendListController.m */; };
+		16DE3EAF1A278B7B00F2D2B5 /* FriendListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DE3EAD1A278B7B00F2D2B5 /* FriendListController.xib */; };
+		16DE3EB11A278D4600F2D2B5 /* avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DE3EB01A278D4600F2D2B5 /* avatar@2x.png */; };
 		7E32EB6319EFD26A00FEAA66 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */; };
 		7E32EB6719EFD3C700FEAA66 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */; };
 		7E32EB7519F0BBE700FEAA66 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB6B19F0BBE700FEAA66 /* GMGridView.m */; };
@@ -188,6 +196,20 @@
 		166597791A272CAC000CC4FE /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		1665977C1A272D61000CC4FE /* btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_normal@2x.png"; sourceTree = "<group>"; };
 		1665977D1A272D61000CC4FE /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
+		16DE3E9B1A27885100F2D2B5 /* JFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTableViewController.h; sourceTree = "<group>"; };
+		16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTableViewController.m; sourceTree = "<group>"; };
+		16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		16DE3EA01A27893700F2D2B5 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		16DE3EA11A27893700F2D2B5 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		16DE3EA21A27893700F2D2B5 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		16DE3EA31A27893700F2D2B5 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		16DE3EA41A27893700F2D2B5 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		16DE3EA51A27893700F2D2B5 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		16DE3EA61A27893700F2D2B5 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		16DE3EAB1A278B7B00F2D2B5 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
+		16DE3EAC1A278B7B00F2D2B5 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
+		16DE3EAD1A278B7B00F2D2B5 /* FriendListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendListController.xib; sourceTree = "<group>"; };
+		16DE3EB01A278D4600F2D2B5 /* avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar@2x.png"; sourceTree = "<group>"; };
 		7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		7E32EB6919F0BBE700FEAA66 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
@@ -479,6 +501,21 @@
 			name = "login&register";
 			sourceTree = "<group>";
 		};
+		16DE3E9E1A27893700F2D2B5 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */,
+				16DE3EA01A27893700F2D2B5 /* MJRefresh.h */,
+				16DE3EA11A27893700F2D2B5 /* MJRefreshBaseView.h */,
+				16DE3EA21A27893700F2D2B5 /* MJRefreshBaseView.m */,
+				16DE3EA31A27893700F2D2B5 /* MJRefreshFooterView.h */,
+				16DE3EA41A27893700F2D2B5 /* MJRefreshFooterView.m */,
+				16DE3EA51A27893700F2D2B5 /* MJRefreshHeaderView.h */,
+				16DE3EA61A27893700F2D2B5 /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
 		7E32EB6819F0BBE700FEAA66 /* GMGridView */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +538,7 @@
 		7E99AD621A19EA83007B7B09 /* user */ = {
 			isa = PBXGroup;
 			children = (
+				16DE3EB01A278D4600F2D2B5 /* avatar@2x.png */,
 				7EA2B4FD1A2725DE00FD2F71 /* jf_login_btn_icon@2x.png */,
 				7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */,
 				7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */,
@@ -645,6 +683,8 @@
 				7EABF1D019ED1CC4004FBEF7 /* AccountViewController.h */,
 				7EABF1D119ED1CC4004FBEF7 /* AccountViewController.m */,
 				7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */,
+				16DE3E9B1A27885100F2D2B5 /* JFBaseTableViewController.h */,
+				16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -652,6 +692,7 @@
 		7EABF1A719ED1551004FBEF7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				16DE3E9E1A27893700F2D2B5 /* MJRefresh */,
 				7E32EB6819F0BBE700FEAA66 /* GMGridView */,
 				7EABF29219EFD071004FBEF7 /* ASIHttpRequest 1.8.1 */,
 				7EABF25719EF9EE5004FBEF7 /* JSONKit */,
@@ -714,6 +755,9 @@
 				7EF1E5201A008E2300112D2D /* AccountDetailsViewController.h */,
 				7EF1E5211A008E2300112D2D /* AccountDetailsViewController.m */,
 				7EF1E5221A008E2300112D2D /* AccountDetailsViewController.xib */,
+				16DE3EAB1A278B7B00F2D2B5 /* FriendListController.h */,
+				16DE3EAC1A278B7B00F2D2B5 /* FriendListController.m */,
+				16DE3EAD1A278B7B00F2D2B5 /* FriendListController.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1194,6 +1238,7 @@
 				7EA2B5001A276CBB00FD2F71 /* jf_public_posts_icon@2x.png in Resources */,
 				7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */,
 				166597751A272840000CC4FE /* loginBtn_bg@2x.png in Resources */,
+				16DE3EAF1A278B7B00F2D2B5 /* FriendListController.xib in Resources */,
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EA2B4EF1A26FDEC00FD2F71 /* jf_taskcenter_yy@2x.png in Resources */,
 				7EA2B4FE1A2725DE00FD2F71 /* jf_login_btn_icon@2x.png in Resources */,
@@ -1205,6 +1250,7 @@
 				7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */,
 				7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */,
 				7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */,
+				16DE3EA71A27893700F2D2B5 /* MJRefresh.bundle in Resources */,
 				7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */,
 				1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
@@ -1222,6 +1268,7 @@
 				7EABF1CF19ED1C7B004FBEF7 /* CommunityViewController.xib in Resources */,
 				166597721A272385000CC4FE /* login_icon@2x.png in Resources */,
 				7EA2B5021A27737300FD2F71 /* jf_mypost_no_tip@2x.png in Resources */,
+				16DE3EB11A278D4600F2D2B5 /* avatar@2x.png in Resources */,
 				7EA2B4D41A26F47100FD2F71 /* jf_avatar_default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1261,6 +1308,7 @@
 				7EABF2E319EFD071004FBEF7 /* ASIS3Request.m in Sources */,
 				7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */,
 				7EABF2DB19EFD071004FBEF7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				16DE3EAA1A27893700F2D2B5 /* MJRefreshHeaderView.m in Sources */,
 				7E32EB7619F0BBE700FEAA66 /* GMGridViewCell.m in Sources */,
 				7EABF2D619EFD071004FBEF7 /* ASINetworkQueue.m in Sources */,
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1282,7 +1330,9 @@
 				7EABF2DF19EFD071004FBEF7 /* ASIS3Bucket.m in Sources */,
 				7EA229481A23853600BCAC25 /* JFCommentInfo.m in Sources */,
 				7EF1E5231A008E2300112D2D /* AccountDetailsViewController.m in Sources */,
+				16DE3EAE1A278B7B00F2D2B5 /* FriendListController.m in Sources */,
 				7EA229441A237E2F00BCAC25 /* TopicDetailsViewController.m in Sources */,
+				16DE3EA91A27893700F2D2B5 /* MJRefreshFooterView.m in Sources */,
 				7EABF21819EE4440004FBEF7 /* NSData+ImageContentType.m in Sources */,
 				7EABF2CF19EFD071004FBEF7 /* ASIAuthenticationDialog.m in Sources */,
 				7EABF21619EE4440004FBEF7 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1302,10 +1352,12 @@
 				7EABF1F019EE27D1004FBEF7 /* WeiJiFenEngine.m in Sources */,
 				7EABF24C19EF7938004FBEF7 /* LSActionSheet.m in Sources */,
 				7EA229341A2325F900BCAC25 /* JFTopicInfo.m in Sources */,
+				16DE3E9D1A27885100F2D2B5 /* JFBaseTableViewController.m in Sources */,
 				7EABF25319EF9AA2004FBEF7 /* JFLocalDataManager.m in Sources */,
 				7EABF2D219EFD071004FBEF7 /* ASIDownloadCache.m in Sources */,
 				7EABF23A19EE6FDC004FBEF7 /* JFTabBarItemView.m in Sources */,
 				7EABF22919EE55C8004FBEF7 /* JFSuperBaseViewController.m in Sources */,
+				16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */,
 				7EABF22C19EE56C2004FBEF7 /* LSCommonUtils.m in Sources */,
 				7EABF21F19EE4440004FBEF7 /* SDWebImagePrefetcher.m in Sources */,
 				7EABF22019EE4440004FBEF7 /* UIButton+WebCache.m in Sources */,
