@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		166597701A272308000CC4FE /* login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665976F1A272308000CC4FE /* login_bg@2x.png */; };
+		166597721A272385000CC4FE /* login_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 166597711A272385000CC4FE /* login_icon@2x.png */; };
+		166597751A272840000CC4FE /* loginBtn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 166597731A272840000CC4FE /* loginBtn_bg@2x.png */; };
+		166597761A272840000CC4FE /* thirdLoginBtn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 166597741A272840000CC4FE /* thirdLoginBtn_bg@2x.png */; };
+		1665977A1A272CAC000CC4FE /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166597781A272CAC000CC4FE /* RegisterController.m */; };
+		1665977B1A272CAC000CC4FE /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 166597791A272CAC000CC4FE /* RegisterController.xib */; };
+		1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977C1A272D61000CC4FE /* btn_normal@2x.png */; };
+		1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977D1A272D61000CC4FE /* btn_selected@2x.png */; };
 		7E32EB6319EFD26A00FEAA66 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */; };
 		7E32EB6719EFD3C700FEAA66 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */; };
 		7E32EB7519F0BBE700FEAA66 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB6B19F0BBE700FEAA66 /* GMGridView.m */; };
@@ -148,6 +156,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1665976F1A272308000CC4FE /* login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_bg@2x.png"; sourceTree = "<group>"; };
+		166597711A272385000CC4FE /* login_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_icon@2x.png"; sourceTree = "<group>"; };
+		166597731A272840000CC4FE /* loginBtn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBtn_bg@2x.png"; sourceTree = "<group>"; };
+		166597741A272840000CC4FE /* thirdLoginBtn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thirdLoginBtn_bg@2x.png"; sourceTree = "<group>"; };
+		166597771A272CAC000CC4FE /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		166597781A272CAC000CC4FE /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		166597791A272CAC000CC4FE /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
+		1665977C1A272D61000CC4FE /* btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_normal@2x.png"; sourceTree = "<group>"; };
+		1665977D1A272D61000CC4FE /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
 		7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		7E32EB6919F0BBE700FEAA66 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
@@ -401,6 +418,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1665976E1A2722F8000CC4FE /* login&register */ = {
+			isa = PBXGroup;
+			children = (
+				1665977C1A272D61000CC4FE /* btn_normal@2x.png */,
+				1665977D1A272D61000CC4FE /* btn_selected@2x.png */,
+				166597731A272840000CC4FE /* loginBtn_bg@2x.png */,
+				166597741A272840000CC4FE /* thirdLoginBtn_bg@2x.png */,
+				1665976F1A272308000CC4FE /* login_bg@2x.png */,
+				166597711A272385000CC4FE /* login_icon@2x.png */,
+			);
+			name = "login&register";
+			sourceTree = "<group>";
+		};
 		7E32EB6819F0BBE700FEAA66 /* GMGridView */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +516,7 @@
 		7EABF19819ED0B68004FBEF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1665976E1A2722F8000CC4FE /* login&register */,
 				7E99AD621A19EA83007B7B09 /* user */,
 				7ED70C0219F78F1B0071E7FC /* Commodity */,
 				7EABF1E419EE0FEF004FBEF7 /* comment */,
@@ -620,6 +651,9 @@
 				7EABF1E819EE268F004FBEF7 /* LoginViewController.h */,
 				7EABF1E919EE268F004FBEF7 /* LoginViewController.m */,
 				7EABF1EA19EE268F004FBEF7 /* LoginViewController.xib */,
+				166597771A272CAC000CC4FE /* RegisterController.h */,
+				166597781A272CAC000CC4FE /* RegisterController.m */,
+				166597791A272CAC000CC4FE /* RegisterController.xib */,
 			);
 			path = RegisterAndLogin;
 			sourceTree = "<group>";
@@ -1040,6 +1074,7 @@
 			files = (
 				C6B6976B19ECF61C00F805F3 /* InfoPlist.strings in Resources */,
 				7EABF23719EE6E81004FBEF7 /* JFTabBarView.xib in Resources */,
+				1665977B1A272CAC000CC4FE /* RegisterController.xib in Resources */,
 				7E99AD6D1A19EA97007B7B09 /* jf_account_my_message@2x.png in Resources */,
 				7EABF1AE19ED15E8004FBEF7 /* 37x-Checkmark@2x.png in Resources */,
 				7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */,
@@ -1051,10 +1086,12 @@
 				7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */,
 				7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */,
 				7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */,
+				166597701A272308000CC4FE /* login_bg@2x.png in Resources */,
 				7EF1E5241A008E2300112D2D /* AccountDetailsViewController.xib in Resources */,
 				7EA2293E1A232BAE00BCAC25 /* TopicViewCell.xib in Resources */,
 				7E99AD6C1A19EA97007B7B09 /* jf_account_my_trophy@2x.png in Resources */,
 				7EABF2E519EFD071004FBEF7 /* README-GHUnit in Resources */,
+				166597751A272840000CC4FE /* loginBtn_bg@2x.png in Resources */,
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
@@ -1063,15 +1100,19 @@
 				7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */,
 				7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */,
 				7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */,
+				1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
 				7ED70C0419F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png in Resources */,
 				7EABF1E619EE1001004FBEF7 /* jf_message_icon@2x.png in Resources */,
 				7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */,
 				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
+				166597761A272840000CC4FE /* thirdLoginBtn_bg@2x.png in Resources */,
+				1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */,
 				7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */,
 				7EABF1EC19EE268F004FBEF7 /* LoginViewController.xib in Resources */,
 				7EA2294D1A2394C000BCAC25 /* CommentInfoViewCell.xib in Resources */,
 				7EABF1CF19ED1C7B004FBEF7 /* CommunityViewController.xib in Resources */,
+				166597721A272385000CC4FE /* login_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1114,6 +1155,7 @@
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
 				7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */,
 				7EABF21919EE4440004FBEF7 /* SDImageCache.m in Sources */,
+				1665977A1A272CAC000CC4FE /* RegisterController.m in Sources */,
 				7EBFD9DF19F507790003AA9E /* CommodityViewCell.m in Sources */,
 				7EABF2E419EFD071004FBEF7 /* ASIS3ServiceRequest.m in Sources */,
 				7EABF2D419EFD071004FBEF7 /* ASIHTTPRequest.m in Sources */,

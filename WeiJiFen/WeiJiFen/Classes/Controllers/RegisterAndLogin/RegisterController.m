@@ -1,21 +1,18 @@
 //
-//  LoginViewController.m
+//  RegisterController.m
 //  WeiJiFen
 //
-//  Created by 李 广军 on 14-10-15.
+//  Created by Jyh on 14/11/27.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "AccountDetailsViewController.h"
 #import "RegisterController.h"
 
-@interface LoginViewController ()
+@interface RegisterController ()
 
--(IBAction)loginAction:(id)sender;
 @end
 
-@implementation LoginViewController
+@implementation RegisterController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,10 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - IBAction
--(IBAction)loginAction:(id)sender{
-    
-}
 
 @end
