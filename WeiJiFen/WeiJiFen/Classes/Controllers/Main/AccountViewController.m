@@ -12,6 +12,7 @@
 #import "JFUserInfo.h"
 #import "WeiJiFenEngine.h"
 #import "FriendListController.h"
+#import "LoginViewController.h"
 
 @interface AccountViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -123,6 +124,11 @@
         }
             break;
         case 6:{
+            
+#warning 测试登录入口
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            loginVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:loginVC animated:YES];
         }
             break;
         default:

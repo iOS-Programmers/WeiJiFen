@@ -9,16 +9,7 @@
 #import "LSCommonUtils.h"
 #import "MBProgressHUD.h"
 
-/** check if object is empty
- if an object is nil, NSNull, or length == 0, return True
- */
-static inline BOOL FBIsEmpty(id thing)
-{
-    return thing == nil ||
-    ([thing isEqual:[NSNull null]]) ||
-    ([thing respondsToSelector:@selector(length)] && [(NSData *)thing length] == 0) ||
-    ([thing respondsToSelector:@selector(count)]  && [(NSArray *)thing count] == 0);
-}
+
 
 @implementation LSCommonUtils
 

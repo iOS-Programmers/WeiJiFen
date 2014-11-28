@@ -20,6 +20,7 @@
     self.title = @"好友列表";
     
     self.tableView.rowHeight = 50;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +47,7 @@
         
         UIImageView *topBg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
         topBg.backgroundColor = [LSCommonUtils colorWithHexString:@"eeeeee"];
+        [cell.contentView addSubview:topBg];
     }
     
     cell.imageView.image = [UIImage imageNamed:@"avatar.png"];

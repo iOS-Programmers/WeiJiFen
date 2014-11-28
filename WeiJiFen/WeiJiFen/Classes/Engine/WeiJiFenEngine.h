@@ -31,6 +31,15 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 - (void)saveAccount;
 - (void)logout;
 
+/**
+ *  登录成功后，保存用户token，后面的所有接口请求用到
+ *
+ *  @param str token
+ */
++ (void)saveUserToken:(NSString *)str;
+
++ (NSString *)userToken;
+
 #pragma mark -Delegate
 - (int)getConnectTag;
 - (void)addOnAppServiceBlock:(onAppServiceBlock)block tag:(NSInteger)tag;

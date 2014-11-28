@@ -74,6 +74,26 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 }
 
 #pragma mark - userInfo
+
+/**
+ *  登录成功后，保存用户token，后面的所有接口请求用到
+ *
+ *  @param str token
+ */
++ (void)saveUserToken:(NSString *)str
+{
+    if (!FBIsEmpty(str))
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:str forKey:@"jf_token"];
+    }
+}
+
++ (NSString *)userToken
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"jf_token"];
+}
+
+
 - (void)setUserInfo:(JFUserInfo *)userInfo{
     _userInfo = userInfo;
     [[NSNotificationCenter defaultCenter] postNotificationName:LS_USERINFO_CHANGED_NOTIFICATION object:self];

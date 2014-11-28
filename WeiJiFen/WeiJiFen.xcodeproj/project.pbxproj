@@ -15,6 +15,8 @@
 		1665977B1A272CAC000CC4FE /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 166597791A272CAC000CC4FE /* RegisterController.xib */; };
 		1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977C1A272D61000CC4FE /* btn_normal@2x.png */; };
 		1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977D1A272D61000CC4FE /* btn_selected@2x.png */; };
+		16CA4CE01A2821E900E4E738 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CDF1A2821E900E4E738 /* SSKeychain.m */; };
+		16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CA4CE11A28221900E4E738 /* Security.framework */; };
 		16DE3E9D1A27885100F2D2B5 /* JFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */; };
 		16DE3EA71A27893700F2D2B5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */; };
 		16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EA21A27893700F2D2B5 /* MJRefreshBaseView.m */; };
@@ -199,6 +201,9 @@
 		166597791A272CAC000CC4FE /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		1665977C1A272D61000CC4FE /* btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_normal@2x.png"; sourceTree = "<group>"; };
 		1665977D1A272D61000CC4FE /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
+		16CA4CDE1A2821E900E4E738 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		16CA4CDF1A2821E900E4E738 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		16CA4CE11A28221900E4E738 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		16DE3E9B1A27885100F2D2B5 /* JFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTableViewController.h; sourceTree = "<group>"; };
 		16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTableViewController.m; sourceTree = "<group>"; };
 		16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -471,6 +476,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */,
 				7E32EB6719EFD3C700FEAA66 /* libiconv.dylib in Frameworks */,
 				7E32EB6319EFD26A00FEAA66 /* libxml2.dylib in Frameworks */,
 				7EABF26A19EFAFA9004FBEF7 /* SystemConfiguration.framework in Frameworks */,
@@ -508,6 +514,15 @@
 				166597711A272385000CC4FE /* login_icon@2x.png */,
 			);
 			name = "login&register";
+			sourceTree = "<group>";
+		};
+		16CA4CDD1A2821E900E4E738 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				16CA4CDE1A2821E900E4E738 /* SSKeychain.h */,
+				16CA4CDF1A2821E900E4E738 /* SSKeychain.m */,
+			);
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 		16DE3E9E1A27893700F2D2B5 /* MJRefresh */ = {
@@ -713,6 +728,7 @@
 		7EABF1A719ED1551004FBEF7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				16CA4CDD1A2821E900E4E738 /* SSKeychain */,
 				16DE3E9E1A27893700F2D2B5 /* MJRefresh */,
 				7E6195081A27991E004635D4 /* SVPullToRefresh */,
 				7E32EB6819F0BBE700FEAA66 /* GMGridView */,
@@ -1095,6 +1111,7 @@
 		C6B6975F19ECF61C00F805F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16CA4CE11A28221900E4E738 /* Security.framework */,
 				7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */,
 				7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */,
 				7EABF26919EFAFA9004FBEF7 /* SystemConfiguration.framework */,
@@ -1353,6 +1370,7 @@
 				7EA2B4FA1A27160300FD2F71 /* JFTaskInfo.m in Sources */,
 				7EABF2DF19EFD071004FBEF7 /* ASIS3Bucket.m in Sources */,
 				7EA229481A23853600BCAC25 /* JFCommentInfo.m in Sources */,
+				16CA4CE01A2821E900E4E738 /* SSKeychain.m in Sources */,
 				7EF1E5231A008E2300112D2D /* AccountDetailsViewController.m in Sources */,
 				16DE3EAE1A278B7B00F2D2B5 /* FriendListController.m in Sources */,
 				7EA229441A237E2F00BCAC25 /* TopicDetailsViewController.m in Sources */,
