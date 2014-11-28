@@ -505,4 +505,19 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     return YES;
 }
 
+- (BOOL)getFriendListWithTag:(int)tag
+{
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myFriends", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+
+}
+
 @end

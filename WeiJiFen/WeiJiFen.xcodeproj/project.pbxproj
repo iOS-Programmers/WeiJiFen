@@ -17,6 +17,7 @@
 		1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977D1A272D61000CC4FE /* btn_selected@2x.png */; };
 		16CA4CE01A2821E900E4E738 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CDF1A2821E900E4E738 /* SSKeychain.m */; };
 		16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CA4CE11A28221900E4E738 /* Security.framework */; };
+		16CA4CE51A28643100E4E738 /* JFFriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CE41A28643100E4E738 /* JFFriendList.m */; };
 		16DE3E9D1A27885100F2D2B5 /* JFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */; };
 		16DE3EA71A27893700F2D2B5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */; };
 		16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EA21A27893700F2D2B5 /* MJRefreshBaseView.m */; };
@@ -204,6 +205,8 @@
 		16CA4CDE1A2821E900E4E738 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		16CA4CDF1A2821E900E4E738 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		16CA4CE11A28221900E4E738 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		16CA4CE31A28643100E4E738 /* JFFriendList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFriendList.h; sourceTree = "<group>"; };
+		16CA4CE41A28643100E4E738 /* JFFriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFriendList.m; sourceTree = "<group>"; };
 		16DE3E9B1A27885100F2D2B5 /* JFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTableViewController.h; sourceTree = "<group>"; };
 		16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTableViewController.m; sourceTree = "<group>"; };
 		16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -935,6 +938,8 @@
 				7EA229471A23853600BCAC25 /* JFCommentInfo.m */,
 				7EA2B4F81A27160300FD2F71 /* JFTaskInfo.h */,
 				7EA2B4F91A27160300FD2F71 /* JFTaskInfo.m */,
+				16CA4CE31A28643100E4E738 /* JFFriendList.h */,
+				16CA4CE41A28643100E4E738 /* JFFriendList.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1373,6 +1378,7 @@
 				16CA4CE01A2821E900E4E738 /* SSKeychain.m in Sources */,
 				7EF1E5231A008E2300112D2D /* AccountDetailsViewController.m in Sources */,
 				16DE3EAE1A278B7B00F2D2B5 /* FriendListController.m in Sources */,
+				16CA4CE51A28643100E4E738 /* JFFriendList.m in Sources */,
 				7EA229441A237E2F00BCAC25 /* TopicDetailsViewController.m in Sources */,
 				16DE3EA91A27893700F2D2B5 /* MJRefreshFooterView.m in Sources */,
 				7EABF21819EE4440004FBEF7 /* NSData+ImageContentType.m in Sources */,

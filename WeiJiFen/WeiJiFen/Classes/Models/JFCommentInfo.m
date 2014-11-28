@@ -9,6 +9,7 @@
 #import "JFCommentInfo.h"
 
 @implementation JFCommentInfo
+
 - (void)setCommentInfoByDic:(NSDictionary*)dic{
     if (![dic isKindOfClass:[NSDictionary class]]) {
         return;

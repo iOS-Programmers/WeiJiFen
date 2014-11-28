@@ -7,6 +7,8 @@
 //
 
 #import "FriendListController.h"
+#import "JFFriendList.h"
+
 
 @interface FriendListController ()
 
@@ -21,6 +23,42 @@
     
     self.tableView.rowHeight = 50;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self loadDataSource];
+}
+
+- (void)loadDataSource
+{
+    __weak FriendListController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] getFriendListWithTag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            //            return;
+        }
+        
+        //        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];
+//        NSMutableArray *tmpMutArray = [[NSMutableArray alloc] init];
+        
+        
+        NSMutableArray *tmpFriendArray = [jsonRet objectForKey:@"data"];
+        
+        for (NSDictionary* commentDic in tmpFriendArray) {
+            JFFriendList* commentnfo = [[JFFriendList alloc] init];
+            [commentnfo setFriendListInfoByDic:commentDic];
+            [weakSelf.dataSource addObject:commentnfo];
+        }
+        
+        /**
+         *  这里去加载好友信息
+         */
+        
+        [weakSelf.tableView reloadData];
+
+        
+    } tag:tag];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,10 +70,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.dataSource count];
     
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -50,20 +87,26 @@
         [cell.contentView addSubview:topBg];
     }
     
+    JFFriendList *info = self.dataSource[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:info.avatar]];
+    
     cell.imageView.image = [UIImage imageNamed:@"avatar.png"];
     
-    BOOL isOnLine;
-    if (isOnLine) {
+
+    if ([info.state isEqualToString:@"1"]) {
         cell.textLabel.textColor = [LSCommonUtils colorWithHexString:@"fd7a20"];
+        
+        cell.detailTextLabel.text = @"【在线】";
     }
     else {
         cell.textLabel.textColor = [LSCommonUtils colorWithHexString:@"686868"];
+        
+        cell.detailTextLabel.text = @"【离线】";
     }
     
-    cell.textLabel.text = @"董家大小姐";
+    cell.textLabel.text = info.fusername;
     
     cell.detailTextLabel.textColor = [LSCommonUtils colorWithHexString:@"949494"];
-    cell.detailTextLabel.text = @"【离线】";
     
     
     return cell;

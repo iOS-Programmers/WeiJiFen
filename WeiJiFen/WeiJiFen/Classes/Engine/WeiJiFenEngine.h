@@ -65,4 +65,7 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 //网站任务
 - (BOOL)getWebTaskInfoWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag;
 
+//好友列表
+- (BOOL)getFriendListWithTag:(int)tag;
+
 @end

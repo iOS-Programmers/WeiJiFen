@@ -29,4 +29,6 @@
 //
 #import "WeiJiFenEngine.h"
 
+#import "UIImageView+WebCache.h"
+
 #endif
