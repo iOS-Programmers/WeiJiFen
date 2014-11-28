@@ -13,6 +13,7 @@
 #import "WeiJiFenEngine.h"
 #import "FriendListController.h"
 #import "LoginViewController.h"
+#import "MessageListViewController.h"
 
 @interface AccountViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -121,14 +122,17 @@
         }
             break;
         case 5:{
-        }
-            break;
-        case 6:{
-            
 #warning 测试登录入口
             LoginViewController *loginVC = [[LoginViewController alloc] init];
             loginVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:loginVC animated:YES];
+        }
+            break;
+        case 6:{
+            MessageListViewController *listVC = [[MessageListViewController alloc] init];
+            listVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:listVC animated:YES];
+
         }
             break;
         default:

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JFTaskInfo.h"
+#import "JFMessageInfo.h"
 
 @interface TaskCenterViewCell : UITableViewCell
 
@@ -21,5 +22,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *applyButton;
 
 @property (nonatomic, assign) BOOL isWebTask;
+
+//消息cell
+@property (nonatomic, strong) JFMessageInfo *messageInfo;
 
 @end

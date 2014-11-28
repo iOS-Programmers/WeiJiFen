@@ -14,9 +14,11 @@
 - (void)login;
 - (void)logout;
 
+- (NSMutableArray *)getTaskCenterData;
+
 - (NSMutableArray *)getLocalCommodityArray;
 - (NSMutableArray *)getLocalCommodityArray2;
-
-- (NSMutableArray *)getTaskCenterData;
+- (NSDictionary *)getTESTuserMsg;
+- (NSMutableArray *)getTESTSystemMsg;
 
 @end

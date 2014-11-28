@@ -64,6 +64,11 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 - (BOOL)getHelpInfoWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId tId:(NSString *)tId tag:(int)tag;
 //网站任务
 - (BOOL)getWebTaskInfoWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag;
+#pragma mark - account
+//用户消息
+- (BOOL)getUserMessagesWithToken:(NSString *)token confirm:(NSString *)confirm tag:(int)tag;
+//系统消息
+- (BOOL)getSystemMessagesWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag;
 
 //好友列表
 - (BOOL)getFriendListWithTag:(int)tag;

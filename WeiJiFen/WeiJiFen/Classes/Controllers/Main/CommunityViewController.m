@@ -261,7 +261,7 @@
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
-//            return;
+            return;
         }
         
 //        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广告平台" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Cw-vU-DA3">
-                        <rect key="frame" x="65" y="13" width="200" height="21"/>
+                        <rect key="frame" x="65" y="13" width="130" height="21"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vk9-Cr-Vqk">
-                        <rect key="frame" x="250" y="14" width="42" height="21"/>
+                        <rect key="frame" x="192" y="12" width="100" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.99607843139999996" green="0.47058823529999999" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,8 +46,8 @@
                         <color key="textColor" red="0.99607843139999996" green="0.47058823529999999" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Yi6-iA-6QC">
-                        <rect key="frame" x="298" y="18" width="12" height="12"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jf_right_arrows_icon.png" id="Yi6-iA-6QC">
+                        <rect key="frame" x="298" y="15" width="15" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vrz-Tp-7WV">
@@ -74,6 +74,7 @@
     </objects>
     <resources>
         <image name="jf_login_btn_icon.png" width="11" height="7"/>
+        <image name="jf_right_arrows_icon.png" width="15" height="15"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

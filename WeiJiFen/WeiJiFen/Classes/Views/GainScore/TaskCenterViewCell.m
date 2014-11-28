@@ -51,4 +51,29 @@
     self.taskAvatarImageView.frame = frame;
 }
 
+-(void)setMessageInfo:(JFMessageInfo *)messageInfo{
+    _messageInfo = messageInfo;
+    
+    
+    
+    [self.taskAvatarImageView sd_setImageWithURL:messageInfo.avatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
+    
+    self.taskTitleLabel.text = messageInfo.userName;
+    self.taskbriefLabel.text = messageInfo.message;
+    self.taskPriceLabel.text = [LSCommonUtils secondChangToDateString:[NSString stringWithFormat:@"%d",messageInfo.dateline]];
+    
+    CGRect frame = self.taskAvatarImageView.frame;
+    frame.size.width = 45;
+    self.taskAvatarImageView.frame = frame;
+    
+    frame = self.taskPriceLabel.frame;
+    frame.size.width = 100;
+    self.taskPriceLabel.frame = frame;
+    
+    self.webTaskPriceLabel.hidden = YES;
+    self.taskPriceLabel.hidden = NO;
+    self.indicationImageView.hidden = YES;
+    self.applyButton.hidden = YES;
+}
+
 @end

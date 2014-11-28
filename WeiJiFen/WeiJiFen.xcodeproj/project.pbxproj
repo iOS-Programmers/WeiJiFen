@@ -37,6 +37,10 @@
 		7E32EB8419F0F0BE00FEAA66 /* JFCategoryTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */; };
 		7E61950E1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61950B1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.m */; };
 		7E61950F1A27991E004635D4 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61950D1A27991E004635D4 /* UIScrollView+SVPullToRefresh.m */; };
+		7E6195131A28563F004635D4 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195111A28563F004635D4 /* MessageListViewController.m */; };
+		7E6195141A28563F004635D4 /* MessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195121A28563F004635D4 /* MessageListViewController.xib */; };
+		7E6195171A2864CA004635D4 /* JFMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195161A2864CA004635D4 /* JFMessageInfo.m */; };
+		7E6195191A2872E2004635D4 /* jf_right_arrows_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195181A2872E2004635D4 /* jf_right_arrows_icon@2x.png */; };
 		7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */; };
 		7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */; };
 		7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */; };
@@ -244,6 +248,12 @@
 		7E61950B1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		7E61950C1A27991E004635D4 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		7E61950D1A27991E004635D4 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		7E6195101A28563F004635D4 /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListViewController.h; sourceTree = "<group>"; };
+		7E6195111A28563F004635D4 /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListViewController.m; sourceTree = "<group>"; };
+		7E6195121A28563F004635D4 /* MessageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListViewController.xib; sourceTree = "<group>"; };
+		7E6195151A2864CA004635D4 /* JFMessageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMessageInfo.h; sourceTree = "<group>"; };
+		7E6195161A2864CA004635D4 /* JFMessageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFMessageInfo.m; sourceTree = "<group>"; };
+		7E6195181A2872E2004635D4 /* jf_right_arrows_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_right_arrows_icon@2x.png"; sourceTree = "<group>"; };
 		7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_friendlist@2x.png"; sourceTree = "<group>"; };
 		7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_toplist@2x.png"; sourceTree = "<group>"; };
 		7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_promotion@2x.png"; sourceTree = "<group>"; };
@@ -799,6 +809,9 @@
 				16DE3EAB1A278B7B00F2D2B5 /* FriendListController.h */,
 				16DE3EAC1A278B7B00F2D2B5 /* FriendListController.m */,
 				16DE3EAD1A278B7B00F2D2B5 /* FriendListController.xib */,
+				7E6195101A28563F004635D4 /* MessageListViewController.h */,
+				7E6195111A28563F004635D4 /* MessageListViewController.m */,
+				7E6195121A28563F004635D4 /* MessageListViewController.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -806,6 +819,7 @@
 		7EABF1E419EE0FEF004FBEF7 /* comment */ = {
 			isa = PBXGroup;
 			children = (
+				7E6195181A2872E2004635D4 /* jf_right_arrows_icon@2x.png */,
 				7EA2B5031A27947E00FD2F71 /* jf_topic_reply_icon@2x.png */,
 				7EA2B4D31A26F47100FD2F71 /* jf_avatar_default@2x.png */,
 				7EABF1E519EE1001004FBEF7 /* jf_message_icon@2x.png */,
@@ -940,6 +954,8 @@
 				7EA2B4F91A27160300FD2F71 /* JFTaskInfo.m */,
 				16CA4CE31A28643100E4E738 /* JFFriendList.h */,
 				16CA4CE41A28643100E4E738 /* JFFriendList.m */,
+				7E6195151A2864CA004635D4 /* JFMessageInfo.h */,
+				7E6195161A2864CA004635D4 /* JFMessageInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1253,6 +1269,7 @@
 				C6B6976B19ECF61C00F805F3 /* InfoPlist.strings in Resources */,
 				7EA2B4EE1A26FDEC00FD2F71 /* jf_taskcenter_ycm@2x.png in Resources */,
 				7EABF23719EE6E81004FBEF7 /* JFTabBarView.xib in Resources */,
+				7E6195191A2872E2004635D4 /* jf_right_arrows_icon@2x.png in Resources */,
 				1665977B1A272CAC000CC4FE /* RegisterController.xib in Resources */,
 				7E99AD6D1A19EA97007B7B09 /* jf_account_my_message@2x.png in Resources */,
 				7EA2B4E51A26FDEC00FD2F71 /* jf_taskcenter_dr@2x.png in Resources */,
@@ -1288,6 +1305,7 @@
 				7EABF1E319ED2788004FBEF7 /* jf_tab_gainscore@2x.png in Resources */,
 				7EA2B4EF1A26FDEC00FD2F71 /* jf_taskcenter_yy@2x.png in Resources */,
 				7EA2B4FE1A2725DE00FD2F71 /* jf_login_btn_icon@2x.png in Resources */,
+				7E6195141A28563F004635D4 /* MessageListViewController.xib in Resources */,
 				7EA2B4EB1A26FDEC00FD2F71 /* jf_taskcenter_weip@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EA2B4E81A26FDEC00FD2F71 /* jf_taskcenter_lm@2x.png in Resources */,
@@ -1346,6 +1364,7 @@
 				C6B6977119ECF61C00F805F3 /* AppDelegate.m in Sources */,
 				7EABF1C419ED1B5C004FBEF7 /* ExchangeViewController.m in Sources */,
 				7EA2294C1A2394C000BCAC25 /* CommentInfoViewCell.m in Sources */,
+				7E6195171A2864CA004635D4 /* JFMessageInfo.m in Sources */,
 				7EABF2DC19EFD071004FBEF7 /* ASICloudFilesObject.m in Sources */,
 				7EABF1A319ED12A4004FBEF7 /* JFBaseTabBarController.m in Sources */,
 				7EA2B4F61A270C5D00FD2F71 /* TaskCenterViewCell.m in Sources */,
@@ -1382,6 +1401,7 @@
 				7EA229441A237E2F00BCAC25 /* TopicDetailsViewController.m in Sources */,
 				16DE3EA91A27893700F2D2B5 /* MJRefreshFooterView.m in Sources */,
 				7EABF21819EE4440004FBEF7 /* NSData+ImageContentType.m in Sources */,
+				7E6195131A28563F004635D4 /* MessageListViewController.m in Sources */,
 				7EABF2CF19EFD071004FBEF7 /* ASIAuthenticationDialog.m in Sources */,
 				7EABF21619EE4440004FBEF7 /* MKAnnotationView+WebCache.m in Sources */,
 				7EABF2E119EFD071004FBEF7 /* ASIS3BucketRequest.m in Sources */,

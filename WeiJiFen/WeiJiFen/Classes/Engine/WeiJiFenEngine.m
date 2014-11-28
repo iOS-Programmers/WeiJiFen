@@ -517,7 +517,42 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
-
+}
+#pragma mark - account
+//用户消息
+- (BOOL)getUserMessagesWithToken:(NSString *)token confirm:(NSString *)confirm tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/privatepm", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+//系统消息
+- (BOOL)getSystemMessagesWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/systempm", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (token){
+        [params setObject:token forKey:@"token"];
+    }
+    if (confirm){
+        [params setObject:confirm forKey:@"confirm"];
+    }
+    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
+    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
 }
 
 @end
