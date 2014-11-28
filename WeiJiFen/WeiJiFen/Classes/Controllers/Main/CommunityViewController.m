@@ -12,6 +12,7 @@
 #import "JFTopicInfo.h"
 #import "TopicViewCell.h"
 #import "TopicDetailsViewController.h"
+#import "SVPullToRefresh.h"
 
 @interface CommunityViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) IBOutlet UIView *myCommunityNoTipView;
 
 @property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, assign) int nextPage;
 
 @end
 
@@ -35,10 +37,73 @@
     _dataSourceMutDic = [[NSMutableDictionary alloc] init];
     _dataSource = [[NSMutableArray alloc] init];
     _selectIndex = 0;
+    self.nextPage = 1;
     [self refreshTipView];
     
     [self refreshViewUI];
     [self refreshTopicInfo:0];
+    
+    __weak CommunityViewController *weakSelf = self;
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        if (!weakSelf) {
+            return;
+        }
+        
+        if (weakSelf.nextPage == -1) {
+            [weakSelf.tableView.infiniteScrollingView stopAnimating];
+            weakSelf.tableView.showsInfiniteScrolling = NO;
+            return;
+        }
+        
+        NSInteger type = weakSelf.selectIndex;
+        NSString *fID = @"2";
+        if (type == 0) {
+            fID = @"2";//交流
+        }else if (type == 1){
+            fID = @"66";//晒单
+        }
+        int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+        [[WeiJiFenEngine shareInstance] getHelpListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm fId:fID page:weakSelf.nextPage pageSize:10 tag:tag];
+        [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+            if (!weakSelf) {
+                return;
+            }
+            [weakSelf.tableView.infiniteScrollingView stopAnimating];
+            
+            NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+            if (!jsonRet || errorMsg) {
+                [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+                return;
+            }
+            
+            NSMutableArray *tmpMutArray = [NSMutableArray arrayWithArray:[weakSelf.dataSourceMutDic objectForKey:[NSNumber numberWithInteger:weakSelf.selectIndex]]];
+            NSMutableArray *tmpTopicArray = (NSMutableArray *)[jsonRet arrayObjectForKey:@"data"];
+            for (NSDictionary *topicDic in tmpTopicArray) {
+                JFTopicInfo *topicInfo = [[JFTopicInfo alloc] init];
+                [topicInfo setTopicInfoByDic:topicDic];
+                [tmpMutArray addObject:topicInfo];
+            }
+            [weakSelf.dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
+            
+            if (weakSelf.selectIndex == type) {
+                [weakSelf.dataSource removeAllObjects];
+                [weakSelf.dataSource addObjectsFromArray:tmpMutArray];
+            }
+            [weakSelf.tableView reloadData];
+            
+            if (type == 0) {
+                if (!tmpTopicArray || tmpTopicArray.count == 0) {
+                    weakSelf.nextPage = -1;
+                    weakSelf.tableView.showsInfiniteScrolling = NO;
+                }else{
+                    weakSelf.nextPage ++;
+                    weakSelf.tableView.showsInfiniteScrolling = YES;
+                }
+            }
+            
+        } tag:tag];
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -158,22 +223,31 @@
             return;
         }
         
-        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
+        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:weakSelf.selectIndex]];
         tmpMutArray = [[NSMutableArray alloc] init];
         
-        NSMutableArray *tmpTopicArray = [jsonRet objectForKey:@"data"];
+        NSMutableArray *tmpTopicArray = (NSMutableArray *)[jsonRet arrayObjectForKey:@"data"];
         for (NSDictionary *topicDic in tmpTopicArray) {
             JFTopicInfo *topicInfo = [[JFTopicInfo alloc] init];
             [topicInfo setTopicInfoByDic:topicDic];
             [tmpMutArray addObject:topicInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
+        [weakSelf.dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
         
-        if (_selectIndex == type) {
-            [_dataSource removeAllObjects];
-            [_dataSource addObjectsFromArray:tmpMutArray];
+        if (weakSelf.selectIndex == type) {
+            [weakSelf.dataSource removeAllObjects];
+            [weakSelf.dataSource addObjectsFromArray:tmpMutArray];
         }
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
+        
+        if (type == 0) {
+            if (!tmpTopicArray || tmpTopicArray.count == 0) {
+                weakSelf.tableView.showsInfiniteScrolling = NO;
+            }else{
+                weakSelf.nextPage ++;
+                weakSelf.tableView.showsInfiniteScrolling = YES;
+            }
+        }
         
     } tag:tag];
     
@@ -199,11 +273,11 @@
             [topicInfo setTopicInfoByDic:topicDic];
             [tmpMutArray addObject:topicInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];
+        [weakSelf.dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:(weakSelf.dataSourceMutDic.count - 1)]];
         
-        if (_selectIndex == (_dataSourceMutDic.count - 1)) {
-            [_dataSource removeAllObjects];
-            [_dataSource addObjectsFromArray:tmpMutArray];
+        if (weakSelf.selectIndex == (weakSelf.dataSourceMutDic.count - 1)) {
+            [weakSelf.dataSource removeAllObjects];
+            [weakSelf.dataSource addObjectsFromArray:tmpMutArray];
         }
         [weakSelf.tableView reloadData];
         [weakSelf refreshTipView];

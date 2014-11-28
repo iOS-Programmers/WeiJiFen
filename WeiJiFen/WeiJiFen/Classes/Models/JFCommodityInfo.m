@@ -17,12 +17,12 @@
     
     id objectForKey = [dic objectForKey:@"subject"];
     if (objectForKey) {
-        _name = objectForKey;
+        _name = [objectForKey description];
     }
     
     objectForKey = [dic objectForKey:@"attachment"];
     if (objectForKey) {
-        _attachment = objectForKey;
+        _attachment = [objectForKey description];
     }
     
     objectForKey = [dic objectForKey:@"lastupdate"];
@@ -36,7 +36,7 @@
     
     objectForKey = [dic objectForKey:@"seller"];
     if (objectForKey) {
-        _userName = objectForKey;
+        _userName = [objectForKey description];
     }
 }
 

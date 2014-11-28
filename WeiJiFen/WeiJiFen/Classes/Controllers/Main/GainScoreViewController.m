@@ -12,6 +12,7 @@
 #import "JFLocalDataManager.h"
 #import "JSONKit.h"
 #import "WeiJiFenEngine.h"
+#import "SVPullToRefresh.h"
 
 @interface GainScoreViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
 
@@ -146,13 +147,13 @@
             [taskInfo setTaskInfoByDic:taskDic];
             [tmpMutArray addObject:taskInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:1]];
+        [weakSelf.dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:1]];
         
-        if (_selectIndex == 1) {
-            [_dataSource removeAllObjects];
-            [_dataSource addObjectsFromArray:tmpMutArray];
+        if (weakSelf.selectIndex == 1) {
+            [weakSelf.dataSource removeAllObjects];
+            [weakSelf.dataSource addObjectsFromArray:tmpMutArray];
         }
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
         
     } tag:tag];
     

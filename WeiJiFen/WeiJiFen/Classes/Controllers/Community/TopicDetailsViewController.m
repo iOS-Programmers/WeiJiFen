@@ -66,6 +66,13 @@
     self.dateLabel.text = [LSCommonUtils secondChangToDate:[NSString stringWithFormat:@"%d",_topicInfo.dateline]];
     self.replyLabel.text = [NSString stringWithFormat:@"  网友回答（%d）",_topicInfo.replies];
     
+    [self.replyButton setImage:[UIImage imageNamed:@"jf_topic_reply_icon.png"] forState:UIControlStateNormal];
+    [self.replyButton setTitle:@"  发表回复" forState:UIControlStateNormal];
+    if (_isFromHelp) {
+        [self.replyButton setImage:nil forState:UIControlStateNormal];
+        [self.replyButton setTitle:@"我要回答" forState:UIControlStateNormal];
+    }
+    
     self.topicLabel.text = _topicInfo.subject;
     CGRect frame = self.topicLabel.frame;
     frame.size.width = self.view.frame.size.width - 10*2;

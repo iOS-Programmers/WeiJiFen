@@ -125,7 +125,7 @@
             return;
         }
         
-        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:_selectIndex]];
+        NSMutableArray *tmpMutArray = [weakSelf.dataSourceMutDic objectForKey:[NSNumber numberWithInteger:weakSelf.selectIndex]];
         tmpMutArray = [[NSMutableArray alloc] init];
         
         NSMutableArray *tmpCommodityArray = [jsonRet objectForKey:@"data"];
@@ -134,12 +134,12 @@
             [commodityInfo setCommodityInfoByDic:comDic];
             [tmpMutArray addObject:commodityInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
+        [weakSelf.dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:type]];
         
-        if (_selectIndex == type) {
-            [_dataSource removeAllObjects];
-            [_dataSource addObjectsFromArray:tmpMutArray];
-            [self.tableView reloadData];
+        if (weakSelf.selectIndex == type) {
+            [weakSelf.dataSource removeAllObjects];
+            [weakSelf.dataSource addObjectsFromArray:tmpMutArray];
+            [weakSelf.tableView reloadData];
         }
         
     } tag:tag];
@@ -157,7 +157,7 @@
             return;
         }
         
-        NSMutableArray *tmpMutArray = [_dataSourceMutDic objectForKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];
+        NSMutableArray *tmpMutArray = [weakSelf.dataSourceMutDic objectForKey:[NSNumber numberWithInteger:(weakSelf.dataSourceMutDic.count - 1)]];
         tmpMutArray = [[NSMutableArray alloc] init];
         
         NSMutableArray *tmpTopicArray = [jsonRet objectForKey:@"data"];
@@ -166,13 +166,13 @@
             [topicInfo setTopicInfoByDic:topicDic];
             [tmpMutArray addObject:topicInfo];
         }
-        [_dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:(_dataSourceMutDic.count - 1)]];
+        [weakSelf.dataSourceMutDic setObject:tmpMutArray forKey:[NSNumber numberWithInteger:(weakSelf.dataSourceMutDic.count - 1)]];
         
-        if (_selectIndex == (_dataSourceMutDic.count - 1)) {
-            [_dataSource removeAllObjects];
-            [_dataSource addObjectsFromArray:tmpMutArray];
+        if (weakSelf.selectIndex == (weakSelf.dataSourceMutDic.count - 1)) {
+            [weakSelf.dataSource removeAllObjects];
+            [weakSelf.dataSource addObjectsFromArray:tmpMutArray];
         }
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
         
     } tag:tag];
 }

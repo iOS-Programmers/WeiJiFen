@@ -27,12 +27,12 @@
     }
     objectForKey = [dic objectForKey:@"authorid"];
     if (objectForKey) {
-        _authorId = objectForKey;
+        _authorId = [objectForKey description];
     }
     
     objectForKey = [dic objectForKey:@"subject"];
     if (objectForKey) {
-        _subject = objectForKey;
+        _subject = [objectForKey description];
     }
     
     objectForKey = [dic objectForKey:@"dateline"];
@@ -44,7 +44,7 @@
     
     objectForKey = [dic objectForKey:@"abs(price)"];
     if (objectForKey) {
-        _price = objectForKey;
+        _price = [objectForKey description];
     }
     
     _comments = [[NSMutableArray alloc] init];

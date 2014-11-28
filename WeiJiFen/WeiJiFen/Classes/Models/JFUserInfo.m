@@ -54,7 +54,7 @@
         [self doSetUserInfoByJsonDic:dic];
     }
     @catch (NSException *exception) {
-        NSLog(@"####LSUserInfo setUserInfoByJsonDic exception:%@", exception);
+        NSLog(@"####JFUserInfo setUserInfoByJsonDic exception:%@", exception);
     }
     
     self.jsonString = [_userInfoByJsonDic JSONString];

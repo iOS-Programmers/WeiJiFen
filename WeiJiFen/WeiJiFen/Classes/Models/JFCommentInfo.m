@@ -21,7 +21,7 @@
         _dateline = [[dic objectForKey:@"dateline"] intValue];
     }
     @catch (NSException *exception) {
-        NSLog(@"####LSCommentInfo setCommentInfoByDic exception:%@", exception);
+        NSLog(@"####JFCommentInfo setCommentInfoByDic exception:%@", exception);
     }
     _commentInfoByDic = dic;
 }
