@@ -11,4 +11,7 @@
 
 #define WJF_Confirm @"79EF44D011ACB123CF6A918610EFC053"
 
+#define WJF_URL_UID @"http://www.wjf123.cn/?fromuid="
+#define WJF_URL_USER @"http://www.wjf123.cn/?fromuser="
+
 #endif

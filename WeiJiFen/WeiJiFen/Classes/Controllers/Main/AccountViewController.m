@@ -14,6 +14,10 @@
 #import "FriendListController.h"
 #import "LoginViewController.h"
 #import "MessageListViewController.h"
+#import "PersonalProfileViewController.h"
+#import "MinePrizeViewController.h"
+#import "RankListViewController.h"
+#import "PromotionViewController.h"
 
 @interface AccountViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -30,6 +34,7 @@
 @property (nonatomic, strong) IBOutlet UIView *actionView;
 
 -(IBAction)myAccountAction:(id)sender;
+- (IBAction)personalProfileAction:(id)sender;
 
 @end
 
@@ -65,13 +70,13 @@
     self.userAvatarImageView.layer.masksToBounds = YES;
     self.userAvatarImageView.clipsToBounds = YES;
     self.userAvatarImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.userAvatarImageView sd_setImageWithURL:_userInfo.smallAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_taskcenter_mg.png"]];
+    [self.userAvatarImageView sd_setImageWithURL:_userInfo.smallAvatarUrl placeholderImage:[UIImage imageNamed:nil]];
     
     self.userNameLabel.text = _userInfo.nickName;
-    self.userIntegralLabel.text = [NSString stringWithFormat:@"可用微积分：%d",200];
+    self.userIntegralLabel.text = [NSString stringWithFormat:@"可用微积分：%d",_userInfo.wjf];
     
     //卖家信誉
-    int credit = 3;
+    int credit = _userInfo.sellercredit;
     CGSize creditImageSize = CGSizeMake(12, 12);
     for (UIView *view in self.sellerCreditView.subviews) {
         [view removeFromSuperview];
@@ -81,6 +86,8 @@
         creditImageView.frame = CGRectMake((creditImageSize.width+1)*index, (self.sellerCreditView.frame.size.height-creditImageSize.height)/2, creditImageSize.width, creditImageSize.height);
         [self.sellerCreditView addSubview:creditImageView];
     }
+    //买家信誉
+    credit = _userInfo.buyercredit;
     for (UIView *view in self.buyerCreditView.subviews) {
         [view removeFromSuperview];
     }
@@ -105,6 +112,7 @@
         case 1:{
             AccountDetailsViewController *accountDetailsVc = [[AccountDetailsViewController alloc] init];
             accountDetailsVc.hidesBottomBarWhenPushed = YES;
+            accountDetailsVc.userInfo = _userInfo;
             [self.navigationController pushViewController:accountDetailsVc animated:YES];
         }
             break;
@@ -116,16 +124,26 @@
         }
             break;
         case 3:{
+            MinePrizeViewController *vc = [[MinePrizeViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 4:{
+            RankListViewController *vc = [[RankListViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 5:{
-#warning 测试登录入口
-            LoginViewController *loginVC = [[LoginViewController alloc] init];
-            loginVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:loginVC animated:YES];
+//#warning 测试登录入口
+//            LoginViewController *loginVC = [[LoginViewController alloc] init];
+//            loginVC.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:loginVC animated:YES];
+            
+            PromotionViewController *vc = [[PromotionViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 6:{
@@ -138,6 +156,16 @@
         default:
             break;
     }
+    
+}
+
+- (IBAction)personalProfileAction:(id)sender {
+    
+    PersonalProfileViewController *personalProfileVC = [[PersonalProfileViewController alloc] init];
+    personalProfileVC.hidesBottomBarWhenPushed = YES;
+    personalProfileVC.userInfo = _userInfo;
+    personalProfileVC.userId = _userInfo.uid;
+    [self.navigationController pushViewController:personalProfileVC animated:YES];
     
 }
 

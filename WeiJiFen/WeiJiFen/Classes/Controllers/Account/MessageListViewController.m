@@ -67,18 +67,17 @@
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     [[WeiJiFenEngine shareInstance] getUserMessagesWithToken:[WeiJiFenEngine shareInstance].token confirm:[WeiJiFenEngine shareInstance].confirm tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
-//        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
-//        if (!jsonRet || errorMsg) {
-//            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
-//            return;
-//        }
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
         
         weakSelf.userMessageInfos = [[NSMutableArray alloc] init];
         
-//        NSDictionary *TmpMsgArray = [jsonRet dictionaryObjectForKey:@"data"];
-        NSDictionary *TmpMsgArray = [[JFLocalDataManager shareInstance] getTESTuserMsg];
+        NSDictionary *TmpMsgArray = [jsonRet dictionaryObjectForKey:@"data"];
+//        NSDictionary *TmpMsgArray = [[JFLocalDataManager shareInstance] getTESTuserMsg];
         [TmpMsgArray enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-//            NSDictionary *msgDic = obj;
             JFMessageInfo *messageInfo = [[JFMessageInfo alloc] init];
             [messageInfo setMessageInfoByDic:(NSDictionary *)obj];
             [weakSelf.userMessageInfos addObject:messageInfo];
@@ -95,16 +94,16 @@
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     [[WeiJiFenEngine shareInstance] getSystemMessagesWithToken:[WeiJiFenEngine shareInstance].token confirm:[WeiJiFenEngine shareInstance].confirm page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
-//        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
-//        if (!jsonRet || errorMsg) {
-//            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
-//            return;
-//        }
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
         
         weakSelf.systemMessageInfos = [[NSMutableArray alloc] init];
         
-//        NSArray *TmpMsgArray = [jsonRet arrayObjectForKey:@"data"];
-        NSArray *TmpMsgArray = [[JFLocalDataManager shareInstance] getTESTSystemMsg];
+        NSArray *TmpMsgArray = [jsonRet arrayObjectForKey:@"data"];
+//        NSArray *TmpMsgArray = [[JFLocalDataManager shareInstance] getTESTSystemMsg];
         for (NSDictionary *dic in TmpMsgArray) {
             JFMessageInfo *msgInfo = [[JFMessageInfo alloc] init];
             [msgInfo setSystemMsgInfoByDic:dic];
@@ -135,13 +134,6 @@
         _categoryTabView.delegate = self;
         [self.view addSubview:_categoryTabView];
         
-//        if (_dataSourceMutDic == nil ){
-//            _dataSourceMutDic = [[NSMutableDictionary alloc] init];
-//        }
-//        for (int index = 0; index < items.count; index ++){
-//            NSMutableArray *mutArray = [[NSMutableArray alloc] init];
-//            [_dataSourceMutDic setObject:mutArray forKey:[NSNumber numberWithInt:index]];
-//        }
     }
     
     UIEdgeInsets inset = self.userTableView.contentInset;

@@ -20,20 +20,27 @@
 - (void)doSetUserInfoByJsonDic:(NSDictionary*)dic {
     
     if ([dic objectForKey:@"username"]) {
-        _nickName = [dic objectForKey:@"username"];
+        _nickName = [[dic objectForKey:@"username"] description];
     }
-    if ([dic objectForKey:@"gender"]) {
-        _gender = [dic objectForKey:@"gender"];
+    if ([dic objectForKey:@"mobile"]) {
+        _phone = [[dic objectForKey:@"mobile"] description];
     }
-    if ([dic objectForKey:@"signature"]) {
-        _signature = [dic objectForKey:@"signature"];
+    if ([dic objectForKey:@"realname"]) {
+        _realname = [[dic objectForKey:@"realname"] description];
     }
-    if ([dic objectForKey:@"phone"]) {
-        _phone = [dic objectForKey:@"phone"];
+    if ([dic objectForKey:@"qq"]) {
+        _qqNumber = [[dic objectForKey:@"qq"] description];
     }
-    if ([dic objectForKey:@"birthday"]) {
-        self.birthdayString = [dic objectForKey:@"birthday"];
+    if ([dic objectForKey:@"taobao"]) {
+        _taobao = [[dic objectForKey:@"taobao"] description];
     }
+    if ([dic objectForKey:@"email"]) {
+        _email = [[dic objectForKey:@"email"] description];
+    }
+    if ([dic objectForKey:@"address"]) {
+        _address = [[dic objectForKey:@"address"] description];
+    }
+    
     id objectForKey = [dic objectForKey:@"avatar"];
     if (objectForKey && [objectForKey isKindOfClass:[NSString class]]) {
         _smallAvatarUrl = [NSURL URLWithString:objectForKey];
@@ -41,6 +48,18 @@
     _wjf = [[dic objectForKey:@"wjf"] intValue];
     _buyercredit = [[dic objectForKey:@"buyercredit"] intValue];
     _sellercredit = [[dic objectForKey:@"sellercredit"] intValue];
+    _friends = [[dic objectForKey:@"friends"] intValue];
+    
+    
+    //    if ([dic objectForKey:@"gender"]) {
+    //        _gender = [dic objectForKey:@"gender"];
+    //    }
+    //    if ([dic objectForKey:@"signature"]) {
+    //        _signature = [dic objectForKey:@"signature"];
+    //    }
+    //    if ([dic objectForKey:@"birthday"]) {
+    //        self.birthdayString = [dic objectForKey:@"birthday"];
+    //    }
     
 }
 - (void)setUserInfoByJsonDic:(NSDictionary*)dic{
@@ -58,6 +77,23 @@
     }
     
     self.jsonString = [_userInfoByJsonDic JSONString];
+}
+
+- (void)setOtherUserInfoByJsonDic:(NSDictionary*)dic{
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    _otherUserInfoByJsonDic = [[NSMutableDictionary alloc] initWithDictionary:dic];
+    _uid = [[dic objectForKey:@"uid"] description];
+    
+    @try {
+        [self doSetUserInfoByJsonDic:dic];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"####JFUserInfo setOtherUserInfoByJsonDic exception:%@", exception);
+    }
+    
+    self.jsonString = [_otherUserInfoByJsonDic JSONString];
 }
 
 - (void)setBirthdayString:(NSString *)birthdayString{

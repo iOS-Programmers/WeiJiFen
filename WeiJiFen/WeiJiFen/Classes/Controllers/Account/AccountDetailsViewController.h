@@ -8,6 +8,7 @@
 
 #import "HTBaseViewController.h"
 #import "JFUserInfo.h"
+#import "JFBaseTableViewController.h"
 
 @interface AccountDetailsViewController : HTBaseViewController
 

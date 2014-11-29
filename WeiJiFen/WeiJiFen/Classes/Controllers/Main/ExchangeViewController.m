@@ -48,6 +48,11 @@
         [userInfo setUserInfoByJsonDic:dataDic];
         [[WeiJiFenEngine shareInstance] setUserInfo:userInfo];
         
+        NSString *tokenStr = [jsonRet objectForKey:@"token"];
+        if (!FBIsEmpty(tokenStr)) {
+            [WeiJiFenEngine saveUserToken:tokenStr];
+        }
+        
     } tag:tag];
 }
 
@@ -61,7 +66,8 @@
     
     [self refreshViewUI];
     [self refreshDataSource:0];
-//    [self logInRequest];
+    //test
+    [self logInRequest];
 }
 
 - (void)didReceiveMemoryWarning {

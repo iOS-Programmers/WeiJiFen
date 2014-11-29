@@ -72,5 +72,12 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 
 //好友列表
 - (BOOL)getFriendListWithTag:(int)tag;
-
+//好友资料
+- (BOOL)getPersonalInfoWithUserId:(NSString *)uid tag:(int)tag;
+//我的资料
+- (BOOL)getMyProfileWithUserId:(NSString *)uid tag:(int)tag;
+//我的奖品
+- (BOOL)getMyPrizeWithUserId:(NSString *)uid tag:(int)tag;
+//排行榜
+- (BOOL)getRankListWithPage:(int)page pageSize:(int)pageSize tag:(int)tag;
 @end

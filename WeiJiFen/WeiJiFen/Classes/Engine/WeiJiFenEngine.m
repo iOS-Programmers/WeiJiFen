@@ -72,7 +72,9 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 -(NSString *)baseUrl{
     return BASE_URL;
 }
-
+-(NSString *)token{
+    return [WeiJiFenEngine userToken];
+}
 #pragma mark - userInfo
 
 /**
@@ -96,6 +98,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 
 - (void)setUserInfo:(JFUserInfo *)userInfo{
     _userInfo = userInfo;
+    _uid = _userInfo.uid;
     [[NSNotificationCenter defaultCenter] postNotificationName:LS_USERINFO_CHANGED_NOTIFICATION object:self];
     [self saveUserInfo];
 }
@@ -505,20 +508,23 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     return YES;
 }
 
+#pragma mark - account
 - (BOOL)getFriendListWithTag:(int)tag
 {
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myFriends", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
-
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    
     [params setObject:WJF_Confirm forKey:@"confirm"];
-
+    
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
 }
-#pragma mark - account
+
 //用户消息
 - (BOOL)getUserMessagesWithToken:(NSString *)token confirm:(NSString *)confirm tag:(int)tag{
     
@@ -553,6 +559,78 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
+}
+
+- (BOOL)getPersonalInfoWithUserId:(NSString *)uid tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/clickHead", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    if (uid) {
+        [params setObject:uid forKey:@"sellid"];
+    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+
+- (BOOL)getMyProfileWithUserId:(NSString *)uid tag:(int)tag{
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myProfile", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+//    if (uid) {
+//        [params setObject:uid forKey:@"uid"];
+//    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+
+//我的奖品
+- (BOOL)getMyPrizeWithUserId:(NSString *)uid tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myPrize", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    //    if (uid) {
+    //        [params setObject:uid forKey:@"uid"];
+    //    }
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+
+//排行榜
+- (BOOL)getRankListWithPage:(int)page pageSize:(int)pageSize tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/wjfList", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+//    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
+    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"num"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
 }
 
 @end
