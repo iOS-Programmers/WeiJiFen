@@ -41,6 +41,18 @@
 		7E6195141A28563F004635D4 /* MessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195121A28563F004635D4 /* MessageListViewController.xib */; };
 		7E6195171A2864CA004635D4 /* JFMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195161A2864CA004635D4 /* JFMessageInfo.m */; };
 		7E6195191A2872E2004635D4 /* jf_right_arrows_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195181A2872E2004635D4 /* jf_right_arrows_icon@2x.png */; };
+		7E61951D1A28D28D004635D4 /* PersonalProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61951B1A28D28D004635D4 /* PersonalProfileViewController.m */; };
+		7E61951E1A28D28D004635D4 /* PersonalProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E61951C1A28D28D004635D4 /* PersonalProfileViewController.xib */; };
+		7E6195221A298628004635D4 /* MinePrizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195201A298628004635D4 /* MinePrizeViewController.m */; };
+		7E6195231A298628004635D4 /* MinePrizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195211A298628004635D4 /* MinePrizeViewController.xib */; };
+		7E6195271A298662004635D4 /* RankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195251A298662004635D4 /* RankListViewController.m */; };
+		7E6195281A298662004635D4 /* RankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195261A298662004635D4 /* RankListViewController.xib */; };
+		7E61952B1A2A0004004635D4 /* JFPrizeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61952A1A2A0004004635D4 /* JFPrizeInfo.m */; };
+		7E61952D1A2A0B0C004635D4 /* s_n_set_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E61952C1A2A0B0C004635D4 /* s_n_set_line@2x.png */; };
+		7E6195321A2A16A9004635D4 /* RankViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195301A2A16A9004635D4 /* RankViewCell.m */; };
+		7E6195331A2A16A9004635D4 /* RankViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195311A2A16A9004635D4 /* RankViewCell.xib */; };
+		7E6195371A2A2048004635D4 /* PromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195351A2A2048004635D4 /* PromotionViewController.m */; };
+		7E6195381A2A2048004635D4 /* PromotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195361A2A2048004635D4 /* PromotionViewController.xib */; };
 		7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */; };
 		7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */; };
 		7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */; };
@@ -254,6 +266,24 @@
 		7E6195151A2864CA004635D4 /* JFMessageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMessageInfo.h; sourceTree = "<group>"; };
 		7E6195161A2864CA004635D4 /* JFMessageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFMessageInfo.m; sourceTree = "<group>"; };
 		7E6195181A2872E2004635D4 /* jf_right_arrows_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_right_arrows_icon@2x.png"; sourceTree = "<group>"; };
+		7E61951A1A28D28D004635D4 /* PersonalProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalProfileViewController.h; sourceTree = "<group>"; };
+		7E61951B1A28D28D004635D4 /* PersonalProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalProfileViewController.m; sourceTree = "<group>"; };
+		7E61951C1A28D28D004635D4 /* PersonalProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalProfileViewController.xib; sourceTree = "<group>"; };
+		7E61951F1A298628004635D4 /* MinePrizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePrizeViewController.h; sourceTree = "<group>"; };
+		7E6195201A298628004635D4 /* MinePrizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePrizeViewController.m; sourceTree = "<group>"; };
+		7E6195211A298628004635D4 /* MinePrizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinePrizeViewController.xib; sourceTree = "<group>"; };
+		7E6195241A298662004635D4 /* RankListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListViewController.h; sourceTree = "<group>"; };
+		7E6195251A298662004635D4 /* RankListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListViewController.m; sourceTree = "<group>"; };
+		7E6195261A298662004635D4 /* RankListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankListViewController.xib; sourceTree = "<group>"; };
+		7E6195291A2A0004004635D4 /* JFPrizeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPrizeInfo.h; sourceTree = "<group>"; };
+		7E61952A1A2A0004004635D4 /* JFPrizeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPrizeInfo.m; sourceTree = "<group>"; };
+		7E61952C1A2A0B0C004635D4 /* s_n_set_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "s_n_set_line@2x.png"; sourceTree = "<group>"; };
+		7E61952F1A2A16A9004635D4 /* RankViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewCell.h; sourceTree = "<group>"; };
+		7E6195301A2A16A9004635D4 /* RankViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewCell.m; sourceTree = "<group>"; };
+		7E6195311A2A16A9004635D4 /* RankViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewCell.xib; sourceTree = "<group>"; };
+		7E6195341A2A2048004635D4 /* PromotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionViewController.h; sourceTree = "<group>"; };
+		7E6195351A2A2048004635D4 /* PromotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionViewController.m; sourceTree = "<group>"; };
+		7E6195361A2A2048004635D4 /* PromotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionViewController.xib; sourceTree = "<group>"; };
 		7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_friendlist@2x.png"; sourceTree = "<group>"; };
 		7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_toplist@2x.png"; sourceTree = "<group>"; };
 		7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_promotion@2x.png"; sourceTree = "<group>"; };
@@ -584,6 +614,16 @@
 			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
+		7E61952E1A2A119F004635D4 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				7E61952F1A2A16A9004635D4 /* RankViewCell.h */,
+				7E6195301A2A16A9004635D4 /* RankViewCell.m */,
+				7E6195311A2A16A9004635D4 /* RankViewCell.xib */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
 		7E99AD621A19EA83007B7B09 /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +745,7 @@
 				7EABF1F119EE42BC004FBEF7 /* Customs */,
 				7EBFD9DB19F506250003AA9E /* Exchange */,
 				7EA2B4F21A270C2B00FD2F71 /* GainScore */,
+				7E61952E1A2A119F004635D4 /* user */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -803,12 +844,24 @@
 		7EABF1D619ED1D8E004FBEF7 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				7E61951A1A28D28D004635D4 /* PersonalProfileViewController.h */,
+				7E61951B1A28D28D004635D4 /* PersonalProfileViewController.m */,
+				7E61951C1A28D28D004635D4 /* PersonalProfileViewController.xib */,
 				7EF1E5201A008E2300112D2D /* AccountDetailsViewController.h */,
 				7EF1E5211A008E2300112D2D /* AccountDetailsViewController.m */,
 				7EF1E5221A008E2300112D2D /* AccountDetailsViewController.xib */,
 				16DE3EAB1A278B7B00F2D2B5 /* FriendListController.h */,
 				16DE3EAC1A278B7B00F2D2B5 /* FriendListController.m */,
 				16DE3EAD1A278B7B00F2D2B5 /* FriendListController.xib */,
+				7E61951F1A298628004635D4 /* MinePrizeViewController.h */,
+				7E6195201A298628004635D4 /* MinePrizeViewController.m */,
+				7E6195211A298628004635D4 /* MinePrizeViewController.xib */,
+				7E6195241A298662004635D4 /* RankListViewController.h */,
+				7E6195251A298662004635D4 /* RankListViewController.m */,
+				7E6195261A298662004635D4 /* RankListViewController.xib */,
+				7E6195341A2A2048004635D4 /* PromotionViewController.h */,
+				7E6195351A2A2048004635D4 /* PromotionViewController.m */,
+				7E6195361A2A2048004635D4 /* PromotionViewController.xib */,
 				7E6195101A28563F004635D4 /* MessageListViewController.h */,
 				7E6195111A28563F004635D4 /* MessageListViewController.m */,
 				7E6195121A28563F004635D4 /* MessageListViewController.xib */,
@@ -828,6 +881,7 @@
 				7EA2B4D11A26F23200FD2F71 /* jf_vc_base_bg@2x.png */,
 				7EA2B4FF1A276CBB00FD2F71 /* jf_public_posts_icon@2x.png */,
 				7EA2B5011A27737300FD2F71 /* jf_mypost_no_tip@2x.png */,
+				7E61952C1A2A0B0C004635D4 /* s_n_set_line@2x.png */,
 			);
 			path = comment;
 			sourceTree = "<group>";
@@ -956,6 +1010,8 @@
 				16CA4CE41A28643100E4E738 /* JFFriendList.m */,
 				7E6195151A2864CA004635D4 /* JFMessageInfo.h */,
 				7E6195161A2864CA004635D4 /* JFMessageInfo.m */,
+				7E6195291A2A0004004635D4 /* JFPrizeInfo.h */,
+				7E61952A1A2A0004004635D4 /* JFPrizeInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1310,6 +1366,7 @@
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EA2B4E81A26FDEC00FD2F71 /* jf_taskcenter_lm@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7E6195381A2A2048004635D4 /* PromotionViewController.xib in Resources */,
 				7EA229451A237E2F00BCAC25 /* TopicDetailsViewController.xib in Resources */,
 				7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */,
 				7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */,
@@ -1319,12 +1376,16 @@
 				1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
 				7EA2B4EA1A26FDEC00FD2F71 /* jf_taskcenter_wp@2x.png in Resources */,
+				7E6195281A298662004635D4 /* RankListViewController.xib in Resources */,
 				7ED70C0419F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png in Resources */,
+				7E61951E1A28D28D004635D4 /* PersonalProfileViewController.xib in Resources */,
 				7EA2B4E91A26FDEC00FD2F71 /* jf_taskcenter_mg@2x.png in Resources */,
 				7EABF1E619EE1001004FBEF7 /* jf_message_icon@2x.png in Resources */,
+				7E61952D1A2A0B0C004635D4 /* s_n_set_line@2x.png in Resources */,
 				7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */,
 				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
 				166597761A272840000CC4FE /* thirdLoginBtn_bg@2x.png in Resources */,
+				7E6195231A298628004635D4 /* MinePrizeViewController.xib in Resources */,
 				1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */,
 				7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */,
 				7EABF1EC19EE268F004FBEF7 /* LoginViewController.xib in Resources */,
@@ -1334,6 +1395,7 @@
 				7EA2B5021A27737300FD2F71 /* jf_mypost_no_tip@2x.png in Resources */,
 				16DE3EB11A278D4600F2D2B5 /* avatar@2x.png in Resources */,
 				7EA2B4D41A26F47100FD2F71 /* jf_avatar_default@2x.png in Resources */,
+				7E6195331A2A16A9004635D4 /* RankViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1354,6 +1416,7 @@
 			files = (
 				7EABF23619EE6E81004FBEF7 /* JFTabBarView.m in Sources */,
 				7EABF2D919EFD071004FBEF7 /* ASICloudFilesContainer.m in Sources */,
+				7E61951D1A28D28D004635D4 /* PersonalProfileViewController.m in Sources */,
 				7E32EB8419F0F0BE00FEAA66 /* JFCategoryTabView.m in Sources */,
 				7E32EB7719F0BBE700FEAA66 /* GMGridViewLayoutStrategies.m in Sources */,
 				7EABF2D319EFD071004FBEF7 /* ASIFormDataRequest.m in Sources */,
@@ -1361,6 +1424,8 @@
 				7EABF1CE19ED1C7B004FBEF7 /* CommunityViewController.m in Sources */,
 				7ED70C0819F7985C0071E7FC /* CommodityDetailsViewController.m in Sources */,
 				7EABF22319EE4440004FBEF7 /* UIImage+WebP.m in Sources */,
+				7E6195321A2A16A9004635D4 /* RankViewCell.m in Sources */,
+				7E6195221A298628004635D4 /* MinePrizeViewController.m in Sources */,
 				C6B6977119ECF61C00F805F3 /* AppDelegate.m in Sources */,
 				7EABF1C419ED1B5C004FBEF7 /* ExchangeViewController.m in Sources */,
 				7EA2294C1A2394C000BCAC25 /* CommentInfoViewCell.m in Sources */,
@@ -1374,6 +1439,7 @@
 				7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */,
 				7EABF2DB19EFD071004FBEF7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				16DE3EAA1A27893700F2D2B5 /* MJRefreshHeaderView.m in Sources */,
+				7E61952B1A2A0004004635D4 /* JFPrizeInfo.m in Sources */,
 				7E32EB7619F0BBE700FEAA66 /* GMGridViewCell.m in Sources */,
 				7EABF2D619EFD071004FBEF7 /* ASINetworkQueue.m in Sources */,
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1408,6 +1474,7 @@
 				7EA2293D1A232BAE00BCAC25 /* TopicViewCell.m in Sources */,
 				7EABF21E19EE4440004FBEF7 /* SDWebImageManager.m in Sources */,
 				7EABF21C19EE4440004FBEF7 /* SDWebImageDownloader.m in Sources */,
+				7E6195271A298662004635D4 /* RankListViewController.m in Sources */,
 				7EABF24419EF76A3004FBEF7 /* URLHelper.m in Sources */,
 				7EABF22519EE4440004FBEF7 /* UIImageView+WebCache.m in Sources */,
 				7EABF2D819EFD071004FBEF7 /* ASICloudFilesCDNRequest.m in Sources */,
@@ -1425,6 +1492,7 @@
 				7EABF2D219EFD071004FBEF7 /* ASIDownloadCache.m in Sources */,
 				7EABF23A19EE6FDC004FBEF7 /* JFTabBarItemView.m in Sources */,
 				7EABF22919EE55C8004FBEF7 /* JFSuperBaseViewController.m in Sources */,
+				7E6195371A2A2048004635D4 /* PromotionViewController.m in Sources */,
 				16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */,
 				7EABF22C19EE56C2004FBEF7 /* LSCommonUtils.m in Sources */,
 				7EABF21F19EE4440004FBEF7 /* SDWebImagePrefetcher.m in Sources */,
