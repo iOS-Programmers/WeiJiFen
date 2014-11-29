@@ -56,6 +56,26 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 - (BOOL)getCommodityListWithToken:(NSString *)token confirm:(NSString *)confirm type:(int)type page:(int)page pageSize:(int)pageSize tag:(int)tag;
 //商品详情
 - (BOOL)commodityShowWithToken:(NSString *)token confirm:(NSString *)confirm pId:(NSString *)pId tag:(int)tag;
+/*!@brief 确认购买信息
+ *
+ * @param tid 主题id
+ * @param pid 商品id
+ * @param count 购买数量
+ * @param buyercontact 收货地址
+ * @param buyername 收货人姓名
+ * @param buyerzip 邮编
+ * @param buyerphone 收货人电话
+ * @param buyermobile 收货人手机
+ * @param buyermsg 备注信息
+ * @param transportfee 运费 物流方式只有为2买家承担运费才传这个值其他为0
+ */
+- (BOOL)confirmBuyWithTId:(NSString *)tid pId:(NSString *)pid count:(int)count buyercontact:(NSString *)buyercontact buyername:(NSString *)buyername buyerzip:(NSString *)buyerzip buyerphone:(NSString *)buyerphone buyermobile:(NSString *)buyermobile buyermsg:(NSString *)buyermsg transportfee:(int)transportfee tag:(int)tag;
+//确认付款信息
+- (BOOL)confirmPaymentWithOrderId:(NSString *)orderId message:(NSString *)message password:(NSString *)password tag:(int)tag;
+//取消交易
+- (BOOL)cancelTradeWithOrderId:(NSString *)orderId message:(NSString *)message password:(NSString *)password tag:(int)tag;
+
+
 //帮助列表 社区交流 社区晒单
 - (BOOL)getHelpListWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId page:(int)page pageSize:(int)pageSize tag:(int)tag;
 //我的帖子
@@ -65,6 +85,12 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 //网站任务
 - (BOOL)getWebTaskInfoWithToken:(NSString *)token confirm:(NSString *)confirm page:(int)page pageSize:(int)pageSize tag:(int)tag;
 #pragma mark - account
+/*!@brief 发送消息
+ * @param plid 第一次发送就为空
+ */
+- (BOOL)sendMessageWithPlid:(NSString *)plid receiveuid:(NSString *)receiveuid message:(NSString *)message ag:(int)tag;
+//在线消息
+- (BOOL)onlineMessageListWithReceiveUid:(NSString *)receiveuid tag:(int)tag;
 //用户消息
 - (BOOL)getUserMessagesWithToken:(NSString *)token confirm:(NSString *)confirm tag:(int)tag;
 //系统消息
@@ -80,4 +106,20 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 - (BOOL)getMyPrizeWithUserId:(NSString *)uid tag:(int)tag;
 //排行榜
 - (BOOL)getRankListWithPage:(int)page pageSize:(int)pageSize tag:(int)tag;
+
+/*!@brief 我来回答
+ * @param pid 留言id 对已经留言人进行回复
+ * @param tid 主题id
+ * @param fid 版块id
+ */
+- (BOOL)userReplyMessageWithPid:(NSString *)pid tid:(NSString *)tid fid:(NSString *)fid message:(NSString *)message tag:(int)tag;
+
+/*!@brief 发布新帖
+ * @param fid 版块id
+ */
+- (BOOL)publishNewThreadWithFid:(NSString *)fid title:(NSString *)title message:(NSString *)message tag:(int)tag;
+/*!@brief 立即申请
+ */
+- (BOOL)doApplyWithTaskid:(NSString *)taskid tag:(int)tag;
+
 @end

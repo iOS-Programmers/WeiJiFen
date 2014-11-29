@@ -26,6 +26,8 @@
 @property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, assign) int nextPage;
 
+- (IBAction)publishTopicAction:(id)sender;
+
 @end
 
 @implementation CommunityViewController
@@ -122,6 +124,11 @@
 */
 
 #pragma mark -custom
+- (IBAction)publishTopicAction:(id)sender {
+    
+    [self publishNewThread];
+}
+
 - (void)refreshTipView{
     
     if (_selectIndex == 0) {
@@ -281,6 +288,27 @@
         }
         [weakSelf.tableView reloadData];
         [weakSelf refreshTipView];
+        
+    } tag:tag];
+}
+
+-(void)publishNewThread{
+    
+    NSString *fID = @"2";
+    if (_selectIndex == 0) {
+        fID = @"2";//交流
+    }else if (_selectIndex == 1){
+        fID = @"66";//晒单
+    }
+    __weak CommunityViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] publishNewThreadWithFid:fID title:@"晒单子了" message:@"来来，啤酒饮料矿泉水" tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
         
     } tag:tag];
 }

@@ -53,6 +53,7 @@
 		7E6195331A2A16A9004635D4 /* RankViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195311A2A16A9004635D4 /* RankViewCell.xib */; };
 		7E6195371A2A2048004635D4 /* PromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195351A2A2048004635D4 /* PromotionViewController.m */; };
 		7E6195381A2A2048004635D4 /* PromotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195361A2A2048004635D4 /* PromotionViewController.xib */; };
+		7E61953A1A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195391A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png */; };
 		7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */; };
 		7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */; };
 		7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */; };
@@ -284,6 +285,7 @@
 		7E6195341A2A2048004635D4 /* PromotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionViewController.h; sourceTree = "<group>"; };
 		7E6195351A2A2048004635D4 /* PromotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionViewController.m; sourceTree = "<group>"; };
 		7E6195361A2A2048004635D4 /* PromotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionViewController.xib; sourceTree = "<group>"; };
+		7E6195391A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_greyandwhite_bg@2x.png"; sourceTree = "<group>"; };
 		7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_friendlist@2x.png"; sourceTree = "<group>"; };
 		7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_toplist@2x.png"; sourceTree = "<group>"; };
 		7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_promotion@2x.png"; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 				166597741A272840000CC4FE /* thirdLoginBtn_bg@2x.png */,
 				1665976F1A272308000CC4FE /* login_bg@2x.png */,
 				166597711A272385000CC4FE /* login_icon@2x.png */,
+				7E6195391A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png */,
 			);
 			name = "login&register";
 			sourceTree = "<group>";
@@ -1347,6 +1350,7 @@
 				7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */,
 				7EA2B4E61A26FDEC00FD2F71 /* jf_taskcenter_dm@2x.png in Resources */,
 				7EA2B4F11A26FDEC00FD2F71 /* jf_taskcenter_zy@2x.png in Resources */,
+				7E61953A1A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png in Resources */,
 				7EABF2E719EFD071004FBEF7 /* LICENSE in Resources */,
 				7ED70C0919F7985C0071E7FC /* CommodityDetailsViewController.xib in Resources */,
 				166597701A272308000CC4FE /* login_bg@2x.png in Resources */,

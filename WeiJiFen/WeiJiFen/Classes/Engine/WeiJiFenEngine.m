@@ -429,6 +429,94 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     return YES;
 }
 
+- (BOOL)confirmBuyWithTId:(NSString *)tid pId:(NSString *)pid count:(int)count buyercontact:(NSString *)buyercontact buyername:(NSString *)buyername buyerzip:(NSString *)buyerzip buyerphone:(NSString *)buyerphone buyermobile:(NSString *)buyermobile buyermsg:(NSString *)buyermsg transportfee:(int)transportfee tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/confirmTrade", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (tid) {
+        [params setObject:tid forKey:@"tid"];
+    }
+    if (pid) {
+        [params setObject:pid forKey:@"pid"];
+    }
+    if (buyercontact) {
+        [params setObject:buyercontact forKey:@"buyercontact"];
+    }
+    if (buyername) {
+        [params setObject:buyername forKey:@"buyername"];
+    }
+    if (buyerphone) {
+        [params setObject:buyerphone forKey:@"buyerphone"];
+    }
+    if (buyermobile) {
+        [params setObject:buyermobile forKey:@"buyermobile"];
+    }
+    if (buyermsg) {
+        [params setObject:buyermsg forKey:@"buyermsg"];
+    }
+    
+    [params setObject:[NSNumber numberWithInt:count] forKey:@"number"];
+    [params setObject:[NSNumber numberWithInt:transportfee] forKey:@"transportfee"];
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+}
+
+- (BOOL)confirmPaymentWithOrderId:(NSString *)orderId message:(NSString *)message password:(NSString *)password tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/confirmPayment", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (orderId) {
+        [params setObject:orderId forKey:@"orderid"];
+    }
+    if (message) {
+        [params setObject:message forKey:@"message"];
+    }
+    if (password) {
+        [params setObject:password forKey:@"password"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+}
+
+- (BOOL)cancelTradeWithOrderId:(NSString *)orderId message:(NSString *)message password:(NSString *)password tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/cancelTrade", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (orderId) {
+        [params setObject:orderId forKey:@"orderid"];
+    }
+    if (message) {
+        [params setObject:message forKey:@"message"];
+    }
+    if (password) {
+        [params setObject:password forKey:@"password"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+
 - (BOOL)getHelpListWithToken:(NSString *)token confirm:(NSString *)confirm fId:(NSString *)fId page:(int)page pageSize:(int)pageSize tag:(int)tag{
     
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/helpList", API_URL];
@@ -523,6 +611,49 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
+}
+
+- (BOOL)sendMessageWithPlid:(NSString *)plid receiveuid:(NSString *)receiveuid message:(NSString *)message ag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/sendMessage", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (plid) {
+        [params setObject:plid forKey:@"plid"];
+    }
+    if (receiveuid) {
+        [params setObject:receiveuid forKey:@"receiveuid"];
+    }
+    if (message) {
+        [params setObject:message forKey:@"message"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+- (BOOL)onlineMessageListWithReceiveUid:(NSString *)receiveuid tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/onlineMessageList", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (receiveuid) {
+        [params setObject:receiveuid forKey:@"receiveuid"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
 }
 
 //用户消息
@@ -633,4 +764,73 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
 }
 
+- (BOOL)userReplyMessageWithPid:(NSString *)pid tid:(NSString *)tid fid:(NSString *)fid message:(NSString *)message tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/addreply", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (pid) {
+       [params setObject:pid forKey:@"pid"];
+    }
+    if (tid) {
+        [params setObject:tid forKey:@"tid"];
+    }
+    if (fid) {
+        [params setObject:fid forKey:@"fid"];
+    }
+    if (message) {
+        [params setObject:message forKey:@"message"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+- (BOOL)publishNewThreadWithFid:(NSString *)fid title:(NSString *)title message:(NSString *)message tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/addNewthread", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (fid) {
+        [params setObject:fid forKey:@"fid"];
+    }
+    if (title) {
+        [params setObject:title forKey:@"title"];
+    }
+    if (message) {
+        [params setObject:message forKey:@"message"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+- (BOOL)doApplyWithTaskid:(NSString *)taskid tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/doApply", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (taskid) {
+        [params setObject:taskid forKey:@"taskid"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
 @end

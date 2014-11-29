@@ -159,6 +159,22 @@
     
 }
 
+-(void)doApplyAction:(JFTaskInfo *)taskInfo{
+    
+    __weak GainScoreViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] doApplyWithTaskid:taskInfo.taskId tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        
+    } tag:tag];
+    
+}
+
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -179,6 +195,8 @@
         NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
         cell = [cells objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        [cell.applyButton addTarget:self action:@selector(handleClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     cell.isWebTask = NO;
     if (_selectIndex == 1) {
@@ -194,6 +212,23 @@
     
     NSIndexPath* selIndexPath = [tableView indexPathForSelectedRow];
     [tableView deselectRowAtIndexPath:selIndexPath animated:YES];
+}
+
+-(void)handleClickAt:(id)sender event:(id)event{
+    
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    UITableView *tempTable = self.tableView;
+    CGPoint currentTouchPosition = [touch locationInView:tempTable];
+    NSIndexPath *indexPath = [tempTable indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil){
+        NSLog(@"indexPath: row:%ld", indexPath.row);
+        JFTaskInfo *taskInfo = _dataSource[indexPath.row];
+        if (taskInfo.taskId.length != 0) {
+            //do someSting
+            [self doApplyAction:taskInfo];
+        }
+    }
 }
 
 #pragma mark - JFCategoryTabViewDelegate

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *topicLabel;
 @property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
 
 +(CGFloat)getCommentInfoViewCellHeight:(JFCommentInfo *)commentInfo;
 

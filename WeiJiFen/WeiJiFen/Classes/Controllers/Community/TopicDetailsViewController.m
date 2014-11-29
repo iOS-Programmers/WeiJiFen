@@ -13,7 +13,9 @@
 #import "JFCommentInfo.h"
 
 @interface TopicDetailsViewController ()
-
+{
+    JFCommentInfo *_selCommentInfo;
+}
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) IBOutlet UIView *headView;
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *replyButton;
 @property (nonatomic, strong) IBOutlet UILabel *replyLabel;
 
+- (IBAction)replyAction:(id)sender;
 @end
 
 @implementation TopicDetailsViewController
@@ -58,7 +61,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+#pragma mark - custom
 - (void)refeshHeaderView{
     
     [self.userAvatar sd_setImageWithURL:_topicInfo.userAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
@@ -107,7 +110,7 @@
     
 }
 
-#pragma mark - custom
+#pragma mark - request
 -(void)refreshTopicInfo{
     __weak TopicDetailsViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
@@ -126,6 +129,30 @@
     } tag:tag];
 }
 
+-(void)replyMessage{
+    
+    __weak TopicDetailsViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] userReplyMessageWithPid:_selCommentInfo.pId tid:_topicInfo.tId fid:_topicInfo.fId message:@"就这么任性" tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+//        NSDictionary *infoDic = [jsonRet objectForKey:@"data"];
+//        JFTopicInfo *topicInfo = [[JFTopicInfo alloc] init];
+//        [topicInfo setTopicInfoByDic:infoDic];
+//        
+//        [weakSelf.tableView reloadData];
+        
+    } tag:tag];
+    
+}
+- (IBAction)replyAction:(id)sender {
+    _selCommentInfo = nil;
+    [self replyMessage];
+}
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -148,6 +175,8 @@
         NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
         cell = [cells objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        [cell.replyButton addTarget:self action:@selector(handleClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     JFCommentInfo *commentInfo = _topicInfo.comments[indexPath.row];
@@ -156,4 +185,22 @@
     return cell;
 }
 
+-(void)handleClickAt:(id)sender event:(id)event{
+    
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    UITableView *tempTable = self.tableView;
+    CGPoint currentTouchPosition = [touch locationInView:tempTable];
+    NSIndexPath *indexPath = [tempTable indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil){
+        NSLog(@"indexPath: row:%ld", indexPath.row);
+        JFCommentInfo *commentInfo = _topicInfo.comments[indexPath.row];
+        NSLog(@"pId==%@",commentInfo.pId);
+        if (commentInfo.pId.length != 0) {
+            _selCommentInfo = commentInfo;
+            //do someSting
+            [self replyMessage];
+        }
+    }
+}
 @end
