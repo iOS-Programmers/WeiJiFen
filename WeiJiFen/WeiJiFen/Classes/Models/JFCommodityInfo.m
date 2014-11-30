@@ -10,6 +10,7 @@
 #import "JSONKit.h"
 #import "LSCommonUtils.h"
 #import "WeiJiFenEngine.h"
+#import "JFCommentInfo.h"
 
 @implementation JFCommodityInfo
 
@@ -30,13 +31,41 @@
         _crateDate = [objectForKey intValue];
     }
     
-    _comState = [[dic objectForKey:@"state"] intValue];
+//    _comState = [[dic objectForKey:@"state"] intValue];
     _amount = [[dic objectForKey:@"amount"] intValue];
     _sellerCredit = [[dic objectForKey:@"sellercredit"] intValue];
     
     objectForKey = [dic objectForKey:@"seller"];
     if (objectForKey) {
         _userName = [objectForKey description];
+    }
+    
+    
+    objectForKey = [dic objectForKey:@"tid"];
+    if (objectForKey) {
+        _tid = [objectForKey description];
+    }
+    objectForKey = [dic objectForKey:@"message"];
+    if (objectForKey) {
+        _message = [objectForKey description];
+    }
+    
+    _price = [[dic objectForKey:@"price"] intValue];
+    _credit = [[dic objectForKey:@"credit"] intValue];
+    _quality = [[dic objectForKey:@"quality"] intValue];
+    _expiration = [[dic objectForKey:@"expiration"] intValue];
+    _recommend_add = [[dic objectForKey:@"recommend_add"] intValue];
+    _replies = [[dic objectForKey:@"replies"] intValue];
+    _transport = [[dic objectForKey:@"transport"] intValue];
+    _ordinaryfee = [[dic objectForKey:@"ordinaryfee"] intValue];
+    _expressfee = [[dic objectForKey:@"expressfee"] intValue];
+    _emsfee = [[dic objectForKey:@"emsfee"] intValue];
+    
+    _replylist = [[NSMutableArray alloc] init];
+    for (NSDictionary* commentDic in [dic objectForKey:@"replylist"]) {
+        JFCommentInfo* commentnfo = [[JFCommentInfo alloc] init];
+        [commentnfo setCommentInfoByDic:commentDic];
+        [_replylist addObject:commentnfo];
     }
 }
 
@@ -46,7 +75,6 @@
     }
     
     _comId = [[dic objectForKey:@"pid"] description];
-//    _userId = [[dic objectForKey:@"uid"] description];
     
     @try {
         [self doSetCommodityInfoByDic:dic];

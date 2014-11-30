@@ -123,8 +123,8 @@
 //            return;
         }
         
-//        NSArray *TmpMsgArray = [jsonRet arrayObjectForKey:@"data"];
-        NSArray *TmpMsgArray = [[JFLocalDataManager shareInstance] getTESTOnlineMsg];
+        NSArray *TmpMsgArray = [jsonRet arrayObjectForKey:@"data"];
+//        NSArray *TmpMsgArray = [[JFLocalDataManager shareInstance] getTESTOnlineMsg];
         for (int i = 0; i < TmpMsgArray.count; i++) {
             NSDictionary *dic = [TmpMsgArray objectAtIndex:i];
             JFMessageInfo *messageInfo = [[JFMessageInfo alloc] init];

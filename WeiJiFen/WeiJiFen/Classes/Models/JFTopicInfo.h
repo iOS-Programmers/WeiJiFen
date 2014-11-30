@@ -21,7 +21,7 @@
 @property (nonatomic, assign) int replies;//回复数
 @property (nonatomic, readonly) NSURL* userAvatarUrl;
 
-@property (nonatomic, readonly) NSMutableArray *comments;
+@property (nonatomic, strong) NSMutableArray *comments;
 
 @property(nonatomic, strong) NSString* jsonString;
 

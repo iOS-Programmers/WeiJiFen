@@ -140,8 +140,8 @@
         
         NSMutableArray *tmpMutArray = [[NSMutableArray alloc] init];
         
-//        NSMutableArray *tmpTaskArray = [jsonRet objectForKey:@"data"];
-        NSMutableArray *tmpTaskArray = [[JFLocalDataManager shareInstance] getTaskCenterData];
+        NSMutableArray *tmpTaskArray = [jsonRet objectForKey:@"data"];
+//        NSMutableArray *tmpTaskArray = [[JFLocalDataManager shareInstance] getTaskCenterData];
         for (NSDictionary *taskDic in tmpTaskArray) {
             JFTaskInfo *taskInfo = [[JFTaskInfo alloc] init];
             [taskInfo setTaskInfoByDic:taskDic];

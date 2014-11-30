@@ -9,6 +9,7 @@
 #import "CommodityDetailsViewController.h"
 #import "AccountDetailsViewController.h"
 #import "WeiJiFenEngine.h"
+#import "JSONKit.h"
 
 @interface CommodityDetailsViewController ()
 
@@ -22,6 +23,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"物品详情";
+    
+    JFCommodityInfo *oldCommodity = _commodityInfo;
+    _commodityInfo = [[JFCommodityInfo alloc] init];
+    [_commodityInfo setCommodityInfoByDic:[oldCommodity.jsonString objectFromJSONString]];
+    _commodityInfo.comId = oldCommodity.comId;
+    
+    
     [self refreshCommodityInfo];
 }
 
@@ -50,7 +58,7 @@
     
     __weak CommodityDetailsViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] commodityShowWithToken:nil confirm:@"79EF44D011ACB123CF6A918610EFC053" pId:self.commodityInfo.comId tag:tag];
+    [[WeiJiFenEngine shareInstance] commodityShowWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm pId:self.commodityInfo.comId tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {

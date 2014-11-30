@@ -123,7 +123,7 @@
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getCommodityListWithToken:nil confirm:@"79EF44D011ACB123CF6A918610EFC053" type:type page:1 pageSize:10 tag:tag];
+    [[WeiJiFenEngine shareInstance] getCommodityListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm type:type page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {

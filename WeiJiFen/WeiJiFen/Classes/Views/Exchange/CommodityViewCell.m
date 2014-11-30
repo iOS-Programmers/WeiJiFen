@@ -106,10 +106,22 @@
     if (commodityInfo.amount == 0){
         self.commodityStateBtn.backgroundColor = UIColorRGB(181, 181, 181);
         [self.commodityStateBtn setTitle:@"抢光了" forState:0];
-    }
-    if (commodityInfo.comState == 1){
-        self.commodityStateBtn.backgroundColor = UIColorRGB(235, 31, 32);
-        [self.commodityStateBtn setTitle:@"兑换" forState:0];
+    }else{
+        NSDate *nowDate = [NSDate date];
+        int nowTime = [nowDate timeIntervalSince1970];
+        if (commodityInfo.crateDate > nowTime) {
+            
+            self.commodityStateBtn.backgroundColor = UIColorRGB(4, 185, 88);
+            [self.commodityStateBtn setTitle:@"未开始" forState:0];
+        }else{
+            if (commodityInfo.expiration > nowTime) {
+                self.commodityStateBtn.backgroundColor = UIColorRGB(235, 31, 32);
+                [self.commodityStateBtn setTitle:@"兑换" forState:0];
+            }else{
+                self.commodityStateBtn.backgroundColor = UIColorRGB(181, 181, 181);
+                [self.commodityStateBtn setTitle:@"已过期" forState:0];
+            }
+        }
     }
     
     frame = self.creditGridView.frame;
