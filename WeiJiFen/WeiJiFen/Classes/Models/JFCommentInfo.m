@@ -17,7 +17,7 @@
     @try {
         _pId = [[dic objectForKey:@"pid"] description];
         _author = [[dic objectForKey:@"author"] description];
-        _authorId = [[dic objectForKey:@"authorId"] description];
+        _authorId = [[dic objectForKey:@"authorid"] description];
         _message = [[dic objectForKey:@"message"] description];
         _dateline = [[dic objectForKey:@"dateline"] intValue];
     }

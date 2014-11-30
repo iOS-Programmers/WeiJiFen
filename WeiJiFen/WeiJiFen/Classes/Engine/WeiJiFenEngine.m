@@ -613,7 +613,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     return YES;
 }
 
-- (BOOL)sendMessageWithPlid:(NSString *)plid receiveuid:(NSString *)receiveuid message:(NSString *)message ag:(int)tag{
+- (BOOL)sendMessageWithPlid:(NSString *)plid receiveuid:(NSString *)receiveuid message:(NSString *)message tag:(int)tag{
     
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/sendMessage", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];

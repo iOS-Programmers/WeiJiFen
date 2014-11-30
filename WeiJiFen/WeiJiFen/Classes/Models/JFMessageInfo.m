@@ -51,4 +51,26 @@
     _messageInfoByDic = dic;
 }
 
+- (void)setOnLineMsgInfoByDic:(NSDictionary*)dic{
+    if (![dic isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    @try {
+        
+        _plid = [[dic objectForKey:@"plid"] description];
+        _message = [[dic objectForKey:@"message"] description];
+        _authorId = [[dic objectForKey:@"authorid"] description];
+        _dateline = [[dic objectForKey:@"dateline"] intValue];
+        
+        id objectForKey = [dic objectForKey:@"avatar"];
+        if (objectForKey && [objectForKey isKindOfClass:[NSString class]]) {
+            _avatarUrl = [NSURL URLWithString:objectForKey];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"####JFMessageInfo setSystemMsgInfoByDic exception:%@", exception);
+    }
+    _messageInfoByDic = dic;
+}
+
 @end

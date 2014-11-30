@@ -74,4 +74,9 @@ static inline BOOL FBIsEmpty(id thing)
  *  @param stringToConvert 16进制的颜色
  */
 + (UIColor *)colorWithHexString:(NSString *) stringToConvert;
+
++(CGFloat) calculateTextViewHeight:(UITextView *) textView;
++(CGSize) reSizeTextViewContentSize:(UITextView *) textview;
++(CGFloat) calculateTextViewMaxHeight:(UITextView *) textview;
+
 @end

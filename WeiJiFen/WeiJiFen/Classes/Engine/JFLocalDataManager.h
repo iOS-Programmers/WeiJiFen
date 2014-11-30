@@ -20,5 +20,6 @@
 - (NSMutableArray *)getLocalCommodityArray2;
 - (NSDictionary *)getTESTuserMsg;
 - (NSMutableArray *)getTESTSystemMsg;
+- (NSMutableArray *)getTESTOnlineMsg;
 
 @end

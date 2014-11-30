@@ -245,4 +245,47 @@
                            alpha:1.0f];
 }
 
+//重新计算textview的contentSzie，因为ios7的textview 杉ContentSzie在textviewDidChange之后执行了，所以文本变化不会去改变ContentSize了
++(CGFloat) calculateTextViewHeight:(UITextView *) textView
+{
+    //ios7 就重新计算
+    if ([NSString instancesRespondToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        CGRect txtFrame = textView.frame;
+        //@"%@\n "
+        return [[NSString stringWithFormat:@"%@\n ",textView.text]                boundingRectWithSize:CGSizeMake(txtFrame.size.width - textView.contentInset.left - textView.contentInset.right, CGFLOAT_MAX)
+                                                                                               options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                                                            attributes:[NSDictionary dictionaryWithObjectsAndKeys:textView.font,NSFontAttributeName, nil] context:nil].size.height;
+    }
+    
+    //ios6 及以前可以直接返回textview的contentSize
+    return textView.contentSize.height ;
+}
+
+//因上面方法在计算时处于换行临界情况下时会出现误差，所以取两次计算结果大的一方
++(CGSize) reSizeTextViewContentSize:(UITextView *) textview
+{
+    if ([textview respondsToSelector:@selector(textContainerInset)]) {
+        //防止光标在中间时会有问题，先把原即是位置记录下来，把光标移动到最后
+        NSRange oringalRange = textview.selectedRange;
+        textview.selectedRange = NSMakeRange(textview.text.length, 0);
+        CGRect line = [textview caretRectForPosition:
+                       textview.selectedTextRange.start];
+        
+        UIEdgeInsets inset = textview.textContainerInset;
+        CGSize newSize = CGSizeMake(ceil(line.size.width)  + inset.left + inset.right,
+                                    ceil(line.size.height + line.origin.y) + inset.top);
+        textview.contentSize = newSize;
+        
+        //还原原始光标
+        textview.selectedRange = oringalRange;
+    }
+    
+    return textview.contentSize;
+}
+//计算textview的高度
++(CGFloat) calculateTextViewMaxHeight:(UITextView *) textview
+{
+    return [self calculateTextViewHeight:textview];
+}
+
 @end

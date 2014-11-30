@@ -8,6 +8,7 @@
 
 #import "CommentInfoViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 @implementation CommentInfoViewCell
 
@@ -36,7 +37,7 @@
     
     [self.replyButton setBackgroundImage:[[UIImage imageNamed:@"jf_greyandwhite_bg.png"] stretchableImageWithLeftCapWidth:8 topCapHeight:4] forState:UIControlStateNormal];
     
-    [self.userAvatar sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
+    [self.userAvatar sd_setImageWithURL:commentInfo.avatarUrl forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
     self.userNameLabel.text = commentInfo.author;
     self.dateLabel.text = [LSCommonUtils secondChangToDate:[NSString stringWithFormat:@"%d",commentInfo.dateline]];
     

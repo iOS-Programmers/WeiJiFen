@@ -13,8 +13,13 @@
 #import "TopicViewCell.h"
 #import "TopicDetailsViewController.h"
 #import "SVPullToRefresh.h"
+#import "JFInputWindow.h"
+#import "PersonalProfileViewController.h"
 
-@interface CommunityViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
+@interface CommunityViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate,JFInputWindowDelegate>
+{
+    JFInputWindow *_inputSheet;
+}
 
 @property (nonatomic, strong) NSMutableDictionary *dataSourceMutDic;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -126,7 +131,16 @@
 #pragma mark -custom
 - (IBAction)publishTopicAction:(id)sender {
     
-    [self publishNewThread];
+    _inputSheet = [[[NSBundle mainBundle] loadNibNamed:@"JFInputWindow" owner:nil options:nil] objectAtIndex:0];
+    if (_selectIndex == 1) {
+        _inputSheet.title = @"我也晒单";
+    }else if (_selectIndex == 2){
+        _inputSheet.title = @"发表新帖";
+    }
+    _inputSheet.delegate = self;
+    _inputSheet.inputType = InputType_Title;
+    [self.view addSubview:_inputSheet];
+    [_inputSheet loadInputView];
 }
 
 - (void)refreshTipView{
@@ -292,17 +306,17 @@
     } tag:tag];
 }
 
--(void)publishNewThread{
+-(void)publishNewThreadTitle:(NSString *)title message:(NSString *)message{
     
     NSString *fID = @"2";
-    if (_selectIndex == 0) {
+    if (_selectIndex == 2) {
         fID = @"2";//交流
     }else if (_selectIndex == 1){
         fID = @"66";//晒单
     }
     __weak CommunityViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] publishNewThreadWithFid:fID title:@"晒单子了" message:@"来来，啤酒饮料矿泉水" tag:tag];
+    [[WeiJiFenEngine shareInstance] publishNewThreadWithFid:fID title:title message:message tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -333,6 +347,7 @@
         NSArray* cells = [[NSBundle mainBundle] loadNibNamed:helpCellIdentifier owner:nil options:nil];
         cell = [cells objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.userAvatar addTarget:self action:@selector(handleClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     JFTopicInfo *topicInfo = self.dataSource[indexPath.row];
     cell.topicInfo = topicInfo;
@@ -347,7 +362,29 @@
     JFTopicInfo *topicInfo = self.dataSource[indexPath.row];
     TopicDetailsViewController *topicDetailsVc = [[TopicDetailsViewController alloc] init];
     topicDetailsVc.topicInfo = topicInfo;
+    topicDetailsVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:topicDetailsVc animated:YES];
+}
+
+-(void)handleClickAt:(id)sender event:(id)event{
+    
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    UITableView *tempTable = self.tableView;
+    CGPoint currentTouchPosition = [touch locationInView:tempTable];
+    NSIndexPath *indexPath = [tempTable indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil){
+        NSLog(@"indexPath: row:%ld", indexPath.row);
+        JFTopicInfo *topicInfo = self.dataSource[indexPath.row];
+        JFUserInfo *userInfo = [[JFUserInfo alloc] init];
+        userInfo.uid = topicInfo.authorId;
+        
+        PersonalProfileViewController *vc = [[PersonalProfileViewController alloc] init];
+        vc.userInfo = userInfo;
+        vc.userId = topicInfo.authorId;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - JFCategoryTabViewDelegate
@@ -364,4 +401,9 @@
     [self.tableView reloadData];
 }
 
+#pragma mark -  JFInputWindowDelegate
+-(void)publishActionWithJFInputWindow:(JFInputWindow *)inputView title:(NSString *)title content:(NSString *)content{
+    
+    [self publishNewThreadTitle:title message:content];
+}
 @end

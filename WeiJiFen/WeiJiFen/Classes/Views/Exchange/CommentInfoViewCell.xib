@@ -17,10 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="DFX-jr-UTu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oKL-OB-zpc">
                                 <rect key="frame" x="10" y="10" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="22o-jW-Iuy">
                                 <rect key="frame" x="55" y="10" width="107" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,7 +63,7 @@
                 <outlet property="dateLabel" destination="G4c-tT-hRS" id="dLt-fK-CZN"/>
                 <outlet property="replyButton" destination="3h4-T7-5gx" id="Hbc-D5-Sho"/>
                 <outlet property="topicLabel" destination="Hnt-Ek-EN4" id="r29-uu-1Td"/>
-                <outlet property="userAvatar" destination="DFX-jr-UTu" id="lnI-7S-beC"/>
+                <outlet property="userAvatar" destination="oKL-OB-zpc" id="3uG-dW-WqT"/>
                 <outlet property="userNameLabel" destination="22o-jW-Iuy" id="l0U-9W-49q"/>
             </connections>
             <point key="canvasLocation" x="139" y="154"/>

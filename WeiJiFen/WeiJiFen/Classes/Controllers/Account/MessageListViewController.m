@@ -13,6 +13,7 @@
 #import "JFTaskInfo.h"
 #import "JFMessageInfo.h"
 #import "JFLocalDataManager.h"
+#import "ChatViewController.h"
 
 #define CATEGORY_TAB_INDEX_0 0
 #define CATEGORY_TAB_INDEX_1 1
@@ -224,6 +225,12 @@
     
     NSIndexPath* selIndexPath = [tableView indexPathForSelectedRow];
     [tableView deselectRowAtIndexPath:selIndexPath animated:YES];
+    
+    JFMessageInfo *msgInfo = [self customMessageInfos:tableView][indexPath.row];
+    
+    ChatViewController *chatVc = [[ChatViewController alloc] init];
+    chatVc.peerId = msgInfo.authorId;
+    [self.navigationController pushViewController:chatVc animated:YES];
 }
 
 #pragma mark - JFCategoryTabViewDelegate

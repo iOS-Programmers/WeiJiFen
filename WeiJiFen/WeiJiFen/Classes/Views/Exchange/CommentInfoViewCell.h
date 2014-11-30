@@ -12,7 +12,7 @@
 @interface CommentInfoViewCell : UITableViewCell
 
 @property (nonatomic, strong) JFCommentInfo *commentInfo;
-@property (nonatomic, strong) IBOutlet UIImageView *userAvatar;
+@property (nonatomic, strong) IBOutlet UIButton *userAvatar;
 @property (nonatomic, strong) IBOutlet UILabel *topicLabel;
 @property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;

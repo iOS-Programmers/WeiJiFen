@@ -78,4 +78,11 @@ static JFLocalDataManager *_shareInstance = nil;
     return tmpMutArray;
 }
 
+- (NSMutableArray *)getTESTOnlineMsg{
+    NSMutableArray *tmpMutArray = [NSMutableArray arrayWithArray:@[@{@"plid":@"1",@"authorid":@"1",@"message":@"我在手机上用咱们的wifi都看到商品",@"dateline":@"1415190329"},@{@"plid":@"1",@"authorid":@"1",@"message":@"在吗？老板 我想买Q币",@"dateline":@"1415190329"},@{@"plid":@"1",@"authorid":@"1",@"message":@"哈hha品",@"dateline":@"1415190329"},@{@"plid":@"1",@"authorid":@"1",@"message":@"还白",@"dateline":@"1415190329"}]];
+    
+    return tmpMutArray;
+    
+}
+
 @end

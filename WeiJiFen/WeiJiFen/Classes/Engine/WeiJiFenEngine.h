@@ -88,7 +88,7 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 /*!@brief 发送消息
  * @param plid 第一次发送就为空
  */
-- (BOOL)sendMessageWithPlid:(NSString *)plid receiveuid:(NSString *)receiveuid message:(NSString *)message ag:(int)tag;
+- (BOOL)sendMessageWithPlid:(NSString *)plid receiveuid:(NSString *)receiveuid message:(NSString *)message tag:(int)tag;
 //在线消息
 - (BOOL)onlineMessageListWithReceiveUid:(NSString *)receiveuid tag:(int)tag;
 //用户消息

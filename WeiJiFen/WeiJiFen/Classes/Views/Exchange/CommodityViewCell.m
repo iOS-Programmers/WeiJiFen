@@ -8,6 +8,7 @@
 
 #import "CommodityViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 #define GridViewItemSpacing 1
 #define GridViewItemSizeWidth 12

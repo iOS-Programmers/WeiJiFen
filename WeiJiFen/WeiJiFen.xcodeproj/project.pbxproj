@@ -48,12 +48,24 @@
 		7E6195271A298662004635D4 /* RankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195251A298662004635D4 /* RankListViewController.m */; };
 		7E6195281A298662004635D4 /* RankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195261A298662004635D4 /* RankListViewController.xib */; };
 		7E61952B1A2A0004004635D4 /* JFPrizeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61952A1A2A0004004635D4 /* JFPrizeInfo.m */; };
-		7E61952D1A2A0B0C004635D4 /* s_n_set_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E61952C1A2A0B0C004635D4 /* s_n_set_line@2x.png */; };
 		7E6195321A2A16A9004635D4 /* RankViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195301A2A16A9004635D4 /* RankViewCell.m */; };
 		7E6195331A2A16A9004635D4 /* RankViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195311A2A16A9004635D4 /* RankViewCell.xib */; };
 		7E6195371A2A2048004635D4 /* PromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195351A2A2048004635D4 /* PromotionViewController.m */; };
 		7E6195381A2A2048004635D4 /* PromotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195361A2A2048004635D4 /* PromotionViewController.xib */; };
 		7E61953A1A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195391A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png */; };
+		7E61953D1A2AF449004635D4 /* JFInputWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61953C1A2AF449004635D4 /* JFInputWindow.m */; };
+		7E61953F1A2AF466004635D4 /* JFInputWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E61953E1A2AF466004635D4 /* JFInputWindow.xib */; };
+		7E6195411A2B03A9004635D4 /* jf_delete_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195401A2B03A9004635D4 /* jf_delete_icon@2x.png */; };
+		7E6195451A2B299C004635D4 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195431A2B299C004635D4 /* ChatViewController.m */; };
+		7E6195461A2B299C004635D4 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195441A2B299C004635D4 /* ChatViewController.xib */; };
+		7E61954A1A2B3283004635D4 /* ChatCardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195481A2B3283004635D4 /* ChatCardViewCell.m */; };
+		7E61954B1A2B3283004635D4 /* ChatCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195491A2B3283004635D4 /* ChatCardViewCell.xib */; };
+		7E61954E1A2B36B0004635D4 /* jf_bubble_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E61954C1A2B36B0004635D4 /* jf_bubble_white@2x.png */; };
+		7E61954F1A2B36B0004635D4 /* jf_bubble_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E61954D1A2B36B0004635D4 /* jf_bubble_orange@2x.png */; };
+		7E6195531A2B9A88004635D4 /* s_n_chat_bottom_input_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195521A2B9A88004635D4 /* s_n_chat_bottom_input_bg@2x.png */; };
+		7E6195551A2B9AC2004635D4 /* s_n_set_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6195541A2B9AC2004635D4 /* s_n_set_line@2x.png */; };
+		7E61955B1A2B9C1F004635D4 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195581A2B9C1F004635D4 /* HPGrowingTextView.m */; };
+		7E61955C1A2B9C1F004635D4 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61955A1A2B9C1F004635D4 /* HPTextViewInternal.m */; };
 		7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */; };
 		7E99AD6A1A19EA97007B7B09 /* jf_account_toplist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */; };
 		7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */; };
@@ -278,7 +290,6 @@
 		7E6195261A298662004635D4 /* RankListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankListViewController.xib; sourceTree = "<group>"; };
 		7E6195291A2A0004004635D4 /* JFPrizeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPrizeInfo.h; sourceTree = "<group>"; };
 		7E61952A1A2A0004004635D4 /* JFPrizeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPrizeInfo.m; sourceTree = "<group>"; };
-		7E61952C1A2A0B0C004635D4 /* s_n_set_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "s_n_set_line@2x.png"; sourceTree = "<group>"; };
 		7E61952F1A2A16A9004635D4 /* RankViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewCell.h; sourceTree = "<group>"; };
 		7E6195301A2A16A9004635D4 /* RankViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewCell.m; sourceTree = "<group>"; };
 		7E6195311A2A16A9004635D4 /* RankViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewCell.xib; sourceTree = "<group>"; };
@@ -286,6 +297,24 @@
 		7E6195351A2A2048004635D4 /* PromotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionViewController.m; sourceTree = "<group>"; };
 		7E6195361A2A2048004635D4 /* PromotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionViewController.xib; sourceTree = "<group>"; };
 		7E6195391A2A45B2004635D4 /* jf_greyandwhite_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_greyandwhite_bg@2x.png"; sourceTree = "<group>"; };
+		7E61953B1A2AF449004635D4 /* JFInputWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFInputWindow.h; sourceTree = "<group>"; };
+		7E61953C1A2AF449004635D4 /* JFInputWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFInputWindow.m; sourceTree = "<group>"; };
+		7E61953E1A2AF466004635D4 /* JFInputWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFInputWindow.xib; sourceTree = "<group>"; };
+		7E6195401A2B03A9004635D4 /* jf_delete_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_delete_icon@2x.png"; sourceTree = "<group>"; };
+		7E6195421A2B299C004635D4 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		7E6195431A2B299C004635D4 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		7E6195441A2B299C004635D4 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		7E6195471A2B3283004635D4 /* ChatCardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCardViewCell.h; sourceTree = "<group>"; };
+		7E6195481A2B3283004635D4 /* ChatCardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCardViewCell.m; sourceTree = "<group>"; };
+		7E6195491A2B3283004635D4 /* ChatCardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCardViewCell.xib; sourceTree = "<group>"; };
+		7E61954C1A2B36B0004635D4 /* jf_bubble_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_bubble_white@2x.png"; sourceTree = "<group>"; };
+		7E61954D1A2B36B0004635D4 /* jf_bubble_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_bubble_orange@2x.png"; sourceTree = "<group>"; };
+		7E6195521A2B9A88004635D4 /* s_n_chat_bottom_input_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "s_n_chat_bottom_input_bg@2x.png"; sourceTree = "<group>"; };
+		7E6195541A2B9AC2004635D4 /* s_n_set_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "s_n_set_line@2x.png"; sourceTree = "<group>"; };
+		7E6195571A2B9C1F004635D4 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		7E6195581A2B9C1F004635D4 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		7E6195591A2B9C1F004635D4 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		7E61955A1A2B9C1F004635D4 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
 		7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_friendlist@2x.png"; sourceTree = "<group>"; };
 		7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_toplist@2x.png"; sourceTree = "<group>"; };
 		7E99AD651A19EA97007B7B09 /* jf_account_promotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_account_promotion@2x.png"; sourceTree = "<group>"; };
@@ -620,6 +649,9 @@
 		7E61952E1A2A119F004635D4 /* user */ = {
 			isa = PBXGroup;
 			children = (
+				7E6195471A2B3283004635D4 /* ChatCardViewCell.h */,
+				7E6195481A2B3283004635D4 /* ChatCardViewCell.m */,
+				7E6195491A2B3283004635D4 /* ChatCardViewCell.xib */,
 				7E61952F1A2A16A9004635D4 /* RankViewCell.h */,
 				7E6195301A2A16A9004635D4 /* RankViewCell.m */,
 				7E6195311A2A16A9004635D4 /* RankViewCell.xib */,
@@ -627,10 +659,23 @@
 			path = user;
 			sourceTree = "<group>";
 		};
+		7E6195561A2B9C1F004635D4 /* HPGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				7E6195571A2B9C1F004635D4 /* HPGrowingTextView.h */,
+				7E6195581A2B9C1F004635D4 /* HPGrowingTextView.m */,
+				7E6195591A2B9C1F004635D4 /* HPTextViewInternal.h */,
+				7E61955A1A2B9C1F004635D4 /* HPTextViewInternal.m */,
+			);
+			path = HPGrowingTextView;
+			sourceTree = "<group>";
+		};
 		7E99AD621A19EA83007B7B09 /* user */ = {
 			isa = PBXGroup;
 			children = (
 				16DE3EB01A278D4600F2D2B5 /* avatar@2x.png */,
+				7E61954C1A2B36B0004635D4 /* jf_bubble_white@2x.png */,
+				7E61954D1A2B36B0004635D4 /* jf_bubble_orange@2x.png */,
 				7EA2B4FD1A2725DE00FD2F71 /* jf_login_btn_icon@2x.png */,
 				7E99AD631A19EA97007B7B09 /* jf_account_friendlist@2x.png */,
 				7E99AD641A19EA97007B7B09 /* jf_account_toplist@2x.png */,
@@ -778,6 +823,9 @@
 				7EABF1D219ED1CC4004FBEF7 /* AccountViewController.xib */,
 				16DE3E9B1A27885100F2D2B5 /* JFBaseTableViewController.h */,
 				16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */,
+				7E6195421A2B299C004635D4 /* ChatViewController.h */,
+				7E6195431A2B299C004635D4 /* ChatViewController.m */,
+				7E6195441A2B299C004635D4 /* ChatViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -785,6 +833,7 @@
 		7EABF1A719ED1551004FBEF7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7E6195561A2B9C1F004635D4 /* HPGrowingTextView */,
 				16CA4CDD1A2821E900E4E738 /* SSKeychain */,
 				16DE3E9E1A27893700F2D2B5 /* MJRefresh */,
 				7E6195081A27991E004635D4 /* SVPullToRefresh */,
@@ -875,6 +924,7 @@
 		7EABF1E419EE0FEF004FBEF7 /* comment */ = {
 			isa = PBXGroup;
 			children = (
+				7E6195401A2B03A9004635D4 /* jf_delete_icon@2x.png */,
 				7E6195181A2872E2004635D4 /* jf_right_arrows_icon@2x.png */,
 				7EA2B5031A27947E00FD2F71 /* jf_topic_reply_icon@2x.png */,
 				7EA2B4D31A26F47100FD2F71 /* jf_avatar_default@2x.png */,
@@ -884,7 +934,8 @@
 				7EA2B4D11A26F23200FD2F71 /* jf_vc_base_bg@2x.png */,
 				7EA2B4FF1A276CBB00FD2F71 /* jf_public_posts_icon@2x.png */,
 				7EA2B5011A27737300FD2F71 /* jf_mypost_no_tip@2x.png */,
-				7E61952C1A2A0B0C004635D4 /* s_n_set_line@2x.png */,
+				7E6195541A2B9AC2004635D4 /* s_n_set_line@2x.png */,
+				7E6195521A2B9A88004635D4 /* s_n_chat_bottom_input_bg@2x.png */,
 			);
 			path = comment;
 			sourceTree = "<group>";
@@ -919,6 +970,9 @@
 				7EABF23219EE6E81004FBEF7 /* TabBar */,
 				7E32EB8219F0F0BE00FEAA66 /* JFCategoryTabView.h */,
 				7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */,
+				7E61953B1A2AF449004635D4 /* JFInputWindow.h */,
+				7E61953C1A2AF449004635D4 /* JFInputWindow.m */,
+				7E61953E1A2AF466004635D4 /* JFInputWindow.xib */,
 			);
 			path = Customs;
 			sourceTree = "<group>";
@@ -1325,6 +1379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6195551A2B9AC2004635D4 /* s_n_set_line@2x.png in Resources */,
 				C6B6976B19ECF61C00F805F3 /* InfoPlist.strings in Resources */,
 				7EA2B4EE1A26FDEC00FD2F71 /* jf_taskcenter_ycm@2x.png in Resources */,
 				7EABF23719EE6E81004FBEF7 /* JFTabBarView.xib in Resources */,
@@ -1344,7 +1399,9 @@
 				7EA2B4FC1A2723B000FD2F71 /* jf_webtask_default_icon@2x.png in Resources */,
 				7EA2B4E41A26FDEC00FD2F71 /* jf_taskcenter_anwo@2x.png in Resources */,
 				7EA2B4E71A26FDEC00FD2F71 /* jf_taskcenter_kg@2x.png in Resources */,
+				7E6195531A2B9A88004635D4 /* s_n_chat_bottom_input_bg@2x.png in Resources */,
 				7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
+				7E6195461A2B299C004635D4 /* ChatViewController.xib in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
 				7EBC3E391A0A181000E130F5 /* jf_sellercredit_icon@2x.png in Resources */,
 				7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */,
@@ -1370,22 +1427,26 @@
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EA2B4E81A26FDEC00FD2F71 /* jf_taskcenter_lm@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
+				7E61954F1A2B36B0004635D4 /* jf_bubble_orange@2x.png in Resources */,
 				7E6195381A2A2048004635D4 /* PromotionViewController.xib in Resources */,
+				7E6195411A2B03A9004635D4 /* jf_delete_icon@2x.png in Resources */,
 				7EA229451A237E2F00BCAC25 /* TopicDetailsViewController.xib in Resources */,
+				7E61954E1A2B36B0004635D4 /* jf_bubble_white@2x.png in Resources */,
 				7E99AD6E1A19EA97007B7B09 /* jf_account_my_personal@2x.png in Resources */,
 				7E99AD691A19EA97007B7B09 /* jf_account_friendlist@2x.png in Resources */,
 				7EBC3E381A0A181000E130F5 /* jf_ buyercredit_icon@2x.png in Resources */,
 				16DE3EA71A27893700F2D2B5 /* MJRefresh.bundle in Resources */,
 				7EBFD9E019F507790003AA9E /* CommodityViewCell.xib in Resources */,
 				1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */,
+				7E61954B1A2B3283004635D4 /* ChatCardViewCell.xib in Resources */,
 				7EABF1AD19ED15E8004FBEF7 /* 37x-Checkmark.png in Resources */,
 				7EA2B4EA1A26FDEC00FD2F71 /* jf_taskcenter_wp@2x.png in Resources */,
 				7E6195281A298662004635D4 /* RankListViewController.xib in Resources */,
 				7ED70C0419F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png in Resources */,
 				7E61951E1A28D28D004635D4 /* PersonalProfileViewController.xib in Resources */,
+				7E61953F1A2AF466004635D4 /* JFInputWindow.xib in Resources */,
 				7EA2B4E91A26FDEC00FD2F71 /* jf_taskcenter_mg@2x.png in Resources */,
 				7EABF1E619EE1001004FBEF7 /* jf_message_icon@2x.png in Resources */,
-				7E61952D1A2A0B0C004635D4 /* s_n_set_line@2x.png in Resources */,
 				7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */,
 				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
 				166597761A272840000CC4FE /* thirdLoginBtn_bg@2x.png in Resources */,
@@ -1444,20 +1505,25 @@
 				7EABF2DB19EFD071004FBEF7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				16DE3EAA1A27893700F2D2B5 /* MJRefreshHeaderView.m in Sources */,
 				7E61952B1A2A0004004635D4 /* JFPrizeInfo.m in Sources */,
+				7E61955B1A2B9C1F004635D4 /* HPGrowingTextView.m in Sources */,
 				7E32EB7619F0BBE700FEAA66 /* GMGridViewCell.m in Sources */,
 				7EABF2D619EFD071004FBEF7 /* ASINetworkQueue.m in Sources */,
 				7EABF21D19EE4440004FBEF7 /* SDWebImageDownloaderOperation.m in Sources */,
 				7EABF1AF19ED15E8004FBEF7 /* MBProgressHUD.m in Sources */,
 				7EABF21919EE4440004FBEF7 /* SDImageCache.m in Sources */,
 				1665977A1A272CAC000CC4FE /* RegisterController.m in Sources */,
+				7E61954A1A2B3283004635D4 /* ChatCardViewCell.m in Sources */,
+				7E6195451A2B299C004635D4 /* ChatViewController.m in Sources */,
 				7EBFD9DF19F507790003AA9E /* CommodityViewCell.m in Sources */,
 				7EABF2E419EFD071004FBEF7 /* ASIS3ServiceRequest.m in Sources */,
+				7E61953D1A2AF449004635D4 /* JFInputWindow.m in Sources */,
 				7EABF2D419EFD071004FBEF7 /* ASIHTTPRequest.m in Sources */,
 				C6B6976D19ECF61C00F805F3 /* main.m in Sources */,
 				7EABF25D19EF9EE5004FBEF7 /* JSONKit.m in Sources */,
 				7E32EB7C19F0C26C00FEAA66 /* JFCommodityInfo.m in Sources */,
 				7EABF25619EF9CB0004FBEF7 /* JFUserInfo.m in Sources */,
 				7EABF1C919ED1BE4004FBEF7 /* GainScoreViewController.m in Sources */,
+				7E61955C1A2B9C1F004635D4 /* HPTextViewInternal.m in Sources */,
 				7EABF1EB19EE268F004FBEF7 /* LoginViewController.m in Sources */,
 				7EABF21A19EE4440004FBEF7 /* SDWebImageCompat.m in Sources */,
 				7EABF2D519EFD071004FBEF7 /* ASIInputStream.m in Sources */,

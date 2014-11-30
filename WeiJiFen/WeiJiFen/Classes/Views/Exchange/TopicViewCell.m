@@ -8,6 +8,7 @@
 
 #import "TopicViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 @implementation TopicViewCell
 
@@ -25,7 +26,8 @@
     _topicInfo = topicInfo;
     
     self.contentView.backgroundColor = [LSCommonUtils getProgramMainDaryColor];
-    [self.userAvatar sd_setImageWithURL:topicInfo.userAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
+//    [self.userAvatar sd_setImageWithURL:topicInfo.userAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
+    [self.userAvatar sd_setImageWithURL:topicInfo.userAvatarUrl forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
     self.topicLabel.text = topicInfo.subject;
     self.userNameLabel.text = topicInfo.author;
     self.dateLabel.text = [LSCommonUtils secondChangToDate:[NSString stringWithFormat:@"%d",topicInfo.dateline]];

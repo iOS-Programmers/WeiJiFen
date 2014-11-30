@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString* authorId;
 @property (nonatomic, strong) NSString* message;
 @property (nonatomic, assign) int dateline;//发布时间
+@property (nonatomic, strong) NSURL *avatarUrl;
 
 @property(nonatomic, strong) NSDictionary* commentInfoByDic;
 

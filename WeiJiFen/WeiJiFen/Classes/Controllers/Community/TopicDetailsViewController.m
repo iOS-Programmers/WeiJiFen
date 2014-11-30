@@ -11,10 +11,13 @@
 #import "UIImageView+WebCache.h"
 #import "CommentInfoViewCell.h"
 #import "JFCommentInfo.h"
+#import "JFInputWindow.h"
+#import "PersonalProfileViewController.h"
 
-@interface TopicDetailsViewController ()
+@interface TopicDetailsViewController ()<JFInputWindowDelegate>
 {
     JFCommentInfo *_selCommentInfo;
+    JFInputWindow *_inputSheet;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
@@ -129,11 +132,11 @@
     } tag:tag];
 }
 
--(void)replyMessage{
+-(void)replyMessage:(NSString *)message{
     
     __weak TopicDetailsViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] userReplyMessageWithPid:_selCommentInfo.pId tid:_topicInfo.tId fid:_topicInfo.fId message:@"就这么任性" tag:tag];
+    [[WeiJiFenEngine shareInstance] userReplyMessageWithPid:_selCommentInfo.pId tid:_topicInfo.tId fid:_topicInfo.fId message:message tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -151,8 +154,22 @@
 }
 - (IBAction)replyAction:(id)sender {
     _selCommentInfo = nil;
-    [self replyMessage];
+    [self addInputView];
 }
+
+-(void)addInputView{
+    
+    _inputSheet = [[[NSBundle mainBundle] loadNibNamed:@"JFInputWindow" owner:nil options:nil] objectAtIndex:0];
+    if (_selCommentInfo == nil) {
+        _inputSheet.title = @"我来回答";
+    }else if (_selCommentInfo){
+        _inputSheet.title = @"回复帖子";
+    }
+    _inputSheet.delegate = self;
+    [self.view addSubview:_inputSheet];
+    [_inputSheet loadInputView];
+}
+
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -176,6 +193,7 @@
         cell = [cells objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        [cell.userAvatar addTarget:self action:@selector(userAvatarClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
         [cell.replyButton addTarget:self action:@selector(handleClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -185,6 +203,29 @@
     return cell;
 }
 
+-(void)userAvatarClickAt:(id)sender event:(id)event{
+    
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    UITableView *tempTable = self.tableView;
+    CGPoint currentTouchPosition = [touch locationInView:tempTable];
+    NSIndexPath *indexPath = [tempTable indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil){
+        NSLog(@"indexPath: row:%ld", indexPath.row);
+        JFCommentInfo *commentInfo = _topicInfo.comments[indexPath.row];
+        NSLog(@"authorId==%@",commentInfo.authorId);
+        
+        JFUserInfo *userInfo = [[JFUserInfo alloc] init];
+        userInfo.uid = commentInfo.authorId;
+        
+        PersonalProfileViewController *vc = [[PersonalProfileViewController alloc] init];
+        vc.userInfo = userInfo;
+        vc.userId = commentInfo.authorId;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
+}
 -(void)handleClickAt:(id)sender event:(id)event{
     
     NSSet *touches = [event allTouches];
@@ -199,8 +240,13 @@
         if (commentInfo.pId.length != 0) {
             _selCommentInfo = commentInfo;
             //do someSting
-            [self replyMessage];
+            [self addInputView];
         }
     }
+}
+#pragma mark -  JFInputWindowDelegate
+-(void)publishActionWithJFInputWindow:(JFInputWindow *)inputView title:(NSString *)title content:(NSString *)content{
+    
+    [self replyMessage:content];
 }
 @end

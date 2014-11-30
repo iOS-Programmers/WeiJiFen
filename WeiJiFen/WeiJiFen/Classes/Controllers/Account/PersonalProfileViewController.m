@@ -7,6 +7,7 @@
 //
 
 #import "PersonalProfileViewController.h"
+#import "ChatViewController.h"
 
 @interface PersonalProfileViewController ()
 
@@ -127,8 +128,11 @@
         creditImageView.frame = CGRectMake((creditImageSize.width+1)*index, (self.buyerCreditView.frame.size.height-creditImageSize.height)/2, creditImageSize.width, creditImageSize.height);
         [self.buyerCreditView addSubview:creditImageView];
     }
-    
-    self.title = [NSString stringWithFormat:@"%@的资料",_userInfo.nickName];
+    if (_userInfo.nickName) {
+        self.title = [NSString stringWithFormat:@"%@的资料",_userInfo.nickName];
+    }else{
+        self.title = @"账号资料";
+    }
     
     self.exitButton.hidden = YES;
     self.addFriendButton.hidden = NO;
@@ -153,6 +157,9 @@
 }
 
 - (IBAction)sendMessageAction:(id)sender {
+    ChatViewController *chatVc = [[ChatViewController alloc] init];
+    chatVc.peerId = _userInfo.uid;
+    [self.navigationController pushViewController:chatVc animated:YES];
 }
 
 @end

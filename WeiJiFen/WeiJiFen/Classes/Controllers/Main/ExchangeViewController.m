@@ -267,6 +267,7 @@
         TopicDetailsViewController *topicDetailsVc = [[TopicDetailsViewController alloc] init];
         topicDetailsVc.topicInfo = topicInfo;
         topicDetailsVc.isFromHelp = YES;
+        topicDetailsVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:topicDetailsVc animated:YES];
         return;
     }
