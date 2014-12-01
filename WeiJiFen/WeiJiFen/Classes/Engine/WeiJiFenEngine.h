@@ -29,6 +29,7 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 
 - (NSString*)getCurrentAccoutDocDirectory;
 - (void)saveAccount;
+- (BOOL)hasAccoutLoggedin;
 - (void)logout;
 
 /**

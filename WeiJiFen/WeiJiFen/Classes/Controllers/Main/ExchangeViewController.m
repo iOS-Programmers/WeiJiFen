@@ -33,9 +33,10 @@
 
 -(void)logInRequest{
     
+    NSString *password = @"123456";
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:password confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
 //    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf123" token:@"54477065e7c62" password:@"wjf5213344" confirm:@"4384CCFB0C21406F1533E46D1E2FDB5B" tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
@@ -46,7 +47,9 @@
         NSDictionary *dataDic = [jsonRet objectForKey:@"data"];
         JFUserInfo *userInfo = [[JFUserInfo alloc] init];
         [userInfo setUserInfoByJsonDic:dataDic];
+        [WeiJiFenEngine shareInstance].userPassword = password;
         [[WeiJiFenEngine shareInstance] setUserInfo:userInfo];
+        [[WeiJiFenEngine shareInstance] saveAccount];
         
         NSString *tokenStr = [jsonRet objectForKey:@"token"];
         if (!FBIsEmpty(tokenStr)) {

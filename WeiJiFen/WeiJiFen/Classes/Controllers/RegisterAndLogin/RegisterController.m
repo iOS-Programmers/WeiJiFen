@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBarHidden = NO;
+    self.title = @"注册账号";
 }
 
 - (void)didReceiveMemoryWarning {

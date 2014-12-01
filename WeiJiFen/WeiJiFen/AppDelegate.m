@@ -24,7 +24,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [self signIn];
+    if ([[WeiJiFenEngine shareInstance] hasAccoutLoggedin]) {
+        [self signIn];
+    }else{
+        NSLog(@"signOut for accout miss");
+        [self signOut];
+    }
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -87,6 +92,17 @@
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
     JFBaseNavigationController* navigationController = [[JFBaseNavigationController alloc] initWithRootViewController:loginViewController];
     navigationController.navigationBarHidden = YES;
+    UIColor *color = UIColorRGB(254,120,31);
+    if (CURRENT_SYS_VERSION >= 7.0) {
+        [[UINavigationBar appearance] setBarTintColor:color];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    } else {
+        [[UINavigationBar appearance] setTintColor:color];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    }
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
+    
     self.window.rootViewController = navigationController;
 }
 

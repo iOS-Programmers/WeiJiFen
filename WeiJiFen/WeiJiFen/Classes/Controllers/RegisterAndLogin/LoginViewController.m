@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "AccountDetailsViewController.h"
 #import "RegisterController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
@@ -22,6 +23,11 @@
 @end
 
 @implementation LoginViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,7 +117,9 @@
         
         JFUserInfo *userInfo = [[JFUserInfo alloc] init];
         [userInfo setUserInfoByJsonDic:dataDic];
+        [WeiJiFenEngine shareInstance].userPassword = self.passwordTF.text;
         [[WeiJiFenEngine shareInstance] setUserInfo:userInfo];
+        [[WeiJiFenEngine shareInstance] saveAccount];
         
         [weakSelf loginSuccess];
         
@@ -124,13 +132,14 @@
  */
 - (void)loginSuccess
 {
-    
+    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+    [appDelegate signIn];
 }
 
 /**
  *  点击注册
  *
- *  @param sender 
+ *  @param sender
  */
 - (IBAction)registerAction:(id)sender {
 

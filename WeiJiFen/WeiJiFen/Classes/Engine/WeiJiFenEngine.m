@@ -159,6 +159,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     [accountDic writeToFile:[self getAccountsStoragePath] atomically:NO];
 }
 
+- (BOOL)hasAccoutLoggedin{
+    NSLog(@" _userPassword=%@, _uid=%@", _userPassword, _uid);
+    return (_userPassword && _uid);
+}
+
 #pragma mark - 网络错误处理
 + (NSString*)getErrorMsgWithReponseDic:(NSDictionary*)dic{
     if (dic == nil) {
