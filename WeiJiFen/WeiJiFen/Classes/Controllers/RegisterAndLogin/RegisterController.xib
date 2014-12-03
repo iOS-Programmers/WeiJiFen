@@ -71,7 +71,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="naf-ev-WXx">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="naf-ev-WXx">
                     <rect key="frame" x="33" y="253" width="255" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.99607843137254903" green="0.47058823529411764" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +79,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="registerAction:" destination="-1" eventType="touchUpOutside" id="cGH-1m-ltJ"/>
+                        <action selector="registerAction:" destination="-1" eventType="touchUpInside" id="UB8-RH-K0u"/>
                     </connections>
                 </button>
             </subviews>

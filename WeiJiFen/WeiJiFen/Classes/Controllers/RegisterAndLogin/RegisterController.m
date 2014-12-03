@@ -44,7 +44,6 @@
 */
 
 - (IBAction)registerAction:(id)sender {
-
     
     if (FBIsEmpty(self.userNameTF.text)) {
         [self showWithText:@"请输入用户名"];
