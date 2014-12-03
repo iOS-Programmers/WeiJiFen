@@ -7,6 +7,7 @@
 //
 
 #import "RegisterController.h"
+#import "AppDelegate.h"
 
 @interface RegisterController ()
 
@@ -91,6 +92,53 @@
  */
 - (void)registerSuccess
 {
+    //注册成功后要调用下登录接口
+    __weak RegisterController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     
+    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:WJF_Confirm tag:tag];
+
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        
+
+            //登陆成功后，保存用户名跟密码到钥匙串里
+        [SSKeychain setPassword:self.userNameTF.text forService:@"com.weijifen" account:@"username"];
+        [SSKeychain setPassword:self.passwordTF.text forService:@"com.weijifen" account:@"password"];
+    
+        
+        /**
+         *  请求成功后，把服务端返回的信息存起来
+         */
+        NSDictionary *dataDic = [jsonRet objectForKey:@"data"];
+        
+        /**
+         *  登录成功后把token存起来
+         */
+        NSString *tokenStr = [jsonRet objectForKey:@"token"];
+        if (!FBIsEmpty(tokenStr)) {
+            [WeiJiFenEngine saveUserToken:tokenStr];
+        }
+        
+        JFUserInfo *userInfo = [[JFUserInfo alloc] init];
+        [userInfo setUserInfoByJsonDic:dataDic];
+        [WeiJiFenEngine shareInstance].userPassword = self.passwordTF.text;
+        [[WeiJiFenEngine shareInstance] setUserInfo:userInfo];
+        [[WeiJiFenEngine shareInstance] saveAccount];
+        
+        [weakSelf loginAction];
+        
+    } tag:tag];
+
+}
+
+- (void)loginAction
+{
+    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+    [appDelegate signIn];
 }
 @end
