@@ -13,6 +13,7 @@
 #import "URLHelper.h"
 #import "NSDictionary+objectForKey.h"
 #import "PathHelper.h"
+#import "AppDelegate.h"
 
 #define CONNECT_TIMEOUT     20
 
@@ -66,7 +67,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 - (void)logout{
     [_onAppServiceBlockMap removeAllObjects];
     
-    [self saveAccount];
+//    [self saveAccount];
 }
 
 -(NSString *)baseUrl{
@@ -158,6 +159,12 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
     [accountDic writeToFile:[self getAccountsStoragePath] atomically:NO];
 }
+- (void)deleteAccount{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:[self getAccountsStoragePath]]) {
+        [fileManager removeItemAtPath:[self getAccountsStoragePath] error:nil];
+    }
+}
 
 - (BOOL)hasAccoutLoggedin{
     NSLog(@" _userPassword=%@, _uid=%@", _userPassword, _uid);
@@ -187,6 +194,24 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 + (NSString*)getErrorCodeWithReponseDic:(NSDictionary*)dic {
     
     return [[dic stringObjectForKey:@"error_info"] description];
+}
+
++ (NSInteger)getErrorCodeWithDic:(NSDictionary *)dic{
+    
+    return [[dic stringObjectForKey:@"error_no"] integerValue];
+}
+//验证失效重新登录
++ (BOOL)getErrorAuthWithDic:(NSDictionary *)dic{
+    
+    return [WeiJiFenEngine getErrorCodeWithDic:dic] == -151;
+}
+
+-(void)isNeedAnewAuth:(NSDictionary *)dic{
+    if ([WeiJiFenEngine getErrorAuthWithDic:dic]) {
+//        AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+//        [appDelegate signOut];
+//        [[WeiJiFenEngine shareInstance] deleteAccount];
+    }
 }
 
 #pragma mark - Delegate
@@ -223,13 +248,26 @@ static WeiJiFenEngine* s_ShareInstance = nil;
         responseString = [request responseString];
     }
     
+    NSDictionary *jsonRet = [responseString objectFromJSONString];
+    
+    [self isNeedAnewAuth:jsonRet];
+    
+    if ([jsonRet objectForKey:@"token"]) {
+        [WeiJiFenEngine saveUserToken:[[jsonRet objectForKey:@"token"] description]];
+    }
+    NSMutableDictionary *mutJsonRet = [NSMutableDictionary dictionaryWithDictionary:jsonRet];
+    if ([[jsonRet objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
+        NSMutableArray *tmpArray = [NSMutableArray array];
+        [mutJsonRet setObject:tmpArray forKey:@"data"];
+    }
+    
     NSLog(@"response tag:%d url=%@, string: %@", request.tag, [request url], responseString);
     dispatch_async(dispatch_get_main_queue(), ^(){
         
         onAppServiceBlock block = [self getonAppServiceBlockByTag:request.tag];
         if (block) {
             [self removeOnAppServiceBlockForTag:request.tag];
-            block(request.tag, [responseString objectFromJSONString], nil);
+            block(request.tag, mutJsonRet, nil);
         }
     });
 }
@@ -371,7 +409,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
         [params setObject:confirm forKey:@"confirm"];//@"79EF44D011ACB123CF6A918610EFC053"
     }
     
-    [self sendHttpRequestWithUrl:url params:params requestMethod:@"POST" postValue:YES tag:tag];
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:NO tag:tag];
     return YES;
 }
 
@@ -837,5 +875,29 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
     
+}
+
+- (BOOL)addFriendWithFuid:(NSString *)fuid gid:(NSString *)gid note:(NSString *)note tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/makeFriend", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (fuid) {
+        [params setObject:fuid forKey:@"uid"];
+    }
+    if (gid) {
+        [params setObject:gid forKey:@"gid"];
+    }
+    if (note) {
+        [params setObject:note forKey:@"note"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:WJF_Confirm forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
 }
 @end

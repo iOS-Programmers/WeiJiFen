@@ -29,6 +29,7 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 
 - (NSString*)getCurrentAccoutDocDirectory;
 - (void)saveAccount;
+- (void)deleteAccount;
 - (BOOL)hasAccoutLoggedin;
 - (void)logout;
 
@@ -122,5 +123,6 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 /*!@brief 立即申请
  */
 - (BOOL)doApplyWithTaskid:(NSString *)taskid tag:(int)tag;
-
+//添加好友
+- (BOOL)addFriendWithFuid:(NSString *)fuid gid:(NSString *)gid note:(NSString *)note tag:(int)tag;
 @end

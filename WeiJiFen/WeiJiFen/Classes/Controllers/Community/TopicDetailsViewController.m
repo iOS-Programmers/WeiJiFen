@@ -78,7 +78,7 @@
         [self.replyButton setImage:nil forState:UIControlStateNormal];
         [self.replyButton setTitle:@"我要回答" forState:UIControlStateNormal];
     }
-    
+    self.priceLabel.text = _topicInfo.price;
     self.topicLabel.text = _topicInfo.subject;
     CGRect frame = self.topicLabel.frame;
     frame.size.width = self.view.frame.size.width - 10*2;
@@ -117,7 +117,7 @@
 -(void)refreshTopicInfo{
     __weak TopicDetailsViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getHelpInfoWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm fId:_topicInfo.fId tId:_topicInfo.tId tag:tag];
+    [[WeiJiFenEngine shareInstance] getHelpInfoWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm fId:_topicInfo.fId tId:_topicInfo.tId tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -143,11 +143,9 @@
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
             return;
         }
-//        NSDictionary *infoDic = [jsonRet objectForKey:@"data"];
-//        JFTopicInfo *topicInfo = [[JFTopicInfo alloc] init];
-//        [topicInfo setTopicInfoByDic:infoDic];
-//        
-//        [weakSelf.tableView reloadData];
+        
+        [LSCommonUtils showWarningTip:@"回复成功！" At:weakSelf.view];
+        [weakSelf refreshTopicInfo];
         
     } tag:tag];
     

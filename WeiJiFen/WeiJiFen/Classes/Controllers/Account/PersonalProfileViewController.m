@@ -8,6 +8,7 @@
 
 #import "PersonalProfileViewController.h"
 #import "ChatViewController.h"
+#import "AppDelegate.h"
 
 @interface PersonalProfileViewController ()
 
@@ -88,6 +89,29 @@
     
 }
 
+-(void)doAddFriendAction:(NSString *)message{
+    
+    if (_userInfo.uid.length == 0) {
+        [LSCommonUtils showWarningTip:@"用户不存在" At:self.view];
+        return;
+    }
+    
+    __weak PersonalProfileViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] addFriendWithFuid:_userInfo.uid gid:@"0" note:message tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        
+        [LSCommonUtils showWarningTip:@"申请已发出，等待对方确认！" At:weakSelf.view];
+        
+    } tag:tag];
+}
+
 #pragma mark - Custom
 - (BOOL)isOwner{
     return [_userInfo.uid isEqualToString:[WeiJiFenEngine shareInstance].uid];
@@ -119,7 +143,7 @@
         [self.sellerCreditView addSubview:creditImageView];
     }
     //买家信誉
-    credit = 3;
+    credit = _userInfo.buyercredit;
     for (UIView *view in self.buyerCreditView.subviews) {
         [view removeFromSuperview];
     }
@@ -151,9 +175,13 @@
 }
 
 - (IBAction)exitAction:(id)sender {
+    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+    [appDelegate signOut];
+    [[WeiJiFenEngine shareInstance] deleteAccount];
 }
 
 - (IBAction)addFriedAction:(id)sender {
+    [self doAddFriendAction:nil];
 }
 
 - (IBAction)sendMessageAction:(id)sender {

@@ -56,7 +56,7 @@
             return;
         }
         
-        if (weakSelf.nextPage == -1) {
+        if (weakSelf.nextPage == -1 ) {
             [weakSelf.tableView.infiniteScrollingView stopAnimating];
             weakSelf.tableView.showsInfiniteScrolling = NO;
             return;
@@ -70,7 +70,7 @@
             fID = @"66";//晒单
         }
         int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-        [[WeiJiFenEngine shareInstance] getHelpListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm fId:fID page:weakSelf.nextPage pageSize:10 tag:tag];
+        [[WeiJiFenEngine shareInstance] getHelpListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm fId:fID page:weakSelf.nextPage pageSize:10 tag:tag];
         [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
             if (!weakSelf) {
                 return;
@@ -150,12 +150,19 @@
         if (self.myCommunityNoTipView.superview) {
             [self.myCommunityNoTipView removeFromSuperview];
         }
+        
+        self.tableView.showsInfiniteScrolling = YES;
+        
     }else if (_selectIndex == 1){
         self.publishButton.hidden = NO;
         [self.publishButton setTitle:@" 我要晒单" forState:UIControlStateNormal];
         if (self.myCommunityNoTipView.superview) {
             [self.myCommunityNoTipView removeFromSuperview];
         }
+        
+        [self.tableView.infiniteScrollingView stopAnimating];
+        self.tableView.showsInfiniteScrolling = NO;
+        
     }else if (_selectIndex == 2){
         self.publishButton.hidden = NO;
         [self.publishButton setTitle:@" 发表新帖" forState:UIControlStateNormal];
@@ -173,6 +180,9 @@
         }else{
             [self.myCommunityNoTipView removeFromSuperview];
         }
+        
+        [self.tableView.infiniteScrollingView stopAnimating];
+        self.tableView.showsInfiniteScrolling = NO;
     }
 }
 
@@ -236,7 +246,7 @@
     }
     __weak CommunityViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getHelpListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm fId:fID page:1 pageSize:10 tag:tag];
+    [[WeiJiFenEngine shareInstance] getHelpListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm fId:fID page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -277,7 +287,7 @@
     
     __weak CommunityViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getMyCommunityWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm page:1 pageSize:10 tag:tag];
+    [[WeiJiFenEngine shareInstance] getMyCommunityWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -322,6 +332,13 @@
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
             return;
+        }
+        
+        [LSCommonUtils showWarningTip:@"发表成功！" At:weakSelf.view];
+        if (_selectIndex == 2) {
+            [weakSelf refreshMyCommunityInfo];
+        }else if (_selectIndex == 1){
+            [weakSelf refreshTopicInfo:1];
         }
         
     } tag:tag];
@@ -375,6 +392,10 @@
     NSIndexPath *indexPath = [tempTable indexPathForRowAtPoint: currentTouchPosition];
     if (indexPath != nil){
         NSLog(@"indexPath: row:%ld", indexPath.row);
+        
+        if (_selectIndex == 0 || _selectIndex == 1) {
+            return;
+        }
         JFTopicInfo *topicInfo = self.dataSource[indexPath.row];
         JFUserInfo *userInfo = [[JFUserInfo alloc] init];
         userInfo.uid = topicInfo.authorId;

@@ -85,7 +85,7 @@
     __weak LoginViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     
-    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:WJF_Confirm tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
 //    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:WJF_Confirm tag:tag];
 
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {

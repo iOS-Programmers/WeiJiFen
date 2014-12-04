@@ -19,14 +19,17 @@
 #import "TopicViewCell.h"
 #import "TopicDetailsViewController.h"
 
-@interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
+@interface ExchangeViewController () <UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate,MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *dataSourceMutDic;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) JFCategoryTabView *categoryTabView;
-
 @property (nonatomic, assign) NSInteger selectIndex;
+
+@property (nonatomic, strong) MJRefreshHeaderView *header;
+@property (nonatomic, strong) MJRefreshFooterView *footer;
+
 @end
 
 @implementation ExchangeViewController
@@ -36,7 +39,7 @@
     NSString *password = @"123456";
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:password confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:WeiJiFenEngine.userToken password:password confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
 //    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf123" token:@"54477065e7c62" password:@"wjf5213344" confirm:@"4384CCFB0C21406F1533E46D1E2FDB5B" tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
@@ -70,7 +73,7 @@
     [self refreshViewUI];
     [self refreshDataSource:0];
     //test
-    [self logInRequest];
+//    [self logInRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,13 +123,35 @@
         inset.top += _categoryTabView.frame.size.height;
     }
     [self setContentInsetForScrollView:self.tableView inset:inset];
+    
+    //添加下拉刷新
+//    if (!_header) {
+//        _header = [[MJRefreshHeaderView alloc] init];
+//        _header.delegate = self;
+//        _header.scrollView = self.tableView;
+//    }
+//    if (!_footer) {
+//        _footer = [[MJRefreshFooterView alloc] init];
+//        _footer.delegate = self;
+//        _footer.scrollView = self.tableView;
+//    }
 }
 
 - (void)refreshDataSource:(int)type{
     
+    int paramType = 0;
+    if (type == 0) {
+        paramType = 0;
+    }else if (type == 1){
+        paramType = 8;
+    }else if (type == 2){
+        paramType = 9;
+    }else if (type == 3){
+        paramType = 7;
+    }
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getCommodityListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm type:type page:1 pageSize:10 tag:tag];
+    [[WeiJiFenEngine shareInstance] getCommodityListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm type:paramType page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -158,7 +183,7 @@
     
     __weak ExchangeViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getHelpListWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm fId:@"45" page:1 pageSize:10 tag:tag];
+    [[WeiJiFenEngine shareInstance] getHelpListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm fId:@"45" page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
@@ -300,6 +325,19 @@
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
     [self.tableView reloadData];
+}
+
+#pragma mark 上下拉刷新的Delegate
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    //上拉刷新时的操作
+    if (self.header == refreshView) {
+//        [refreshView endRefreshing];
+    }
+    //下拉加载时的操作
+    else {
+        
+    }
 }
 
 @end

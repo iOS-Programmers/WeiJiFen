@@ -35,7 +35,7 @@
     [self setContentInsetForScrollView:self.tableView inset:inset];
     
     [self customDataSource];
-//    [self loadUserInfo];
+    [self loadUserInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,7 +127,7 @@ static int userAvatarImageView_tag = 102;
     cell.textLabel.font = [UIFont boldSystemFontOfSize:13];
     
     NSDictionary *userDic = self.dataSource[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@:%@",[userDic stringObjectForKey:@"title"],[userDic stringObjectForKey:@"content"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@:  %@",[userDic stringObjectForKey:@"title"],[userDic stringObjectForKey:@"content"]];
     
     UIImageView *userAvatarImageView = (UIImageView *)[cell viewWithTag:userAvatarImageView_tag];
     userAvatarImageView.hidden = YES;

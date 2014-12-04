@@ -48,7 +48,7 @@
 -(void)refreshViewUI{
     
     self.positionLabel.text = [NSString stringWithFormat:@"%d",[_rankDic intValueForKey:@"position"]];
-    if ([_rankDic intValueForKey:@"position"] == 0) {
+    if ([_rankDic intValueForKey:@"position"] <= 0) {
         self.positionLabel.text = @"未上榜";
     }
     self.tableView.tableHeaderView = self.headView;
@@ -59,7 +59,7 @@
 {
     __weak RankListViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] getFriendListWithTag:tag];
+    [[WeiJiFenEngine shareInstance] getRankListWithPage:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {

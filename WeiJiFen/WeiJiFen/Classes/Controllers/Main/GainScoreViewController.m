@@ -171,6 +171,12 @@
             return;
         }
         
+        NSDictionary *dataDic = [jsonRet dictionaryObjectForKey:@"data"];
+        BOOL isSucceed = [dataDic boolValueForKey:@"status"];
+        if (isSucceed) {
+            [LSCommonUtils showWarningTip:@"申请该任务成功！" At:weakSelf.view];
+        }
+        
     } tag:tag];
     
 }

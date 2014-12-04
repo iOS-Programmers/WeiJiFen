@@ -89,6 +89,19 @@
 - (void)signOut{
     NSLog(@"signOut");
     
+//    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+//    //547c320b6c7be 547c33b155cf4
+//    [[WeiJiFenEngine shareInstance] registerUserInfo:@"wjf100001" mobile:@"13511111121" password:@"123456" confirm:WJF_Confirm tag:tag];
+//    
+//    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+//        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+//        if (!jsonRet || errorMsg) {
+//            [LSCommonUtils showWarningTip:errorMsg At:self.window];
+//            return;
+//        }
+//        
+//    } tag:tag];
+    
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
     JFBaseNavigationController* navigationController = [[JFBaseNavigationController alloc] initWithRootViewController:loginViewController];
     navigationController.navigationBarHidden = YES;

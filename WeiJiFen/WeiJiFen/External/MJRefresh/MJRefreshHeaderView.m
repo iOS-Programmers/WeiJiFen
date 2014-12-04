@@ -156,7 +156,7 @@
 // 合理的Y值
 - (CGFloat)validY
 {
-    return 0;
+    return 30;
 }
 
 // view的类型

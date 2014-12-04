@@ -159,7 +159,7 @@
     
     __weak CommodityDetailsViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
-    [[WeiJiFenEngine shareInstance] commodityShowWithToken:nil confirm:[WeiJiFenEngine shareInstance].confirm pId:self.commodityInfo.comId tag:tag];
+    [[WeiJiFenEngine shareInstance] commodityShowWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm pId:self.commodityInfo.comId tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
