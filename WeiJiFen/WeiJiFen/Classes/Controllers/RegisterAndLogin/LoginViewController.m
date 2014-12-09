@@ -26,12 +26,19 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+//    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"登陆";
     
     //如果钥匙串中有保存账号密码，则给予显示
     NSString *userName = [SSKeychain passwordForService:@"com.weijifen"account:@"username"];
@@ -85,8 +92,7 @@
     __weak LoginViewController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     
-    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:@"79EF44D011ACB123CF6A918610EFC053" tag:tag];
-//    [[WeiJiFenEngine shareInstance] logInUserInfo:@"wjf125" token:nil password:@"123456" confirm:WJF_Confirm tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:[WeiJiFenEngine shareInstance].confirm tag:tag];//@"79EF44D011ACB123CF6A918610EFC053"
 
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
@@ -121,6 +127,7 @@
         [[WeiJiFenEngine shareInstance] setUserInfo:userInfo];
         [[WeiJiFenEngine shareInstance] saveAccount];
         
+        [LSCommonUtils showWarningTip:@"登陆成功" At:weakSelf.view];
         [weakSelf loginSuccess];
         
     } tag:tag];
@@ -132,8 +139,9 @@
  */
 - (void)loginSuccess
 {
-    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
-    [appDelegate signIn];
+//    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+//    [appDelegate signIn];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**

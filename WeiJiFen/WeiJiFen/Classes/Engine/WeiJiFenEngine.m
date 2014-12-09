@@ -14,6 +14,9 @@
 #import "NSDictionary+objectForKey.h"
 #import "PathHelper.h"
 #import "AppDelegate.h"
+#import "NSString+MD5.h"
+#import "LSAlertView.h"
+#import "LoginViewController.h"
 
 #define CONNECT_TIMEOUT     20
 
@@ -49,7 +52,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     _onAppServiceBlockMap = [[NSMutableDictionary alloc] init];
     _shortRequestFailTagMap = [[NSMutableDictionary alloc] init];
     
-    _confirm = WJF_Confirm;
+    _confirm = [[WJF_Confirm md5] md5];
     _token = nil;
     _userPassword = nil;
     _uid = nil;
@@ -67,7 +70,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 - (void)logout{
     [_onAppServiceBlockMap removeAllObjects];
     
-//    [self saveAccount];
+    [self deleteAccount];
+    _userInfo = [[JFUserInfo alloc] init];
+    [self setUserInfo:_userInfo];
+    //退出登录后token设置默认值
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"jf_token"];
 }
 
 -(NSString *)baseUrl{
@@ -96,6 +103,12 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"jf_token"];
 }
 
+-(NSString *)confirmWithUid{
+    if (!_uid) {
+        return _confirm;
+    }
+    return [[NSString stringWithFormat:@"%@%@",[WJF_Confirm md5],_uid] md5];
+}
 
 - (void)setUserInfo:(JFUserInfo *)userInfo{
     _userInfo = userInfo;
@@ -203,14 +216,20 @@ static WeiJiFenEngine* s_ShareInstance = nil;
 //验证失效重新登录
 + (BOOL)getErrorAuthWithDic:(NSDictionary *)dic{
     
-    return [WeiJiFenEngine getErrorCodeWithDic:dic] == -151;
+    return [WeiJiFenEngine getErrorCodeWithDic:dic] == -130;
 }
 
 -(void)isNeedAnewAuth:(NSDictionary *)dic{
     if ([WeiJiFenEngine getErrorAuthWithDic:dic]) {
 //        AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
-//        [appDelegate signOut];
-//        [[WeiJiFenEngine shareInstance] deleteAccount];
+//        LSAlertView *alertView = [[LSAlertView alloc] initWithTitle:@"温馨提示" message:@"对不起！您还未登录！！！" cancelButtonTitle:@"取消" cancelBlock:^{
+//            
+//        } okButtonTitle:@"登陆" okBlock:^{
+//            
+//            LoginViewController *vc = [[LoginViewController alloc] init];
+//            [appDelegate.mainTabViewController.navigationController pushViewController:vc animated:YES];
+//        }];
+//        [alertView show];
     }
 }
 
@@ -405,8 +424,8 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if (password){
         [params setObject:password forKey:@"password"];
     }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];//@"79EF44D011ACB123CF6A918610EFC053"
+    if (_confirm){
+        [params setObject:_confirm forKey:@"confirm"];
     }
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:NO tag:tag];
@@ -426,8 +445,8 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if (password){
         [params setObject:password forKey:@"password"];
     }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
+    if (_confirm){
+        [params setObject:_confirm forKey:@"confirm"];
     }
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" postValue:NO tag:tag];
@@ -439,11 +458,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/exchangeList", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
-    }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
+//    if (token){
+//        [params setObject:token forKey:@"token"];
+//    }
+    if (_confirm){
+        [params setObject:_confirm forKey:@"confirm"];
     }
     [params setObject:[NSNumber numberWithInt:type] forKey:@"type"];
     [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
@@ -458,11 +477,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/exchangeInfo", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
-    }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
+//    if (token){
+//        [params setObject:token forKey:@"token"];
+//    }
+    if (_confirm){
+        [params setObject:_confirm forKey:@"confirm"];
     }
     if (pId) {
         [params setObject:pId forKey:@"pid"];
@@ -505,7 +524,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -529,7 +548,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -553,7 +572,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -565,11 +584,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/helpList", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
-    }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
+//    if (token){
+//        [params setObject:token forKey:@"token"];
+//    }
+    if (_confirm){
+        [params setObject:_confirm forKey:@"confirm"];
     }
     if (fId) {
         [params setObject:fId forKey:@"fid"];
@@ -586,12 +605,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myCommunityTies", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
-    }
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
+    
 //    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
 //    [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
     
@@ -604,11 +622,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/helpInfo", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
-    }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
+//    if (token){
+//        [params setObject:token forKey:@"token"];
+//    }
+    if (_confirm){
+        [params setObject:_confirm forKey:@"confirm"];
     }
     if (fId) {
         [params setObject:fId forKey:@"fid"];
@@ -626,12 +644,12 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/webtask", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
-    }
+    
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
+    
     [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
     [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
     
@@ -649,7 +667,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
     
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
@@ -674,7 +692,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -692,7 +710,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -705,12 +723,10 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/privatepm", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
-    }
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -722,12 +738,11 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/systempm", API_URL];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    if (token){
-        [params setObject:token forKey:@"token"];
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    if (confirm){
-        [params setObject:confirm forKey:@"confirm"];
-    }
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
+    
     [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
     [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"pagesize"];
     
@@ -743,7 +758,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     if (uid) {
         [params setObject:uid forKey:@"sellid"];
     }
@@ -760,7 +775,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
 //    if (uid) {
 //        [params setObject:uid forKey:@"uid"];
 //    }
@@ -779,7 +794,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     //    if (uid) {
     //        [params setObject:uid forKey:@"uid"];
     //    }
@@ -798,7 +813,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
 //    [params setObject:[NSNumber numberWithInt:page] forKey:@"page"];
     [params setObject:[NSNumber numberWithInt:pageSize] forKey:@"num"];
     
@@ -828,7 +843,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -852,7 +867,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -870,7 +885,7 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
@@ -895,9 +910,28 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     if ([WeiJiFenEngine userToken]) {
         [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
     }
-    [params setObject:WJF_Confirm forKey:@"confirm"];
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
     
     [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
     return YES;
+}
+
+- (BOOL)avatarUploadWith:(NSString *)data tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/myAvatarUpload", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (data) {
+        [params setObject:data forKey:@"$_FILES"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"POST" postValue:YES tag:tag];
+    return YES;
+    
 }
 @end

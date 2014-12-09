@@ -125,4 +125,6 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 - (BOOL)doApplyWithTaskid:(NSString *)taskid tag:(int)tag;
 //添加好友
 - (BOOL)addFriendWithFuid:(NSString *)fuid gid:(NSString *)gid note:(NSString *)note tag:(int)tag;
+//上传头像
+- (BOOL)avatarUploadWith:(NSString *)data tag:(int)tag;
 @end

@@ -44,6 +44,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc{
+    self.tableView = nil;
+    self.tableView.delegate = nil;
+    self.tableView.dataSource = nil;
+    
+}
+
 /*
 #pragma mark - Navigation
 
@@ -175,9 +182,11 @@
 }
 
 - (IBAction)exitAction:(id)sender {
-    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
-    [appDelegate signOut];
-    [[WeiJiFenEngine shareInstance] deleteAccount];
+//    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+//    [appDelegate signOut];
+    
+    [[WeiJiFenEngine shareInstance] logout];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)addFriedAction:(id)sender {

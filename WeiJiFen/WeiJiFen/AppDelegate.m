@@ -24,12 +24,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    if ([[WeiJiFenEngine shareInstance] hasAccoutLoggedin]) {
-        [self signIn];
-    }else{
-        NSLog(@"signOut for accout miss");
-        [self signOut];
-    }
+//    if ([[WeiJiFenEngine shareInstance] hasAccoutLoggedin]) {
+//        [self signIn];
+//    }else{
+//        NSLog(@"signOut for accout miss");
+//        [self signOut];
+//    }
+    [self signIn];
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -66,6 +67,7 @@
     JFBaseTabBarController *rootTabBarController = [[JFBaseTabBarController alloc] init];
     rootTabBarController.viewControllers = @[exchangeNav,gainScoreNav,communityNav,accountNav];
     [rootTabBarController setSelectedIndex:0];
+    _mainTabViewController = rootTabBarController;
     
 //    JFBaseNavigationController* tabNavVc = [[JFBaseNavigationController alloc] initWithRootViewController:rootTabBarController];
     
@@ -88,6 +90,9 @@
 
 - (void)signOut{
     NSLog(@"signOut");
+    
+    [[WeiJiFenEngine shareInstance] logout];
+    _mainTabViewController = nil;
     
 //    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
 //    //547c320b6c7be 547c33b155cf4
