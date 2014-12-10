@@ -181,7 +181,7 @@
         
         LSAlertView *alertView = [[LSAlertView alloc] initWithTitle:@"温馨提示" message:@"对不起！您还未登录！！！" cancelButtonTitle:@"取消" cancelBlock:^{
             
-        } okButtonTitle:@"登陆" okBlock:^{
+        } okButtonTitle:@"登录" okBlock:^{
             
             LoginViewController *vc = [[LoginViewController alloc] init];
             vc.hidesBottomBarWhenPushed = YES;

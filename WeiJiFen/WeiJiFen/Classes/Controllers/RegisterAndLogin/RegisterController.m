@@ -106,7 +106,7 @@
         }
         
 
-            //登陆成功后，保存用户名跟密码到钥匙串里
+            //登录成功后，保存用户名跟密码到钥匙串里
         [SSKeychain setPassword:self.userNameTF.text forService:@"com.weijifen" account:@"username"];
         [SSKeychain setPassword:self.passwordTF.text forService:@"com.weijifen" account:@"password"];
     

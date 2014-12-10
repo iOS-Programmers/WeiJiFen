@@ -38,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"登陆";
+    self.title = @"登录";
     
     //如果钥匙串中有保存账号密码，则给予显示
     NSString *userName = [SSKeychain passwordForService:@"com.weijifen"account:@"username"];
