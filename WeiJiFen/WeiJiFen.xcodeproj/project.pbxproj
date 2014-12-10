@@ -35,8 +35,8 @@
 		1665977B1A272CAC000CC4FE /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 166597791A272CAC000CC4FE /* RegisterController.xib */; };
 		1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977C1A272D61000CC4FE /* btn_normal@2x.png */; };
 		1665977F1A272D61000CC4FE /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665977D1A272D61000CC4FE /* btn_selected@2x.png */; };
-		1687C4FB1A354F3F00E31E73 /* DomobOfferWallBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1687C4F71A354F3F00E31E73 /* DomobOfferWallBundle.bundle */; };
-		1687C4FC1A354F3F00E31E73 /* libDMOfferWallSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1687C4FA1A354F3F00E31E73 /* libDMOfferWallSDK.a */; };
+		168C46E21A3896E80063C429 /* DomobOfferWallBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 168C46DE1A3896E80063C429 /* DomobOfferWallBundle.bundle */; };
+		168C46E31A3896E80063C429 /* libDMOfferWallSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 168C46E11A3896E80063C429 /* libDMOfferWallSDK.a */; };
 		16CA4CE01A2821E900E4E738 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CDF1A2821E900E4E738 /* SSKeychain.m */; };
 		16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CA4CE11A28221900E4E738 /* Security.framework */; };
 		16CA4CE51A28643100E4E738 /* JFFriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CE41A28643100E4E738 /* JFFriendList.m */; };
@@ -288,9 +288,9 @@
 		166597791A272CAC000CC4FE /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		1665977C1A272D61000CC4FE /* btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_normal@2x.png"; sourceTree = "<group>"; };
 		1665977D1A272D61000CC4FE /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
-		1687C4F71A354F3F00E31E73 /* DomobOfferWallBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobOfferWallBundle.bundle; sourceTree = "<group>"; };
-		1687C4F91A354F3F00E31E73 /* DMOfferWallManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOfferWallManager.h; sourceTree = "<group>"; };
-		1687C4FA1A354F3F00E31E73 /* libDMOfferWallSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDMOfferWallSDK.a; sourceTree = "<group>"; };
+		168C46DE1A3896E80063C429 /* DomobOfferWallBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobOfferWallBundle.bundle; sourceTree = "<group>"; };
+		168C46E01A3896E80063C429 /* DMOfferWallManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOfferWallManager.h; sourceTree = "<group>"; };
+		168C46E11A3896E80063C429 /* libDMOfferWallSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDMOfferWallSDK.a; sourceTree = "<group>"; };
 		16CA4CDE1A2821E900E4E738 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		16CA4CDF1A2821E900E4E738 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		16CA4CE11A28221900E4E738 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -612,6 +612,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161846831A38483800C8A39A /* AdSupport.framework in Frameworks */,
 				161846B51A38658300C8A39A /* libz.1.2.5.dylib in Frameworks */,
 				161846B31A38657500C8A39A /* EventKitUI.framework in Frameworks */,
 				161846B11A38656C00C8A39A /* EventKit.framework in Frameworks */,
@@ -626,7 +627,7 @@
 				161846971A384D7000C8A39A /* QuartzCore.framework in Frameworks */,
 				161846871A38486400C8A39A /* CoreMedia.framework in Frameworks */,
 				161846851A38484300C8A39A /* StoreKit.framework in Frameworks */,
-				161846831A38483800C8A39A /* AdSupport.framework in Frameworks */,
+				168C46E31A3896E80063C429 /* libDMOfferWallSDK.a in Frameworks */,
 				161846811A38482F00C8A39A /* MessageUI.framework in Frameworks */,
 				1618467F1A38482400C8A39A /* CoreTelephony.framework in Frameworks */,
 				16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */,
@@ -637,7 +638,6 @@
 				161846A11A3859F000C8A39A /* BeatWhale.a in Frameworks */,
 				161846A21A3859F000C8A39A /* libTalkingDataSDK.a in Frameworks */,
 				7EABF26619EFAF62004FBEF7 /* libz.dylib in Frameworks */,
-				1687C4FC1A354F3F00E31E73 /* libDMOfferWallSDK.a in Frameworks */,
 				7EABF26419EFAF29004FBEF7 /* CFNetwork.framework in Frameworks */,
 				7EABF26219EFAB4B004FBEF7 /* CoreData.framework in Frameworks */,
 				C6B6976319ECF61C00F805F3 /* CoreGraphics.framework in Frameworks */,
@@ -744,17 +744,25 @@
 		1687C4F61A354C8D00E31E73 /* 多盟 */ = {
 			isa = PBXGroup;
 			children = (
-				1687C4F71A354F3F00E31E73 /* DomobOfferWallBundle.bundle */,
-				1687C4F81A354F3F00E31E73 /* Header */,
-				1687C4FA1A354F3F00E31E73 /* libDMOfferWallSDK.a */,
+				168C46DD1A3896E80063C429 /* DMOfferWallSDK */,
 			);
 			name = "多盟";
 			sourceTree = "<group>";
 		};
-		1687C4F81A354F3F00E31E73 /* Header */ = {
+		168C46DD1A3896E80063C429 /* DMOfferWallSDK */ = {
 			isa = PBXGroup;
 			children = (
-				1687C4F91A354F3F00E31E73 /* DMOfferWallManager.h */,
+				168C46DE1A3896E80063C429 /* DomobOfferWallBundle.bundle */,
+				168C46DF1A3896E80063C429 /* Header */,
+				168C46E11A3896E80063C429 /* libDMOfferWallSDK.a */,
+			);
+			path = DMOfferWallSDK;
+			sourceTree = "<group>";
+		};
+		168C46DF1A3896E80063C429 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				168C46E01A3896E80063C429 /* DMOfferWallManager.h */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1637,7 +1645,7 @@
 				7EA2B4E91A26FDEC00FD2F71 /* jf_taskcenter_mg@2x.png in Resources */,
 				7EABF1E619EE1001004FBEF7 /* jf_message_icon@2x.png in Resources */,
 				7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */,
-				1687C4FB1A354F3F00E31E73 /* DomobOfferWallBundle.bundle in Resources */,
+				168C46E21A3896E80063C429 /* DomobOfferWallBundle.bundle in Resources */,
 				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
 				166597761A272840000CC4FE /* thirdLoginBtn_bg@2x.png in Resources */,
 				7E6195231A298628004635D4 /* MinePrizeViewController.xib in Resources */,
@@ -1912,6 +1920,7 @@
 					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang/DMOfferWallSDK",
 					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1944,6 +1953,7 @@
 					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang/DMOfferWallSDK",
 					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s arm64";

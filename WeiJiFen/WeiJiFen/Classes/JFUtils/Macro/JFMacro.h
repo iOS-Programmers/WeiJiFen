@@ -31,6 +31,8 @@
 
 #import "UIImageView+WebCache.h"
 
+//多盟广告
+#define  kDuoMengPublishID @"96ZJ37cAzeBSjwTCtz"
 //有米广告
 #define  kYouMiPublishID  @"984b5c0d184ef32d"
 #define  kYouMiSecretID   @"c3c80ab404f3ba64"

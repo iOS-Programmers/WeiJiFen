@@ -15,6 +15,7 @@
 #import "SVPullToRefresh.h"
 
 //第三方广告平台
+//多盟
 #import "DMOfferWallManager.h"
 #import <AdSupport/AdSupport.h>
 //有米
@@ -34,7 +35,7 @@
 {
 
     //多盟广告平台
-//    DMOfferWallManager *_manager;
+    DMOfferWallManager *_manager;
 }
 
 @property (nonatomic, strong)   UIView *drBgView;
@@ -263,13 +264,13 @@
             case 0:
             {
                 //多盟
-//                _manager = [[DMOfferWallManager alloc] initWithPublisherID:@"96ZJ37cAzeBSjwTCtz"
-//                                                                 andUserID:nil];
-//                _manager.delegate = self;
-//                // !!!:重要：如果需要禁用应用内下载，请将此值设置为YES。
-//                _manager.disableStoreKit = NO;
-//                
-//                [_manager presentOfferWallWithViewController:self type:eDMOfferWallTypeList];
+                _manager = [[DMOfferWallManager alloc] initWithPublisherID:kDuoMengPublishID
+                                                                 andUserID:nil];
+                _manager.delegate = self;
+                // !!!:重要：如果需要禁用应用内下载，请将此值设置为YES。
+                _manager.disableStoreKit = NO;
+                
+                [_manager presentOfferWallWithViewController:self type:eDMOfferWallTypeList];
             }
                 break;
                 
@@ -350,6 +351,7 @@
 //    self.adView = [[MBJoyView alloc]initWithAdUnitId:
 //                   kLiMeiAdID adType:AdTypeList rootViewController:self
 //                                            userInfo:@{accountname:@"wjf"}];
+//    
 //    //添加 MBJoyView 的 Delegate；
 //    self.adView.delegate=self;
 //    //开始加载广告。
