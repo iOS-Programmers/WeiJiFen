@@ -8,6 +8,8 @@
 
 #import "AccountDetailsViewController.h"
 #import "UIImageView+WebCache.h"
+#import "LXTextEditVC.h"
+#import "JFBaseNavigationController.h"
 
 @interface AccountDetailsViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -163,6 +165,150 @@ static int userAvatarImageView_tag = 102;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+        
+        }
+            break;
+        case 1:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"用户名";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+//                [weak_self setUserInfoParaMeter];
+//                weak_self.editUserInfoHttp.parameter.name = str;
+//                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+        case 2:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"真实姓名";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+                //                [weak_self setUserInfoParaMeter];
+                //                weak_self.editUserInfoHttp.parameter.name = str;
+                //                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+        case 3:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"手机";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+                //                [weak_self setUserInfoParaMeter];
+                //                weak_self.editUserInfoHttp.parameter.name = str;
+                //                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+        case 4:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"QQ";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+                //                [weak_self setUserInfoParaMeter];
+                //                weak_self.editUserInfoHttp.parameter.name = str;
+                //                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+        case 5:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"阿里旺旺";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+                //                [weak_self setUserInfoParaMeter];
+                //                weak_self.editUserInfoHttp.parameter.name = str;
+                //                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+        case 6:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"Email";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+                //                [weak_self setUserInfoParaMeter];
+                //                weak_self.editUserInfoHttp.parameter.name = str;
+                //                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+        case 7:
+        {
+            LXTextEditVC *vc = [[LXTextEditVC alloc] initWithNibName:@"LXTextEditVC" bundle:Nil];
+            JFBaseNavigationController *nav = [[JFBaseNavigationController alloc] initWithRootViewController:vc];
+            vc.titleStr = @"居住地";
+            __weak AccountDetailsViewController *weak_self = self;
+            EditBackBlock block = ^(NSString *str)
+            {
+                //                [weak_self setUserInfoParaMeter];
+                //                weak_self.editUserInfoHttp.parameter.name = str;
+                //                [weak_self newInfoSaveAction];
+                
+            };
+            [vc setBackBlock:block];
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+            [weak_self presentViewController:nav animated:YES completion:^{}];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

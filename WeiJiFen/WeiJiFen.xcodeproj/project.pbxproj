@@ -40,6 +40,8 @@
 		16CA4CE01A2821E900E4E738 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CDF1A2821E900E4E738 /* SSKeychain.m */; };
 		16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CA4CE11A28221900E4E738 /* Security.framework */; };
 		16CA4CE51A28643100E4E738 /* JFFriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA4CE41A28643100E4E738 /* JFFriendList.m */; };
+		16D69E5D1A38A49C0099C077 /* LXTextEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D69E5B1A38A49C0099C077 /* LXTextEditVC.m */; };
+		16D69E5E1A38A49C0099C077 /* LXTextEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D69E5C1A38A49C0099C077 /* LXTextEditVC.xib */; };
 		16DE3E9D1A27885100F2D2B5 /* JFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */; };
 		16DE3EA71A27893700F2D2B5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */; };
 		16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE3EA21A27893700F2D2B5 /* MJRefreshBaseView.m */; };
@@ -296,6 +298,9 @@
 		16CA4CE11A28221900E4E738 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		16CA4CE31A28643100E4E738 /* JFFriendList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFFriendList.h; sourceTree = "<group>"; };
 		16CA4CE41A28643100E4E738 /* JFFriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFFriendList.m; sourceTree = "<group>"; };
+		16D69E5A1A38A49C0099C077 /* LXTextEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXTextEditVC.h; sourceTree = "<group>"; };
+		16D69E5B1A38A49C0099C077 /* LXTextEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXTextEditVC.m; sourceTree = "<group>"; };
+		16D69E5C1A38A49C0099C077 /* LXTextEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LXTextEditVC.xib; sourceTree = "<group>"; };
 		16DE3E9B1A27885100F2D2B5 /* JFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBaseTableViewController.h; sourceTree = "<group>"; };
 		16DE3E9C1A27885100F2D2B5 /* JFBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBaseTableViewController.m; sourceTree = "<group>"; };
 		16DE3E9F1A27893700F2D2B5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -1081,6 +1086,9 @@
 				7EF1E5201A008E2300112D2D /* AccountDetailsViewController.h */,
 				7EF1E5211A008E2300112D2D /* AccountDetailsViewController.m */,
 				7EF1E5221A008E2300112D2D /* AccountDetailsViewController.xib */,
+				16D69E5A1A38A49C0099C077 /* LXTextEditVC.h */,
+				16D69E5B1A38A49C0099C077 /* LXTextEditVC.m */,
+				16D69E5C1A38A49C0099C077 /* LXTextEditVC.xib */,
 				16DE3EAB1A278B7B00F2D2B5 /* FriendListController.h */,
 				16DE3EAC1A278B7B00F2D2B5 /* FriendListController.m */,
 				16DE3EAD1A278B7B00F2D2B5 /* FriendListController.xib */,
@@ -1593,6 +1601,7 @@
 				7EA2B4D01A2624D400FD2F71 /* jf_reward_bg@2x.png in Resources */,
 				7EA2B4ED1A26FDEC00FD2F71 /* jf_taskcenter_yd@2x.png in Resources */,
 				7EA2B5041A27947E00FD2F71 /* jf_topic_reply_icon@2x.png in Resources */,
+				16D69E5E1A38A49C0099C077 /* LXTextEditVC.xib in Resources */,
 				7EA2B4FC1A2723B000FD2F71 /* jf_webtask_default_icon@2x.png in Resources */,
 				7EA2B4E41A26FDEC00FD2F71 /* jf_taskcenter_anwo@2x.png in Resources */,
 				7EA2B4E71A26FDEC00FD2F71 /* jf_taskcenter_kg@2x.png in Resources */,
@@ -1700,6 +1709,7 @@
 				7EABF1DB19ED25C3004FBEF7 /* JFBaseNavigationController.m in Sources */,
 				7EABF2E319EFD071004FBEF7 /* ASIS3Request.m in Sources */,
 				7EABF1D319ED1CC4004FBEF7 /* AccountViewController.m in Sources */,
+				16D69E5D1A38A49C0099C077 /* LXTextEditVC.m in Sources */,
 				7EABF2DB19EFD071004FBEF7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				16DE3EAA1A27893700F2D2B5 /* MJRefreshHeaderView.m in Sources */,
 				7E61952B1A2A0004004635D4 /* JFPrizeInfo.m in Sources */,
