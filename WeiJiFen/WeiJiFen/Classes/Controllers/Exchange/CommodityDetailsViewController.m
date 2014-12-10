@@ -305,4 +305,9 @@
     
     return cell;
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.textField resignFirstResponder];
+}
+
 @end

@@ -141,6 +141,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self resignFirstResponder];
+}
+
 - (IBAction)affimBuyAction:(id)sender {
     
     int transportfee = 0;
