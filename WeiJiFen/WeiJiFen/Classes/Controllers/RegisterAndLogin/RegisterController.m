@@ -68,7 +68,7 @@
     __weak RegisterController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     
-    [[WeiJiFenEngine shareInstance] registerUserInfo:self.userNameTF.text mobile:self.phoneNumberTF.text password:self.passwordTF.text confirm:WJF_Confirm tag:tag];
+    [[WeiJiFenEngine shareInstance] registerUserInfo:self.userNameTF.text mobile:self.phoneNumberTF.text password:self.passwordTF.text confirm:[WeiJiFenEngine shareInstance].confirm tag:tag];
 
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
@@ -96,7 +96,7 @@
     __weak RegisterController *weakSelf = self;
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     
-    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:WJF_Confirm tag:tag];
+    [[WeiJiFenEngine shareInstance] logInUserInfo:self.userNameTF.text token:nil password:self.passwordTF.text confirm:[WeiJiFenEngine shareInstance].confirm tag:tag];
 
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
@@ -138,7 +138,8 @@
 
 - (void)loginAction
 {
-    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
-    [appDelegate signIn];
+//    AppDelegate* appDelegate = (AppDelegate* )[[UIApplication sharedApplication] delegate];
+//    [appDelegate signIn];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

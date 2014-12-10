@@ -34,6 +34,7 @@ static inline BOOL FBIsEmpty(id thing)
 //MB提示
 +(void)showWarningTip:(NSString *)tip At:(UIView *)view;
 +(void)showWarningTip:(NSString *)tip customImage:(UIImage *)customImage At:(UIView *)view;
++(NSTimeInterval)errorMsgShowDelayTimeWithErrMsg:(NSString *)errMsg;
 
 //text字数
 + (UInt32)getHanziTextNum:(NSString*)text;

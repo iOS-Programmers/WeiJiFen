@@ -18,6 +18,7 @@
 #import "MinePrizeViewController.h"
 #import "RankListViewController.h"
 #import "PromotionViewController.h"
+#import "LSAlertView.h"
 
 @interface AccountViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -43,8 +44,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserInfoChanged:) name:LS_USERINFO_CHANGED_NOTIFICATION object:nil];
+    
     _userInfo = [[WeiJiFenEngine shareInstance] userInfo];
     [self refreshViewUI];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +70,11 @@
 }
 */
 
+- (void)handleUserInfoChanged:(NSNotification *)notification{
+    _userInfo = [[WeiJiFenEngine shareInstance] userInfo];
+    [self refreshViewUI];
+}
+
 #pragma mark - Custom
 - (void)refreshViewUI{
     
@@ -73,6 +86,9 @@
     [self.userAvatarImageView sd_setImageWithURL:_userInfo.smallAvatarUrl placeholderImage:[UIImage imageNamed:nil]];
     
     self.userNameLabel.text = _userInfo.nickName;
+    if (!_userInfo.uid) {
+        self.userNameLabel.text = @"未登录";
+    }
     self.userIntegralLabel.text = [NSString stringWithFormat:@"可用微积分：%d",_userInfo.wjf];
     
     //卖家信誉
@@ -160,6 +176,20 @@
 }
 
 - (IBAction)personalProfileAction:(id)sender {
+    
+    if (!_userInfo.uid) {
+        
+        LSAlertView *alertView = [[LSAlertView alloc] initWithTitle:@"温馨提示" message:@"对不起！您还未登录！！！" cancelButtonTitle:@"取消" cancelBlock:^{
+            
+        } okButtonTitle:@"登陆" okBlock:^{
+            
+            LoginViewController *vc = [[LoginViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        [alertView show];
+        return;
+    }
     
     PersonalProfileViewController *personalProfileVC = [[PersonalProfileViewController alloc] init];
     personalProfileVC.hidesBottomBarWhenPushed = YES;
