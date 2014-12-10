@@ -36,6 +36,10 @@
 -(void)setCommentInfo:(JFCommentInfo *)commentInfo{
     
     [self.replyButton setBackgroundImage:[[UIImage imageNamed:@"jf_greyandwhite_bg.png"] stretchableImageWithLeftCapWidth:8 topCapHeight:4] forState:UIControlStateNormal];
+    self.replyButton.hidden = NO;
+    if (_isHiddenReplyButton) {
+        self.replyButton.hidden = YES;
+    }
     
     [self.userAvatar sd_setImageWithURL:commentInfo.avatarUrl forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
     self.userNameLabel.text = commentInfo.author;

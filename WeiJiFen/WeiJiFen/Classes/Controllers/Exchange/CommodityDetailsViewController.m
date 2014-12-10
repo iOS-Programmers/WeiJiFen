@@ -10,9 +10,17 @@
 #import "AccountDetailsViewController.h"
 #import "WeiJiFenEngine.h"
 #import "JSONKit.h"
-
+#import "CommentInfoViewCell.h"
+#import "JFCommentInfo.h"
+#import "LSAlertView.h"
+#import "LoginViewController.h"
+#import "AffirmBuyViewController.h"
 
 @interface CommodityDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *commodityTitle;
+
 @property (nonatomic, retain) UIView *bgMarkView;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIView *headView;
@@ -30,6 +38,9 @@
 @property (nonatomic, retain) IBOutlet UIButton *buyBtn;
 @property (nonatomic, retain) IBOutlet UILabel *recommend_addLabel;
 @property (nonatomic, retain) IBOutlet UILabel *repliesLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *commentBtn;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 
 -(IBAction)backAction:(id)sender;
@@ -54,6 +65,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"物品详情";
+    
+    _userName = _commodityInfo.userName;
+    _commodityTitle = _commodityInfo.name;
+    if (_commodType) {
+        _commodityTitle = [NSString stringWithFormat:@"【%@】%@",_commodType,_commodityInfo.name];
+    }
     
     JFCommodityInfo *oldCommodity = _commodityInfo;
     _commodityInfo = [[JFCommodityInfo alloc] init];
@@ -82,16 +99,70 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = self.headView;
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-48);
     self.footView.frame = CGRectMake(0, SCREEN_HEIGHT-64-48, SCREEN_WIDTH, 48);
     self.footView.layer.borderWidth = 0.5;
     self.footView.layer.borderColor = [kBorderColor CGColor];
     [self.view addSubview:self.footView];
+    self.likeBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.likeBtn.layer.borderWidth = 0.5;
+    self.commentBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.commentBtn.layer.borderWidth = 0.5;
+    self.textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.textField.layer.borderWidth = 0.5;
+    
+    _attachmentImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _attachmentImageView.clipsToBounds = YES;
+    
+    self.subjectLabel.text = _commodityTitle;
+    [self.attachmentImageView sd_setImageWithURL:_commodityInfo.comAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
+    self.sellerLabel.text = _userName;
+    self.lastupdateLabel.text = [LSCommonUtils secondChangToDateString:[NSString stringWithFormat:@"%d",_commodityInfo.crateDate]];
+    self.priceLabel.text = [NSString stringWithFormat:@"现金%d元",_commodityInfo.price];
+    self.creditLabel.text = [NSString stringWithFormat:@"微积分%d",_commodityInfo.credit];
+    NSString *comMold = @"无";
+    if (_commodityInfo.quality == 2) {
+        comMold = @"二手商品";
+    }else if (_commodityInfo.quality == 1){
+        comMold = @"全新商品";
+    }
+    self.expirationLabel.text = [NSString stringWithFormat:@"商品类型：%@",comMold];
+    
+    if (_commodityInfo.message) {
+        self.messageLabel.text = [NSString stringWithFormat:@"商品详情：%@",_commodityInfo.message];
+    }
+    [self.likeBtn setTitle:[NSString stringWithFormat:@"  %d",_commodityInfo.recommend_add] forState:0];
+    [self.commentBtn setTitle:[NSString stringWithFormat:@"  %d",_commodityInfo.replies] forState:0];
+    
     [self.tableView reloadData];
 }
 
 -(IBAction)buyBtn:(UIButton *)sender
 {
+    
+    
+    if (![WeiJiFenEngine shareInstance].hasAccoutLoggedin) {
+        
+        LSAlertView *alertView = [[LSAlertView alloc] initWithTitle:@"温馨提示" message:@"对不起！您还未登录！！！" cancelButtonTitle:@"取消" cancelBlock:^{
+            
+        } okButtonTitle:@"登陆" okBlock:^{
+            
+            LoginViewController *vc = [[LoginViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+        [alertView show];
+        return;
+    }
+    
+    AffirmBuyViewController *affirmBuyVc = [[AffirmBuyViewController alloc] init];
+    affirmBuyVc.commodityInfo = _commodityInfo;
+    affirmBuyVc.vcType = VcType_Nomal;
+    [self.navigationController pushViewController:affirmBuyVc animated:YES];
+    return;
+    
+    
+    
+    
     self.todoRenwu.frame = CGRectMake(60, SCREEN_HEIGHT, 200, 135);
     [self.view addSubview:self.todoRenwu];
     
@@ -117,12 +188,24 @@
 
 -(IBAction)clickedZan:(UIButton *)sender
 {
-    
+    __weak CommodityDetailsViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] likeThreadWithTid:_commodityInfo.tid tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        NSDictionary *comDic = [jsonRet dictionaryObjectForKey:@"data"];
+        _commodityInfo.recommend_add = [comDic intValueForKey:@"recommend_add"];
+        [weakSelf refreshViewUI];
+    } tag:tag];
 }
 
 -(IBAction)message:(UIButton *)sender
 {
-    
+    [self sendReplyMessage];
 }
 
 -(IBAction)todoRenwu:(UIButton *)sender
@@ -168,39 +251,58 @@
         }
         NSDictionary *comDic = [jsonRet objectForKey:@"data"];
         [weakSelf.commodityInfo setCommodityInfoByDic:comDic];
+        [weakSelf refreshViewUI];
+    } tag:tag];
+}
+
+-(void)sendReplyMessage
+{
+    __weak CommodityDetailsViewController *weakSelf = self;
+    int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
+    [[WeiJiFenEngine shareInstance] userReplyMessageWithPid:nil tid:_commodityInfo.tid fid:_commodityInfo.fid message:_textField.text tag:tag];
+    [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
+        if (!jsonRet || errorMsg) {
+            [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
+            return;
+        }
+        
+        [LSCommonUtils showWarningTip:@"回复成功！" At:weakSelf.view];
+        [weakSelf refreshCommodityInfo];
         
     } tag:tag];
 }
 
-
+#pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _commodityInfo.replylist.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 76;
+    JFCommentInfo *commentInfo = _commodityInfo.replylist[indexPath.row];
+    
+    return [CommentInfoViewCell getCommentInfoViewCellHeight:commentInfo];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"CommentInfoViewCell";
+    CommentInfoViewCell *cell = (CommentInfoViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        //        NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
-        //        cell = [cells objectAtIndex:0];
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        NSArray* cells = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil];
+        cell = [cells objectAtIndex:0];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+//        [cell.userAvatar addTarget:self action:@selector(userAvatarClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.replyButton addTarget:self action:@selector(handleClickAt:event:) forControlEvents:UIControlEventTouchUpInside];
     }
-    cell.textLabel.text = @"nihao";
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.isHiddenReplyButton = YES;
+    JFCommentInfo *commentInfo = _commodityInfo.replylist[indexPath.row];
+    cell.commentInfo = commentInfo;
     
-    NSIndexPath* selIndexPath = [tableView indexPathForSelectedRow];
-    [tableView deselectRowAtIndexPath:selIndexPath animated:YES];
+    return cell;
 }
 @end

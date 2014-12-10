@@ -18,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 
+@property (nonatomic, assign) BOOL isHiddenReplyButton;
+
 +(CGFloat)getCommentInfoViewCellHeight:(JFCommentInfo *)commentInfo;
 
 @end

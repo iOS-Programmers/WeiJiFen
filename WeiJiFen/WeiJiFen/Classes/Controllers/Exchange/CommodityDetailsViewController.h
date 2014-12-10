@@ -12,5 +12,6 @@
 @interface CommodityDetailsViewController : HTBaseViewController
 
 @property (nonatomic, strong) JFCommodityInfo *commodityInfo;
+@property (nonatomic, strong) NSString *commodType;
 
 @end

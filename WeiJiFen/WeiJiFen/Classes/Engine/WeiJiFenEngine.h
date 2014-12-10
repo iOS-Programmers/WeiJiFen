@@ -109,6 +109,9 @@ typedef void(^onAppServiceBlock)(NSInteger tag, NSDictionary* jsonRet, NSError* 
 //排行榜
 - (BOOL)getRankListWithPage:(int)page pageSize:(int)pageSize tag:(int)tag;
 
+//帖子点支持
+- (BOOL)likeThreadWithTid:(NSString *)tid tag:(int)tag;
+
 /*!@brief 我来回答
  * @param pid 留言id 对已经留言人进行回复
  * @param tid 主题id

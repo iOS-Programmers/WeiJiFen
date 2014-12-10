@@ -822,6 +822,25 @@ static WeiJiFenEngine* s_ShareInstance = nil;
     
 }
 
+- (BOOL)likeThreadWithTid:(NSString *)tid tag:(int)tag{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Home/Index/addRecommend", API_URL];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    if (tid) {
+        [params setObject:tid forKey:@"tid"];
+    }
+    
+    if ([WeiJiFenEngine userToken]) {
+        [params setObject:[WeiJiFenEngine userToken] forKey:@"token"];
+    }
+    [params setObject:[self confirmWithUid] forKey:@"confirm"];
+    
+    [self sendHttpRequestWithUrl:url params:params requestMethod:@"GET" tag:tag];
+    return YES;
+    
+}
+
 - (BOOL)userReplyMessageWithPid:(NSString *)pid tid:(NSString *)tid fid:(NSString *)fid message:(NSString *)message tag:(int)tag{
     
     NSString *url = [NSString stringWithFormat:@"%@/Home/Index/addreply", API_URL];

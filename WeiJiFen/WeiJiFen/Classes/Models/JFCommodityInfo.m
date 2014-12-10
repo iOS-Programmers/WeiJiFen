@@ -40,12 +40,15 @@
         _userName = [objectForKey description];
     }
     
-    
+    objectForKey = [dic objectForKey:@"fid"];
+    if (objectForKey) {
+        _fid = [objectForKey description];
+    }
     objectForKey = [dic objectForKey:@"tid"];
     if (objectForKey) {
         _tid = [objectForKey description];
     }
-    objectForKey = [dic objectForKey:@"message"];
+    objectForKey = [dic stringObjectForKey:@"message"];
     if (objectForKey) {
         _message = [objectForKey description];
     }

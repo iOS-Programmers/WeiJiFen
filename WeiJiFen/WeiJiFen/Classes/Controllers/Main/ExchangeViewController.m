@@ -26,6 +26,7 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) JFCategoryTabView *categoryTabView;
 @property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, strong) NSString *commodType;
 
 @property (nonatomic, strong) MJRefreshHeaderView *header;
 @property (nonatomic, strong) MJRefreshFooterView *footer;
@@ -115,6 +116,9 @@
         for (int index = 0; index < items.count; index ++){
             NSMutableArray *mutArray = [[NSMutableArray alloc] init];
             [_dataSourceMutDic setObject:mutArray forKey:[NSNumber numberWithInt:index]];
+        }
+        if (items.count > 0) {
+            _commodType = [items objectAtIndex:0];
         }
     }
     
@@ -304,9 +308,9 @@
     NSLog(@"commodityInfo.ID%@",commodityInfo.comId);
     CommodityDetailsViewController *commodityDetailsVc = [[CommodityDetailsViewController alloc] init];
     commodityDetailsVc.commodityInfo = commodityInfo;
+    commodityDetailsVc.commodType = _commodType;
     commodityDetailsVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:commodityDetailsVc animated:YES];
-//    [self.navigationController presentModalViewController:commodityDetailsVc animated:YES];
 }
 
 #pragma mark - JFCategoryTabViewDelegate
@@ -316,6 +320,12 @@
         return;
     }
     _selectIndex = anIndex;
+    
+    NSArray *items = aTabBar.items;
+    if (_selectIndex >= 0 && _selectIndex < items.count) {
+        _commodType = [items objectAtIndex:_selectIndex];
+//        self.title = _commodType;
+    }
     
     [self customDataSourceWithTabAtIndex:anIndex isRefresh:NO];
     

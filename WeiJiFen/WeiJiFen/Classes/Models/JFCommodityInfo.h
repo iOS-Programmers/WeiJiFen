@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString* userName;//发布者名称
 @property (nonatomic, assign) int sellerCredit;//卖家信誉
 
+@property (nonatomic, strong) NSString* fid;//版块id
 @property (nonatomic, strong) NSString* tid;//主题id
 @property (nonatomic, assign) int price;//价格
 @property (nonatomic, assign) int credit;//微积分

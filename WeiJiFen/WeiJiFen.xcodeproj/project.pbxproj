@@ -59,6 +59,12 @@
 		7E32EB7919F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7419F0BBE700FEAA66 /* UIView+GMGridViewAdditions.m */; };
 		7E32EB7C19F0C26C00FEAA66 /* JFCommodityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */; };
 		7E32EB8419F0F0BE00FEAA66 /* JFCategoryTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */; };
+		7E4E2CA81A38787700B8CB15 /* jf_commod_buy_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E2CA41A38787700B8CB15 /* jf_commod_buy_btn@2x.png */; };
+		7E4E2CA91A38787700B8CB15 /* jf_commod_comment_iocn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E2CA51A38787700B8CB15 /* jf_commod_comment_iocn@2x.png */; };
+		7E4E2CAA1A38787700B8CB15 /* jf_commod_ask_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E2CA61A38787700B8CB15 /* jf_commod_ask_btn@2x.png */; };
+		7E4E2CAB1A38787700B8CB15 /* jf_commod_like_iocn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E2CA71A38787700B8CB15 /* jf_commod_like_iocn@2x.png */; };
+		7E4E2CAF1A388EC300B8CB15 /* AffirmBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E2CAD1A388EC300B8CB15 /* AffirmBuyViewController.m */; };
+		7E4E2CB01A388EC300B8CB15 /* AffirmBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E2CAE1A388EC300B8CB15 /* AffirmBuyViewController.xib */; };
 		7E61950E1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61950B1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.m */; };
 		7E61950F1A27991E004635D4 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E61950D1A27991E004635D4 /* UIScrollView+SVPullToRefresh.m */; };
 		7E6195131A28563F004635D4 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6195111A28563F004635D4 /* MessageListViewController.m */; };
@@ -333,6 +339,13 @@
 		7E32EB7B19F0C26C00FEAA66 /* JFCommodityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCommodityInfo.m; sourceTree = "<group>"; };
 		7E32EB8219F0F0BE00FEAA66 /* JFCategoryTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCategoryTabView.h; sourceTree = "<group>"; };
 		7E32EB8319F0F0BE00FEAA66 /* JFCategoryTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCategoryTabView.m; sourceTree = "<group>"; };
+		7E4E2CA41A38787700B8CB15 /* jf_commod_buy_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_commod_buy_btn@2x.png"; sourceTree = "<group>"; };
+		7E4E2CA51A38787700B8CB15 /* jf_commod_comment_iocn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_commod_comment_iocn@2x.png"; sourceTree = "<group>"; };
+		7E4E2CA61A38787700B8CB15 /* jf_commod_ask_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_commod_ask_btn@2x.png"; sourceTree = "<group>"; };
+		7E4E2CA71A38787700B8CB15 /* jf_commod_like_iocn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jf_commod_like_iocn@2x.png"; sourceTree = "<group>"; };
+		7E4E2CAC1A388EC300B8CB15 /* AffirmBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffirmBuyViewController.h; sourceTree = "<group>"; };
+		7E4E2CAD1A388EC300B8CB15 /* AffirmBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffirmBuyViewController.m; sourceTree = "<group>"; };
+		7E4E2CAE1A388EC300B8CB15 /* AffirmBuyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AffirmBuyViewController.xib; sourceTree = "<group>"; };
 		7E6195091A27991E004635D4 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		7E61950A1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
 		7E61950B1A27991E004635D4 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
@@ -1073,6 +1086,9 @@
 				7ED70C0519F7985C0071E7FC /* CommodityDetailsViewController.h */,
 				7ED70C0619F7985C0071E7FC /* CommodityDetailsViewController.m */,
 				7ED70C0719F7985C0071E7FC /* CommodityDetailsViewController.xib */,
+				7E4E2CAC1A388EC300B8CB15 /* AffirmBuyViewController.h */,
+				7E4E2CAD1A388EC300B8CB15 /* AffirmBuyViewController.m */,
+				7E4E2CAE1A388EC300B8CB15 /* AffirmBuyViewController.xib */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1406,6 +1422,10 @@
 			children = (
 				7ED70C0319F78F260071E7FC /* jf_commodity_userAvatar_defaulticon@2x.png */,
 				7EA2B4CF1A2624D400FD2F71 /* jf_reward_bg@2x.png */,
+				7E4E2CA41A38787700B8CB15 /* jf_commod_buy_btn@2x.png */,
+				7E4E2CA51A38787700B8CB15 /* jf_commod_comment_iocn@2x.png */,
+				7E4E2CA61A38787700B8CB15 /* jf_commod_ask_btn@2x.png */,
+				7E4E2CA71A38787700B8CB15 /* jf_commod_like_iocn@2x.png */,
 			);
 			path = Commodity;
 			sourceTree = "<group>";
@@ -1607,7 +1627,9 @@
 				7EA2B4E71A26FDEC00FD2F71 /* jf_taskcenter_kg@2x.png in Resources */,
 				7E6195531A2B9A88004635D4 /* s_n_chat_bottom_input_bg@2x.png in Resources */,
 				7EABF23E19EF7398004FBEF7 /* jf_tab_exchange@2x.png in Resources */,
+				7E4E2CB01A388EC300B8CB15 /* AffirmBuyViewController.xib in Resources */,
 				7E6195461A2B299C004635D4 /* ChatViewController.xib in Resources */,
+				7E4E2CA91A38787700B8CB15 /* jf_commod_comment_iocn@2x.png in Resources */,
 				C6B6977319ECF61C00F805F3 /* Images.xcassets in Resources */,
 				7EBC3E391A0A181000E130F5 /* jf_sellercredit_icon@2x.png in Resources */,
 				7E99AD6B1A19EA97007B7B09 /* jf_account_promotion@2x.png in Resources */,
@@ -1632,6 +1654,7 @@
 				7EA2B4EB1A26FDEC00FD2F71 /* jf_taskcenter_weip@2x.png in Resources */,
 				7EABF1E119ED2788004FBEF7 /* jf_tab_community@2x.png in Resources */,
 				7EA2B4E81A26FDEC00FD2F71 /* jf_taskcenter_lm@2x.png in Resources */,
+				7E4E2CAB1A38787700B8CB15 /* jf_commod_like_iocn@2x.png in Resources */,
 				7EABF1C519ED1B5C004FBEF7 /* ExchangeViewController.xib in Resources */,
 				7E61954F1A2B36B0004635D4 /* jf_bubble_orange@2x.png in Resources */,
 				7E6195381A2A2048004635D4 /* PromotionViewController.xib in Resources */,
@@ -1656,12 +1679,14 @@
 				7EABF23C19EE7007004FBEF7 /* JFTabBarItemView.xib in Resources */,
 				168C46E21A3896E80063C429 /* DomobOfferWallBundle.bundle in Resources */,
 				7EABF1D419ED1CC4004FBEF7 /* AccountViewController.xib in Resources */,
+				7E4E2CAA1A38787700B8CB15 /* jf_commod_ask_btn@2x.png in Resources */,
 				166597761A272840000CC4FE /* thirdLoginBtn_bg@2x.png in Resources */,
 				7E6195231A298628004635D4 /* MinePrizeViewController.xib in Resources */,
 				1665977E1A272D61000CC4FE /* btn_normal@2x.png in Resources */,
 				7EABF1E219ED2788004FBEF7 /* jf_tab_account@2x.png in Resources */,
 				7EABF1EC19EE268F004FBEF7 /* LoginViewController.xib in Resources */,
 				7EA2294D1A2394C000BCAC25 /* CommentInfoViewCell.xib in Resources */,
+				7E4E2CA81A38787700B8CB15 /* jf_commod_buy_btn@2x.png in Resources */,
 				7EABF1CF19ED1C7B004FBEF7 /* CommunityViewController.xib in Resources */,
 				166597721A272385000CC4FE /* login_icon@2x.png in Resources */,
 				7EA2B5021A27737300FD2F71 /* jf_mypost_no_tip@2x.png in Resources */,
@@ -1771,6 +1796,7 @@
 				7EABF2D219EFD071004FBEF7 /* ASIDownloadCache.m in Sources */,
 				7EABF23A19EE6FDC004FBEF7 /* JFTabBarItemView.m in Sources */,
 				7EABF22919EE55C8004FBEF7 /* JFSuperBaseViewController.m in Sources */,
+				7E4E2CAF1A388EC300B8CB15 /* AffirmBuyViewController.m in Sources */,
 				7E6195371A2A2048004635D4 /* PromotionViewController.m in Sources */,
 				16DE3EA81A27893700F2D2B5 /* MJRefreshBaseView.m in Sources */,
 				7EABF22C19EE56C2004FBEF7 /* LSCommonUtils.m in Sources */,
