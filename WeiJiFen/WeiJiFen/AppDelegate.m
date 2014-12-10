@@ -14,7 +14,20 @@
 #import "CommunityViewController.h"
 #import "AccountViewController.h"
 #import "LoginViewController.h"
+
 //
+//有米
+#import "YouMiConfig.h"
+#import "YouMiWall.h"
+
+//点入
+#import "KillAdvice.h"
+
+//易积分
+#import<Eadver/HMUserMessage.h>
+#import<Eadver/HMInitServer.h>
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,10 +43,44 @@
 //        NSLog(@"signOut for accout miss");
 //        [self signOut];
 //    }
+    
     [self signIn];
     
     [self.window makeKeyAndVisible];
+    
+    [self initScoreWall];
+    
     return YES;
+}
+
+/**
+ *  初始化积分墙信息
+ */
+- (void)initScoreWall
+{
+    /*************有米******************/
+//    [YouMiConfig setUserID:id_you_define]; // [可选] 例如开发者的应用是有登录功能的，则可以使用登录后的用户账号来替代有米为每台机器提供的标识（有米会为每台设备生成的唯一标识符）。
+    [YouMiConfig setUseInAppStore:YES];  // [可选]开启内置appStore，详细请看YouMiSDK常见问题解答
+    [YouMiConfig launchWithAppID:kYouMiPublishID appSecret:kYouMiSecretID];
+    //积分墙初始化
+    [YouMiWall enable];
+    // 设置显示全屏广告的window
+    [YouMiConfig setFullScreenWindow:self.window];
+    
+    /*************点入******************/
+    /*
+     param1:applicationKey
+     param2:开启本地定位
+     param3:userid
+     */
+    DR_INIT(kDianRuAppKey, NO, nil)
+    
+    /*************易积分******************/
+    [HMUserMessage shareInstance].hmUserAppId =kYiJiFenAppID;//应用ID
+    [HMUserMessage shareInstance].hmUserDevId =kYiJiFenDevID;//开发者ID
+    [HMUserMessage shareInstance].hmAppKey =kYiJiFenPublishID;//appKey
+    [HMUserMessage shareInstance].hmChannel =@"IOS2.0";//市场渠道号
+    [HMUserMessage shareInstance].hmCoop_info = @"coopinfo";//用户id,如果没有user体系, 请默认使用@"coopinfo",如果不需做服务器端回调则可以不配置此参数
 }
 
 - (void)signIn{

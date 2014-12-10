@@ -14,7 +14,34 @@
 #import "WeiJiFenEngine.h"
 #import "SVPullToRefresh.h"
 
-@interface GainScoreViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate>
+//第三方广告平台
+#import "DMOfferWallManager.h"
+#import <AdSupport/AdSupport.h>
+//有米
+#import "YouMiWall.h"
+//点入
+#import "KillAdvice.h"
+#import "TalkingDataSDK.h"
+//力美
+#import <MBJoy/MBJoyView.h>
+//易积分
+#import <Eadver/HMIntegralScore.h>
+
+#define V_FRAME      self.view.frame
+#define IOS7         [[UIDevice currentDevice].systemVersion doubleValue] >= 7.0
+
+@interface GainScoreViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate,DMOfferWallManagerDelegate,YQLDelegate,MBJoyViewDelegate,HMIntegralScoreDelegate>
+{
+
+    //多盟广告平台
+//    DMOfferWallManager *_manager;
+}
+
+@property (nonatomic, strong)   UIView *drBgView;
+@property (nonatomic, assign)   CGRect initFrame;
+
+//力美广告view
+@property (nonatomic, retain) MBJoyView *adView;
 
 @property (nonatomic, strong) NSMutableDictionary *dataSourceMutDic;
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -37,6 +64,17 @@
     
     [self refreshViewUI];
     [self refreshTaskCenterInfo];
+}
+
+- (BOOL)prefersStatusBarHidden//for iOS7.0
+{
+    return NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self initframe];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -218,6 +256,131 @@
     
     NSIndexPath* selIndexPath = [tableView indexPathForSelectedRow];
     [tableView deselectRowAtIndexPath:selIndexPath animated:YES];
+    
+    //积分墙
+    if (_selectIndex == 0) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                //多盟
+//                _manager = [[DMOfferWallManager alloc] initWithPublisherID:@"96ZJ37cAzeBSjwTCtz"
+//                                                                 andUserID:nil];
+//                _manager.delegate = self;
+//                // !!!:重要：如果需要禁用应用内下载，请将此值设置为YES。
+//                _manager.disableStoreKit = NO;
+//                
+//                [_manager presentOfferWallWithViewController:self type:eDMOfferWallTypeList];
+            }
+                break;
+                
+            case 1: {
+                //有米
+                [YouMiWall showOffers:YES didShowBlock:^{
+                    NSLog(@"有米积分墙已显示");
+                } didDismissBlock:^{
+                    NSLog(@"有米积分墙已退出");
+                }];
+            }
+                break;
+                
+            case 2: {
+                //点入
+                /*
+                 第一种 直接show
+                 param1:广告类型，选择你要嵌入的宏
+                 
+                 #define DR_OFFERWALL    1   //积分墙
+                 #define DR_FREEWALL     2   //免费墙
+                 
+                 */
+                [self createDrBgview];
+                [self willAnimateRotationToInterfaceOrientation:UIInterfaceOrientationPortrait duration:0.1];
+                DR_SHOW(1, self.drBgView, self)
+                
+                
+                /*
+                 第二种 自己创建view, delegate会回调view
+                 在回调里加view
+                 */
+                //                DR_CREATE(DR_FREEWALL, self)
+
+            }
+                break;
+                
+            case 3: {
+                //力美
+                [self enterAdWall];
+            }
+                break;
+            case 4: {
+                //易积分
+                HMIntegralScore *integralWall = [[HMIntegralScore alloc]init];
+                integralWall.delegate = self;
+                [self presentViewController:integralWall animated:YES completion:nil];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - 易积分广告平台
+#pragma mark - IntegralScore delegate
+
+-(void)OpenIntegralScore:(int)_value //1 打开成功  0 获取数据失败
+{
+    if (_value == 1) {
+        NSLog(@"积分墙打开成功");
+    }
+    else
+    {
+        NSLog(@"积分墙获取数据失败");
+    }
+}
+-(void)CloseIntegralScore  //墙关闭
+{
+    NSLog(@"积分墙关闭");
+}
+
+#pragma mark - 力美广告平台
+// 进入积分墙
+-(void)enterAdWall{
+    // 实例化 MBJoyView 对象，在此处替换在力美广告平台申请到的广告位 Id；
+//    self.adView = [[MBJoyView alloc]initWithAdUnitId:
+//                   kLiMeiAdID adType:AdTypeList rootViewController:self
+//                                            userInfo:@{accountname:@"wjf"}];
+//    //添加 MBJoyView 的 Delegate；
+//    self.adView.delegate=self;
+//    //开始加载广告。
+//    [self. adView request];
+//    //将 MBJoyView 添加到界面上。
+//    [self.view addSubview:self.adView];
+}
+
+#pragma mark - 点入广告平台
+- (void)createDrBgview{
+    self.drBgView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                             0,
+                                                             CGRectGetWidth(self.initFrame),
+                                                             CGRectGetHeight(self.initFrame))];
+    [self.view addSubview:self.drBgView];
+}
+
+- (void)initframe
+{
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        self.initFrame = V_FRAME;
+    }else{
+        CGRect rect = CGRectMake(V_FRAME.origin.x,
+                                 V_FRAME.origin.y,
+                                 CGRectGetHeight(V_FRAME),
+                                 CGRectGetWidth(V_FRAME));
+        self.initFrame = rect;
+    }
 }
 
 -(void)handleClickAt:(id)sender event:(id)event{
@@ -236,6 +399,94 @@
         }
     }
 }
+
+#pragma mark -- 点入广告平台Delegate
+
+/*
+ 请求广告条数
+ 如果广告条数大于0，那么code=0，代表成功
+ 反之code = -1
+ */
+- (void)dianruDidDataReceivedView:(UIView *)view
+                       dianruCode:(int)code{}
+
+/*
+ 广告弹出时回调
+ view有可能是空注意保护
+ */
+- (void)dianruDidViewOpenView:(UIView *)view{
+    if (view) {
+        
+        /*
+         如果是用DR_CREATE创建的话 可以用类似以下的代码进行添加
+         */
+        
+        //        UIView *__view = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 220, 380)];
+        //        __view.backgroundColor = [UIColor redColor];
+        //        [self.view addSubview:__view];
+        //        [__view addSubview:view];
+        
+        /*
+         来控制大小
+         */
+        //        [view setFrame:__view.bounds];
+        
+    }
+}
+
+/*
+ 点击广告关闭按钮的回调，不代表广告从内存中释放
+ */
+- (void)dianruDidMainCloseView:(UIView *)view{}
+
+/*
+ 广告释放时回调，从内从中释放
+ */
+- (void)dianruDidViewCloseView:(UIView *)view{
+    if (self.drBgView) [self.drBgView removeFromSuperview];
+}
+
+/*
+ 曝光回调
+ */
+- (void)dianruDidReportedView:(UIView *)view
+                   dianruData:(id)data{
+}
+
+/*
+ 点击广告回调
+ */
+- (void)dianruDidClickedView:(UIView *)view
+                  dianruData:(id)data{
+}
+
+/*
+ 点击跳转回调
+ */
+- (void)dianruDidJumpedView:(UIView *)view
+                 dianruData:(id)data{
+
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        [self.drBgView setFrame:CGRectMake(0,
+                                           0,
+                                           CGRectGetWidth(self.initFrame),
+                                           CGRectGetHeight(self.initFrame))];
+    }else{
+        [self.drBgView setFrame:CGRectMake(0,
+                                           0,
+                                           CGRectGetHeight(self.initFrame) + (IOS7 ? 0.0f : 20.0f),
+                                           CGRectGetWidth(self.initFrame) - 0 - (IOS7 ? 0.0f : 20.0f))];
+    }
+    
+}
+
 
 #pragma mark - JFCategoryTabViewDelegate
 -(void)categoryTab:(JFCategoryTabView *)aTabBar didSelectTabAtIndex:(NSInteger)anIndex{

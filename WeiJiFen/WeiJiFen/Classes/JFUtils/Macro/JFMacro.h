@@ -31,4 +31,20 @@
 
 #import "UIImageView+WebCache.h"
 
+//有米广告
+#define  kYouMiPublishID  @"984b5c0d184ef32d"
+#define  kYouMiSecretID   @"c3c80ab404f3ba64"
+
+//点入移动广告平台
+#define kDianRuAppKey     @"0000B1131C00007C"
+
+//力美广告平台
+#define kLiMeiAdID        @"f69b9ee570b99ba675b6591d390537b0"
+
+//易积分
+#define kYiJiFenPublishID        @"EMQIGWYULOCFQOW5KRXFAOVVTK1KD9WKZZ"
+#define kYiJiFenDevID      @"83577"
+#define kYiJiFenAppID            @"74723"
+
+
 #endif

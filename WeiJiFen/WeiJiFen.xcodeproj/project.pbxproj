@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1618467F1A38482400C8A39A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1618467E1A38482400C8A39A /* CoreTelephony.framework */; };
+		161846811A38482F00C8A39A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846801A38482F00C8A39A /* MessageUI.framework */; };
+		161846831A38483800C8A39A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846821A38483800C8A39A /* AdSupport.framework */; };
+		161846851A38484300C8A39A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846841A38484300C8A39A /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		161846871A38486400C8A39A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846861A38486400C8A39A /* CoreMedia.framework */; };
+		161846951A384D3F00C8A39A /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846941A384D3F00C8A39A /* libYouMi.a */; };
+		161846971A384D7000C8A39A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846961A384D7000C8A39A /* QuartzCore.framework */; };
+		161846991A384D7B00C8A39A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846981A384D7B00C8A39A /* libsqlite3.dylib */; };
+		161846A11A3859F000C8A39A /* BeatWhale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1618469B1A3859F000C8A39A /* BeatWhale.a */; };
+		161846A21A3859F000C8A39A /* libTalkingDataSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1618469E1A3859F000C8A39A /* libTalkingDataSDK.a */; };
+		161846A41A385A1400C8A39A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846A31A385A1400C8A39A /* libz.1.dylib */; };
+		161846A61A385A5400C8A39A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846A51A385A5400C8A39A /* CoreLocation.framework */; };
+		161846A81A385E8C00C8A39A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846A71A385E8C00C8A39A /* MapKit.framework */; };
+		161846AA1A385ED500C8A39A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846A91A385ED500C8A39A /* MediaPlayer.framework */; };
+		161846AD1A38654200C8A39A /* MBJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846AC1A38654200C8A39A /* MBJoy.framework */; };
+		161846AF1A38655B00C8A39A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846AE1A38655B00C8A39A /* AudioToolbox.framework */; };
+		161846B11A38656C00C8A39A /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846B01A38656C00C8A39A /* EventKit.framework */; };
+		161846B31A38657500C8A39A /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846B21A38657500C8A39A /* EventKitUI.framework */; };
+		161846B51A38658300C8A39A /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846B41A38658300C8A39A /* libz.1.2.5.dylib */; };
+		161846B91A386A9A00C8A39A /* Eadver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161846B71A386A9A00C8A39A /* Eadver.framework */; };
 		166597701A272308000CC4FE /* login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1665976F1A272308000CC4FE /* login_bg@2x.png */; };
 		166597721A272385000CC4FE /* login_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 166597711A272385000CC4FE /* login_icon@2x.png */; };
 		166597751A272840000CC4FE /* loginBtn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 166597731A272840000CC4FE /* loginBtn_bg@2x.png */; };
@@ -225,6 +245,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1618467E1A38482400C8A39A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		161846801A38482F00C8A39A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		161846821A38483800C8A39A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		161846841A38484300C8A39A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		161846861A38486400C8A39A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1618468A1A384D3F00C8A39A /* YouMiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiConfig.h; sourceTree = "<group>"; };
+		1618468B1A384D3F00C8A39A /* YouMiDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiDelegateProtocol.h; sourceTree = "<group>"; };
+		1618468C1A384D3F00C8A39A /* YouMiPointsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiPointsManager.h; sourceTree = "<group>"; };
+		1618468D1A384D3F00C8A39A /* YouMiSpots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiSpots.h; sourceTree = "<group>"; };
+		1618468E1A384D3F00C8A39A /* YouMiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiView.h; sourceTree = "<group>"; };
+		1618468F1A384D3F00C8A39A /* YouMiWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWall.h; sourceTree = "<group>"; };
+		161846901A384D3F00C8A39A /* YouMiWallAppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallAppModel.h; sourceTree = "<group>"; };
+		161846911A384D3F00C8A39A /* YouMiWallBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallBanner.h; sourceTree = "<group>"; };
+		161846921A384D3F00C8A39A /* YouMiWallSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallSpot.h; sourceTree = "<group>"; };
+		161846931A384D3F00C8A39A /* YouMiWallSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallSpotView.h; sourceTree = "<group>"; };
+		161846941A384D3F00C8A39A /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
+		161846961A384D7000C8A39A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		161846981A384D7B00C8A39A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1618469B1A3859F000C8A39A /* BeatWhale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = BeatWhale.a; sourceTree = "<group>"; };
+		1618469C1A3859F000C8A39A /* CloneExperience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloneExperience.h; sourceTree = "<group>"; };
+		1618469D1A3859F000C8A39A /* KillAdvice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KillAdvice.h; sourceTree = "<group>"; };
+		1618469E1A3859F000C8A39A /* libTalkingDataSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingDataSDK.a; sourceTree = "<group>"; };
+		1618469F1A3859F000C8A39A /* TalkingDataAdAntiFraud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingDataAdAntiFraud.h; sourceTree = "<group>"; };
+		161846A01A3859F000C8A39A /* TalkingDataSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingDataSDK.h; sourceTree = "<group>"; };
+		161846A31A385A1400C8A39A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = usr/lib/libz.1.dylib; sourceTree = SDKROOT; };
+		161846A51A385A5400C8A39A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		161846A71A385E8C00C8A39A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		161846A91A385ED500C8A39A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		161846AC1A38654200C8A39A /* MBJoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MBJoy.framework; sourceTree = "<group>"; };
+		161846AE1A38655B00C8A39A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		161846B01A38656C00C8A39A /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		161846B21A38657500C8A39A /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		161846B41A38658300C8A39A /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		161846B71A386A9A00C8A39A /* Eadver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Eadver.framework; sourceTree = "<group>"; };
 		1665976F1A272308000CC4FE /* login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_bg@2x.png"; sourceTree = "<group>"; };
 		166597711A272385000CC4FE /* login_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_icon@2x.png"; sourceTree = "<group>"; };
 		166597731A272840000CC4FE /* loginBtn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBtn_bg@2x.png"; sourceTree = "<group>"; };
@@ -558,11 +612,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161846B51A38658300C8A39A /* libz.1.2.5.dylib in Frameworks */,
+				161846B31A38657500C8A39A /* EventKitUI.framework in Frameworks */,
+				161846B11A38656C00C8A39A /* EventKit.framework in Frameworks */,
+				161846B91A386A9A00C8A39A /* Eadver.framework in Frameworks */,
+				161846AF1A38655B00C8A39A /* AudioToolbox.framework in Frameworks */,
+				161846AA1A385ED500C8A39A /* MediaPlayer.framework in Frameworks */,
+				161846AD1A38654200C8A39A /* MBJoy.framework in Frameworks */,
+				161846A81A385E8C00C8A39A /* MapKit.framework in Frameworks */,
+				161846A61A385A5400C8A39A /* CoreLocation.framework in Frameworks */,
+				161846A41A385A1400C8A39A /* libz.1.dylib in Frameworks */,
+				161846991A384D7B00C8A39A /* libsqlite3.dylib in Frameworks */,
+				161846971A384D7000C8A39A /* QuartzCore.framework in Frameworks */,
+				161846871A38486400C8A39A /* CoreMedia.framework in Frameworks */,
+				161846851A38484300C8A39A /* StoreKit.framework in Frameworks */,
+				161846831A38483800C8A39A /* AdSupport.framework in Frameworks */,
+				161846811A38482F00C8A39A /* MessageUI.framework in Frameworks */,
+				1618467F1A38482400C8A39A /* CoreTelephony.framework in Frameworks */,
 				16CA4CE21A28221900E4E738 /* Security.framework in Frameworks */,
 				7E32EB6719EFD3C700FEAA66 /* libiconv.dylib in Frameworks */,
 				7E32EB6319EFD26A00FEAA66 /* libxml2.dylib in Frameworks */,
 				7EABF26A19EFAFA9004FBEF7 /* SystemConfiguration.framework in Frameworks */,
 				7EABF26819EFAF95004FBEF7 /* MobileCoreServices.framework in Frameworks */,
+				161846A11A3859F000C8A39A /* BeatWhale.a in Frameworks */,
+				161846A21A3859F000C8A39A /* libTalkingDataSDK.a in Frameworks */,
 				7EABF26619EFAF62004FBEF7 /* libz.dylib in Frameworks */,
 				1687C4FC1A354F3F00E31E73 /* libDMOfferWallSDK.a in Frameworks */,
 				7EABF26419EFAF29004FBEF7 /* CFNetwork.framework in Frameworks */,
@@ -570,6 +643,7 @@
 				C6B6976319ECF61C00F805F3 /* CoreGraphics.framework in Frameworks */,
 				C6B6976519ECF61C00F805F3 /* UIKit.framework in Frameworks */,
 				C6B6976119ECF61C00F805F3 /* Foundation.framework in Frameworks */,
+				161846951A384D3F00C8A39A /* libYouMi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +660,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161846881A384D2F00C8A39A /* 有米 */ = {
+			isa = PBXGroup;
+			children = (
+				161846891A384D3F00C8A39A /* include */,
+				161846941A384D3F00C8A39A /* libYouMi.a */,
+			);
+			name = "有米";
+			sourceTree = "<group>";
+		};
+		161846891A384D3F00C8A39A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1618468A1A384D3F00C8A39A /* YouMiConfig.h */,
+				1618468B1A384D3F00C8A39A /* YouMiDelegateProtocol.h */,
+				1618468C1A384D3F00C8A39A /* YouMiPointsManager.h */,
+				1618468D1A384D3F00C8A39A /* YouMiSpots.h */,
+				1618468E1A384D3F00C8A39A /* YouMiView.h */,
+				1618468F1A384D3F00C8A39A /* YouMiWall.h */,
+				161846901A384D3F00C8A39A /* YouMiWallAppModel.h */,
+				161846911A384D3F00C8A39A /* YouMiWallBanner.h */,
+				161846921A384D3F00C8A39A /* YouMiWallSpot.h */,
+				161846931A384D3F00C8A39A /* YouMiWallSpotView.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		1618469A1A38599900C8A39A /* 点入 */ = {
+			isa = PBXGroup;
+			children = (
+				1618469B1A3859F000C8A39A /* BeatWhale.a */,
+				1618469C1A3859F000C8A39A /* CloneExperience.h */,
+				1618469D1A3859F000C8A39A /* KillAdvice.h */,
+				1618469E1A3859F000C8A39A /* libTalkingDataSDK.a */,
+				1618469F1A3859F000C8A39A /* TalkingDataAdAntiFraud.h */,
+				161846A01A3859F000C8A39A /* TalkingDataSDK.h */,
+			);
+			name = "点入";
+			sourceTree = "<group>";
+		};
+		161846AB1A38640600C8A39A /* 力美 */ = {
+			isa = PBXGroup;
+			children = (
+				161846AC1A38654200C8A39A /* MBJoy.framework */,
+			);
+			name = "力美";
+			sourceTree = "<group>";
+		};
+		161846B61A386A6800C8A39A /* 易积分 */ = {
+			isa = PBXGroup;
+			children = (
+				161846B71A386A9A00C8A39A /* Eadver.framework */,
+			);
+			name = "易积分";
+			sourceTree = "<group>";
+		};
 		1665976E1A2722F8000CC4FE /* login&register */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +732,10 @@
 		1687C4F51A354C8100E31E73 /* JiFenQiang */ = {
 			isa = PBXGroup;
 			children = (
+				161846B61A386A6800C8A39A /* 易积分 */,
+				161846AB1A38640600C8A39A /* 力美 */,
+				1618469A1A38599900C8A39A /* 点入 */,
+				161846881A384D2F00C8A39A /* 有米 */,
 				1687C4F61A354C8D00E31E73 /* 多盟 */,
 			);
 			path = JiFenQiang;
@@ -1283,6 +1416,21 @@
 		C6B6975F19ECF61C00F805F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				161846B41A38658300C8A39A /* libz.1.2.5.dylib */,
+				161846B21A38657500C8A39A /* EventKitUI.framework */,
+				161846B01A38656C00C8A39A /* EventKit.framework */,
+				161846AE1A38655B00C8A39A /* AudioToolbox.framework */,
+				161846A91A385ED500C8A39A /* MediaPlayer.framework */,
+				161846A71A385E8C00C8A39A /* MapKit.framework */,
+				161846A51A385A5400C8A39A /* CoreLocation.framework */,
+				161846A31A385A1400C8A39A /* libz.1.dylib */,
+				161846981A384D7B00C8A39A /* libsqlite3.dylib */,
+				161846961A384D7000C8A39A /* QuartzCore.framework */,
+				161846861A38486400C8A39A /* CoreMedia.framework */,
+				161846841A38484300C8A39A /* StoreKit.framework */,
+				161846821A38483800C8A39A /* AdSupport.framework */,
+				161846801A38482F00C8A39A /* MessageUI.framework */,
+				1618467E1A38482400C8A39A /* CoreTelephony.framework */,
 				16CA4CE11A28221900E4E738 /* Security.framework */,
 				7E32EB6619EFD3C700FEAA66 /* libiconv.dylib */,
 				7E32EB6219EFD26A00FEAA66 /* libxml2.dylib */,
@@ -1742,10 +1890,14 @@
 		C6B6978A19ECF61C00F805F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "<Multiple";
+				FRAMEWORK_SEARCH_PATHS = (
+					"<Multiple",
+					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeiJiFen/WeiJiFen-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1756,10 +1908,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang/DMOfferWallSDK",
 					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1767,10 +1922,14 @@
 		C6B6978B19ECF61C00F805F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "<Multiple";
+				FRAMEWORK_SEARCH_PATHS = (
+					"<Multiple",
+					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeiJiFen/WeiJiFen-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1781,10 +1940,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang/DMOfferWallSDK",
 					"$(PROJECT_DIR)/WeiJiFen/Classes/JiFenQiang",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

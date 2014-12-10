@@ -34,7 +34,10 @@ static JFLocalDataManager *_shareInstance = nil;
     
     NSMutableArray *tmpMutArray = [NSMutableArray arrayWithArray:@[
   @{@"taskid":@"1",@"name":@"多盟广告平台",@"description":@"装应用赚积分",@"applicants":@"0",@"bonus":@"2",@"icon":@"jf_taskcenter_dm"},
-  @{@"taskid":@"2",@"name":@"点入广告平台",@"description":@"装应用赚积分",@"applicants":@"1",@"bonus":@"1",@"icon":@"jf_taskcenter_dr"}]];
+  @{@"taskid":@"2",@"name":@"有米广告平台",@"description":@"装应用赚积分",@"applicants":@"1",@"bonus":@"1",@"icon":@"jf_taskcenter_ym"},
+  @{@"taskid":@"2",@"name":@"点入广告平台",@"description":@"装应用赚积分",@"applicants":@"1",@"bonus":@"1",@"icon":@"jf_taskcenter_dr"},
+  @{@"taskid":@"2",@"name":@"力美广告平台",@"description":@"装应用赚积分",@"applicants":@"1",@"bonus":@"1",@"icon":@"jf_taskcenter_lm"},
+  @{@"taskid":@"2",@"name":@"易积分广告平台",@"description":@"装应用赚积分",@"applicants":@"1",@"bonus":@"1",@"icon":@"jf_taskcenter_yjf"}]];
     
     return tmpMutArray;
 }

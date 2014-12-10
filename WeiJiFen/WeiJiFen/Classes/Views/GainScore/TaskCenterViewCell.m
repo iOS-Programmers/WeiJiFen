@@ -25,7 +25,7 @@
     _taskInfo = taskInfo;
     
 //    [self.taskAvatarImageView sd_setImageWithURL:[NSURL URLWithString:taskInfo.icon] placeholderImage:[UIImage imageNamed:@"jf_taskcenter_dm"]];
-    if (!taskInfo.icon) {
+    if (taskInfo.icon) {
         [self.taskAvatarImageView setImage:[UIImage imageNamed:taskInfo.icon]];
     }
     self.taskTitleLabel.text = taskInfo.name;
