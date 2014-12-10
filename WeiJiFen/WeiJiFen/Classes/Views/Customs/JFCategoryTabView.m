@@ -117,7 +117,7 @@
 #pragma mark GMGridViewActionDelegate
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    NSLog(@"Did tap at index %d", position);
+    NSLog(@"Did tap at index %d", (int)position);
     [self setInitialIndex:position];
     if (self.delegate && [self.delegate respondsToSelector:@selector(categoryTab:didSelectTabAtIndex:)]) {
         [self.delegate categoryTab:self didSelectTabAtIndex:position];

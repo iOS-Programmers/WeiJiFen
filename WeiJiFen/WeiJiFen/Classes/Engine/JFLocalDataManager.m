@@ -32,7 +32,9 @@ static JFLocalDataManager *_shareInstance = nil;
 
 - (NSMutableArray *)getTaskCenterData{
     
-    NSMutableArray *tmpMutArray = [NSMutableArray arrayWithArray:@[@{@"taskid":@"1",@"name":@"\u5934\u50cf\u7c7b\u4efb\u52a1",@"description":@"\u8be5\u4efb\u52a1\u4ec5\u9650\u6ca1\u6709\u4e0a\u4f20\u5934\u50cf\u7684\u4f1a\u5458\u7533\u8bf7\uff0c\u7533\u8bf7\u540e\u53ea\u8981\u4e0a\u4f20\u5934\u50cf\u5373\u53ef\u5b8c\u6210\u4efb\u52a1\uff0c\u83b7\u5f97\u76f8\u5e94\u7684\u5956\u52b1",@"applicants":@"0",@"bonus":@"2"},@{@"taskid":@"2",@"name":@"\u7ea2\u5305\u7c7b\u4efb\u52a1",@"description":@"\u7533\u8bf7\u6b64\u4efb\u52a1\u5373\u53ef\u9886\u53d6\u7ea2\u5305",@"applicants":@"1",@"bonus":@"1"}]];
+    NSMutableArray *tmpMutArray = [NSMutableArray arrayWithArray:@[
+  @{@"taskid":@"1",@"name":@"多盟广告平台",@"description":@"装应用赚积分",@"applicants":@"0",@"bonus":@"2",@"icon":@"jf_taskcenter_dm"},
+  @{@"taskid":@"2",@"name":@"点入广告平台",@"description":@"装应用赚积分",@"applicants":@"1",@"bonus":@"1",@"icon":@"jf_taskcenter_dr"}]];
     
     return tmpMutArray;
 }

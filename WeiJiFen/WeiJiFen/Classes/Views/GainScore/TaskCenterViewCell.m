@@ -24,8 +24,10 @@
 -(void)setTaskInfo:(JFTaskInfo *)taskInfo{
     _taskInfo = taskInfo;
     
-    [self.taskAvatarImageView sd_setImageWithURL:[NSURL URLWithString:taskInfo.icon] placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
-    
+//    [self.taskAvatarImageView sd_setImageWithURL:[NSURL URLWithString:taskInfo.icon] placeholderImage:[UIImage imageNamed:@"jf_taskcenter_dm"]];
+    if (!taskInfo.icon) {
+        [self.taskAvatarImageView setImage:[UIImage imageNamed:taskInfo.icon]];
+    }
     self.taskTitleLabel.text = taskInfo.name;
     self.taskbriefLabel.text = taskInfo.taskDescription;
     self.taskPriceLabel.text = [NSString stringWithFormat:@"%d",taskInfo.bonus];
