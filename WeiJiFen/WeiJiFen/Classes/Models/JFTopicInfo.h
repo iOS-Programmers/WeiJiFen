@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString* author;//发布者
 @property (nonatomic, strong) NSString* authorId;
 @property (nonatomic, strong) NSString* subject;//标题
+@property (nonatomic, strong) NSString* content;//内容
 @property (nonatomic, strong) NSString* price;
 @property (nonatomic, assign) int dateline;//发布时间
 @property (nonatomic, assign) int views;//查看数

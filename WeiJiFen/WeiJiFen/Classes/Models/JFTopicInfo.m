@@ -34,6 +34,14 @@
     if (objectForKey) {
         _subject = [objectForKey description];
     }
+    objectForKey = [dic objectForKey:@"contet"];
+    if (objectForKey) {
+        _content = [objectForKey description];
+    }
+    objectForKey = [dic objectForKey:@"avatar"];
+    if (objectForKey) {
+        _userAvatarUrl = [NSURL URLWithString:[objectForKey description]];
+    }
     
     objectForKey = [dic objectForKey:@"dateline"];
     if (objectForKey) {

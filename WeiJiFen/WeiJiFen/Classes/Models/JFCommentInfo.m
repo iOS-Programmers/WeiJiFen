@@ -20,6 +20,11 @@
         _authorId = [[dic objectForKey:@"authorid"] description];
         _message = [[dic objectForKey:@"message"] description];
         _dateline = [[dic objectForKey:@"dateline"] intValue];
+        
+        id objectForKey = [dic objectForKey:@"avatar"];
+        if (objectForKey && [objectForKey isKindOfClass:[NSString class]]) {
+            _avatarUrl = [NSURL URLWithString:objectForKey];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"####JFCommentInfo setCommentInfoByDic exception:%@", exception);

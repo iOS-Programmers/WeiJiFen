@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) NSString* userId;//暂无这个字段
 @property (nonatomic, strong) NSString* userName;//发布者名称
+@property (nonatomic, readonly) NSURL* userAvatarUrl;//发布者头像
 @property (nonatomic, assign) int sellerCredit;//卖家信誉
 
 @property (nonatomic, strong) NSString* fid;//版块id

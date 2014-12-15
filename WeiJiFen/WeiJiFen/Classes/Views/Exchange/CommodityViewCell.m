@@ -88,7 +88,7 @@
     [self.commodityAvatar sd_setImageWithURL:commodityInfo.comAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
     self.commodityNameLabel.text = commodityInfo.name;
     
-    [self.userAvatar sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"jf_commodity_userAvatar_defaulticon.png"]];
+    [self.userAvatar sd_setImageWithURL:commodityInfo.userAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_commodity_userAvatar_defaulticon.png"]];
     self.userNameLabel.text = commodityInfo.userName;
     float tmpLabelWidth = [self.userNameLabel.text sizeWithFont:self.userNameLabel.font].width;
     if (tmpLabelWidth > 80) {

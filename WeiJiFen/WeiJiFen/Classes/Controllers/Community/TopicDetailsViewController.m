@@ -22,6 +22,9 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) IBOutlet UIView *headView;
+@property (strong, nonatomic) IBOutlet UIView *titleView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (nonatomic, strong) IBOutlet UIView *contentContainerView;
 @property (nonatomic, strong) IBOutlet UIImageView *userAvatar;
 @property (nonatomic, strong) IBOutlet UILabel *topicLabel;
@@ -74,15 +77,22 @@
     
     [self.replyButton setImage:[UIImage imageNamed:@"jf_topic_reply_icon.png"] forState:UIControlStateNormal];
     [self.replyButton setTitle:@"  发表回复" forState:UIControlStateNormal];
+    self.topicLabel.text = _topicInfo.content;
+    self.titleLabel.text = _topicInfo.subject;
+    self.titleView.hidden = NO;
+    CGFloat tmpTitleLabelHeight = self.titleView.frame.size.height;
     if (_isFromHelp) {
         [self.replyButton setImage:nil forState:UIControlStateNormal];
         [self.replyButton setTitle:@"我要回答" forState:UIControlStateNormal];
+        self.topicLabel.text = _topicInfo.subject;
+        self.titleView.hidden = YES;
+        tmpTitleLabelHeight = 0;
     }
+    
+    
     self.priceLabel.text = _topicInfo.price;
-    self.topicLabel.text = _topicInfo.subject;
     CGRect frame = self.topicLabel.frame;
     frame.size.width = self.view.frame.size.width - 10*2;
-//    self.topicLabel.frame = frame;
     
     float textHeight = [self.topicLabel sizeThatFits:CGSizeMake(frame.size.width, CGFLOAT_MAX)].height;
     frame.size.height = textHeight;
@@ -99,6 +109,7 @@
     }
     
     frame = self.contentContainerView.frame;
+    frame.origin.y = tmpTitleLabelHeight;
     frame.size.height = replyButtonOriginY + 25 + self.replyButton.frame.size.height;
     self.contentContainerView.frame = frame;
     

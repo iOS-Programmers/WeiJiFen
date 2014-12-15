@@ -39,6 +39,10 @@
     if (objectForKey) {
         _userName = [objectForKey description];
     }
+    objectForKey = [dic objectForKey:@"avatar"];
+    if (objectForKey) {
+        _userAvatarUrl = [NSURL URLWithString:[objectForKey description]];
+    }
     
     objectForKey = [dic objectForKey:@"fid"];
     if (objectForKey) {

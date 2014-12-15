@@ -102,7 +102,7 @@
     }
     NSDictionary *rankDic = self.dataSource[indexPath.row];
     cell.rankDic = rankDic;
-    cell.positionLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    cell.positionLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
     
     return cell;
 }

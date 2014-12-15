@@ -27,6 +27,8 @@
 @property (nonatomic, strong) IBOutlet UIView *todoRenwu;
 @property (nonatomic, strong) IBOutlet UIView *footView;
 @property (nonatomic, retain) IBOutlet UILabel *sellerLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *userAvatarImageView;
+
 @property (nonatomic, retain) IBOutlet UILabel *subjectLabel;
 @property (nonatomic, retain) IBOutlet UILabel *priceLabel;
 @property (nonatomic, retain) IBOutlet UILabel *creditLabel;
@@ -113,7 +115,11 @@
     _attachmentImageView.contentMode = UIViewContentModeScaleAspectFill;
     _attachmentImageView.clipsToBounds = YES;
     
+    _userAvatarImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _userAvatarImageView.clipsToBounds = YES;
+    
     self.subjectLabel.text = _commodityTitle;
+    [self.userAvatarImageView sd_setImageWithURL:_commodityInfo.userAvatarUrl placeholderImage:[UIImage imageNamed:@"avatar.png"]];
     [self.attachmentImageView sd_setImageWithURL:_commodityInfo.comAvatarUrl placeholderImage:[UIImage imageNamed:@"jf_message_icon.png"]];
     self.sellerLabel.text = _userName;
     self.lastupdateLabel.text = [LSCommonUtils secondChangToDateString:[NSString stringWithFormat:@"%d",_commodityInfo.crateDate]];
