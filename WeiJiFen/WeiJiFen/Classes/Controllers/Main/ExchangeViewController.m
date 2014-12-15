@@ -129,16 +129,21 @@
     [self setContentInsetForScrollView:self.tableView inset:inset];
     
     //添加下拉刷新
-//    if (!_header) {
-//        _header = [[MJRefreshHeaderView alloc] init];
-//        _header.delegate = self;
-//        _header.scrollView = self.tableView;
-//    }
+    if (!_header) {
+        _header = [[MJRefreshHeaderView alloc] init];
+        _header.insetTop = _categoryTabView.frame.size.height;
+        _header.delegate = self;
+        _header.scrollView = self.tableView;
+    }
 //    if (!_footer) {
 //        _footer = [[MJRefreshFooterView alloc] init];
 //        _footer.delegate = self;
 //        _footer.scrollView = self.tableView;
 //    }
+}
+
+-(void)endRefreshHandle{
+    [self.header endRefreshing];
 }
 
 - (void)refreshDataSource:(int)type{
@@ -157,6 +162,9 @@
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     [[WeiJiFenEngine shareInstance] getCommodityListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm type:paramType page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        
+        [weakSelf endRefreshHandle];
+        
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
@@ -189,6 +197,9 @@
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     [[WeiJiFenEngine shareInstance] getHelpListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm fId:@"45" page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        
+        [weakSelf endRefreshHandle];
+        
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
@@ -342,7 +353,11 @@
 {
     //上拉刷新时的操作
     if (self.header == refreshView) {
-//        [refreshView endRefreshing];
+        if (_selectIndex == _dataSourceMutDic.count-1) {
+            [self refreshHelpList];
+        }else{
+            [self refreshDataSource:(int)_selectIndex];
+        }
     }
     //下拉加载时的操作
     else {

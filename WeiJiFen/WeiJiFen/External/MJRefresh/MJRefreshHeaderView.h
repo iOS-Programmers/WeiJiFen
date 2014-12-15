@@ -10,5 +10,8 @@
 
 // 类
 @interface MJRefreshHeaderView : MJRefreshBaseView
+
+@property (nonatomic, assign) float insetTop;
+
 + (id)header;
 @end

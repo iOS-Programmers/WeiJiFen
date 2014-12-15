@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 itcast. All rights reserved.
 //  下拉刷新
 
-#define kPullToRefresh @"上拉可以刷新"
+#define kPullToRefresh @"下拉可以刷新"
 #define kReleaseToRefresh @"松开立即刷新"
 #define kRefreshing @"正在刷新..."
 #define kRefreshingNoData @"没有更多数据了"
@@ -101,7 +101,7 @@
             [UIView animateWithDuration:0.2 animations:^{
                 _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 UIEdgeInsets inset = _scrollView.contentInset;
-                inset.top = 0;
+                inset.top = _insetTop;
                 _scrollView.contentInset = inset;
             }];
 			break;
@@ -122,7 +122,7 @@
             [UIView animateWithDuration:0.2 animations:^{
                 _arrowImage.transform = CGAffineTransformIdentity;
                 UIEdgeInsets inset = _scrollView.contentInset;
-                inset.top = 0;
+                inset.top = _insetTop;
                 _scrollView.contentInset = inset;
             }];
 			break;
@@ -135,7 +135,7 @@
             [UIView animateWithDuration:0.2 animations:^{
                 // 1.顶部多出65的滚动范围
                 UIEdgeInsets inset = _scrollView.contentInset;
-                inset.top = kRefreshViewHeight;
+                inset.top = kRefreshViewHeight + _insetTop;
                 _scrollView.contentInset = inset;
                 // 2.设置滚动位置
                 _scrollView.contentOffset = CGPointMake(0, -kRefreshViewHeight);

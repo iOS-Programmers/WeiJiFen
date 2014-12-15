@@ -16,7 +16,7 @@
 #import "JFInputWindow.h"
 #import "PersonalProfileViewController.h"
 
-@interface CommunityViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate,JFInputWindowDelegate>
+@interface CommunityViewController ()<UITableViewDataSource,UITableViewDelegate,JFCategoryTabViewDelegate,JFInputWindowDelegate,MJRefreshBaseViewDelegate>
 {
     JFInputWindow *_inputSheet;
 }
@@ -30,6 +30,8 @@
 
 @property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, assign) int nextPage;
+
+@property (nonatomic, strong) MJRefreshHeaderView *header;
 
 - (IBAction)publishTopicAction:(id)sender;
 
@@ -210,6 +212,14 @@
         inset.top += _categoryTabView.frame.size.height;
     }
     [self setContentInsetForScrollView:self.tableView inset:inset];
+    
+    //添加下拉刷新
+    if (!_header) {
+        _header = [[MJRefreshHeaderView alloc] init];
+        _header.insetTop = _categoryTabView.frame.size.height;
+        _header.delegate = self;
+        _header.scrollView = self.tableView;
+    }
 }
 
 -(NSMutableArray*)customDataSourceWithTabAtIndex:(NSInteger)anIndex isRefresh:(BOOL)isRefresh
@@ -248,6 +258,9 @@
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     [[WeiJiFenEngine shareInstance] getHelpListWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm fId:fID page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        
+        [self.header endRefreshing];
+        
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
@@ -289,6 +302,9 @@
     int tag = [[WeiJiFenEngine shareInstance] getConnectTag];
     [[WeiJiFenEngine shareInstance] getMyCommunityWithToken:WeiJiFenEngine.userToken confirm:[WeiJiFenEngine shareInstance].confirm page:1 pageSize:10 tag:tag];
     [[WeiJiFenEngine shareInstance] addOnAppServiceBlock:^(NSInteger tag, NSDictionary *jsonRet, NSError *err) {
+        
+        [self.header endRefreshing];
+        
         NSString* errorMsg = [WeiJiFenEngine getErrorMsgWithReponseDic:jsonRet];
         if (!jsonRet || errorMsg) {
             [LSCommonUtils showWarningTip:errorMsg At:weakSelf.view];
@@ -427,4 +443,22 @@
     
     [self publishNewThreadTitle:title message:content];
 }
+
+#pragma mark 上下拉刷新的Delegate
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    //上拉刷新时的操作
+    if (self.header == refreshView) {
+        if (_selectIndex == _dataSourceMutDic.count-1) {
+            [self refreshMyCommunityInfo];
+        }else{
+            [self refreshTopicInfo:(int)_selectIndex];
+        }
+    }
+    //下拉加载时的操作
+    else {
+        
+    }
+}
+
 @end
